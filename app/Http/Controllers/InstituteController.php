@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Student;
+namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule; 
 use Illuminate\Http\Request;
-use App\Models\Student;
+use App\Models\Institute;
 use App\Models\User;
 use Validator;
 use Session;
 use Hash;
 use DB;
 
-class StudentController extends Controller
+class InstituteController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -69,42 +69,30 @@ class StudentController extends Controller
 				try{
                         $id = Session::get('user_id');
 
-                        if($request->hasFile('profile_image')) {
-                            $image = $request->file('profile_image');
-                            $image_update = "student_".rand(11111111, 99999999).'.'.$image->getClientOriginalExtension();
-                            $destinationPath = public_path('/uploads/students');
-                            $image->move($destinationPath, $image_update);
-                        }else{
-                            $student = Student::where('user_id', $id)->first();
-                            $image_update = $student->profile_image;
-                        }
-
                         User::where('id', $id)->update([
                             'name' => $request->name,
                             'email' => $request->email,
                             'mobile' => $request->mobile,
                         ]);
-                        $student = Student::where('user_id', $id)->first();
-                        if($student){
-                            Student::where('user_id', $id)->update([
+                        $institute = Institute::where('user_id', $id)->first();
+                        if($institute){
+                            Institute::where('user_id', $id)->update([
                                 'subjects' => $request->subjects,
+                                'type'=> $request->type,
+                                'established_year'=> $request->established_year,
                                 'city' => $request->city,
-                                'gender'=> $request->gender,
+                                'pincode' => $request->pincode,
                                 'address'=> $request->address,
-                                'institute_name'=> $request->institute_name,
-                                'parents_name'=> $request->parents_name,
-                                'profile_image'=> $image_update,
                             ]);
                         }else{
-                            Student::insert([
+                            Institute::insert([
                                 'user_id' => $id,
                                 'subjects' => $request->subjects,
+                                'type'=> $request->type,
+                                'established_year'=> $request->established_year,
                                 'city' => $request->city,
-                                'gender'=> $request->gender,
+                                'pincode' => $request->pincode,
                                 'address'=> $request->address,
-                                'institute_name'=> $request->institute_name,
-                                'parents_name'=> $request->parents_name,
-                                'profile_image'=> $image_update,
                             ]);
                         }
                         return response(array("error" => false, "reset"=>false,"message" => "Profile updated successfully."),200);
@@ -122,17 +110,16 @@ class StudentController extends Controller
 
         $id = Session::get('user_id');
         $user = User::where('id', $id)->where('status', '1')->where('delete_status', '1')->first();
-        $student = Student::where('user_id', $id)->first();
+        $institute = Institute::where('user_id', $id)->first();
 
-        if($student && $user){
-            $data = array_merge($user->toArray(), $student->toArray());
-        }elseif(!$student && $user){
+        if($institute && $user){
+            $data = array_merge($user->toArray(), $institute->toArray());
+        }elseif(!$institute && $user){
             $data = $user;
         }else{
             $data = array();
         }
-
-        return view('student.student-profile')->with('data', $data);
+        return view('institute.institute-profile')->with('data', $data);
 
     }
 }

@@ -152,9 +152,9 @@ class HomeController extends Controller
             $request->session()->forget('user_type');
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-            return redirect()->back()->with('success','Successfully log out');
+            return redirect('/')->with('success','Successfully log out');
         }else{
-            return redirect()->back()->with('success','Successfully log out');
+            return redirect('/')->with('success','Successfully log out');
         }
     }
 

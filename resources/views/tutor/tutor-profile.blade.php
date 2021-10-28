@@ -23,7 +23,7 @@
 				<div class="container">
 					<div class="row justify-content-center mr-tb-40">
 						<div class="col-lg-6">
-							<form class="contact-form"  id="form" action="{{ route('tutor.profile.update' )}}" method="post" enctype="multipart/form-data">
+							<form class="contact-form"  id="form" action="{{ route('tutor.profile' )}}" method="post" enctype="multipart/form-data">
 							    @csrf
 								<div class="row">
 									<div class="col-md-12 col-sm-12 col-12">

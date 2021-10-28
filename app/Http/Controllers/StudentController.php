@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Tutor;
+namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule; 
 use Illuminate\Http\Request;
-use App\Models\tutor;
+use App\Models\Student;
 use App\Models\User;
 use Validator;
 use Session;
 use Hash;
 use DB;
 
-class tutorController extends Controller
+class StudentController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -71,41 +71,15 @@ class tutorController extends Controller
 
                         if($request->hasFile('profile_image')) {
                             $image = $request->file('profile_image');
-                            $image_update = "tutor_".rand(11111111, 99999999).'.'.$image->getClientOriginalExtension();
-                            $destinationPath = public_path('/uploads/tutors/profile-images');
+                            $image_update = "student_".rand(11111111, 99999999).'.'.$image->getClientOriginalExtension();
+                            $destinationPath = public_path('/uploads/students');
                             $image->move($destinationPath, $image_update);
                         }else{
-                            $tutor = Tutor::where('user_id', $id)->first();
-                            if($tutor){
-                                $image_update = $tutor->profile_image;
+                            $student = Student::where('user_id', $id)->first();
+                            if($student){
+                                $image_update = $student->profile_image;
                             }else{
                                 $image_update = null;
-                            }
-                        }
-                        if($request->hasFile('highest_qualification_doc')) {
-                            $doc = $request->file('highest_qualification_doc');
-                            $highest_qualification_doc = "doc_".rand(11111111, 99999999).'.'.$doc->getClientOriginalExtension();
-                            $destinationPath = public_path('/uploads/tutors/docs');
-                            $doc->move($destinationPath, $highest_qualification_doc);
-                        }else{
-                            $tutor = Tutor::where('user_id', $id)->first();
-                            if($tutor){
-                                $highest_qualification_doc = $tutor->highest_qualification_doc;
-                            }else{
-                                $highest_qualification_doc = null;
-                            }
-                        }
-                        if($request->hasFile('id_proof')) {
-                            $idproof = $request->file('id_proof');
-                            $id_proof = "id_".rand(11111111, 99999999).'.'.$idproof->getClientOriginalExtension();
-                            $destinationPath = public_path('/uploads/tutors/id-proofs');
-                            $idproof->move($destinationPath, $id_proof);
-                        }else{
-                            $tutor = Tutor::where('user_id', $id)->first();
-                            if($tutor){
-                                $id_proof = $tutor->id_proof;
-                            }else{
-                                $id_proof = null;
                             }
                         }
 
@@ -114,35 +88,27 @@ class tutorController extends Controller
                             'email' => $request->email,
                             'mobile' => $request->mobile,
                         ]);
-                        $tutor = Tutor::where('user_id', $id)->first();
-                        if($tutor){
-                            Tutor::where('user_id', $id)->update([
+                        $student = Student::where('user_id', $id)->first();
+                        if($student){
+                            Student::where('user_id', $id)->update([
                                 'subjects' => $request->subjects,
-                                'fee'=> $request->fee,
-                                'gender'=> $request->gender,
                                 'city' => $request->city,
-                                'pincode' => $request->pincode,
+                                'gender'=> $request->gender,
                                 'address'=> $request->address,
-                                'highest_qualification'=> $request->highest_qualification,
-                                'highest_qualification_doc'=> $highest_qualification_doc,
-                                'id_proof'=> $id_proof,
+                                'institute_name'=> $request->institute_name,
+                                'parents_name'=> $request->parents_name,
                                 'profile_image'=> $image_update,
-                                'occupation'=> $request->occupation,
                             ]);
                         }else{
-                            Tutor::insert([
+                            Student::insert([
                                 'user_id' => $id,
                                 'subjects' => $request->subjects,
-                                'fee'=> $request->fee,
-                                'gender'=> $request->gender,
                                 'city' => $request->city,
-                                'pincode' => $request->pincode,
+                                'gender'=> $request->gender,
                                 'address'=> $request->address,
-                                'highest_qualification'=> $request->highest_qualification,
-                                'highest_qualification_doc'=> $highest_qualification_doc,
-                                'id_proof'=> $id_proof,
+                                'institute_name'=> $request->institute_name,
+                                'parents_name'=> $request->parents_name,
                                 'profile_image'=> $image_update,
-                                'occupation'=> $request->occupation,
                             ]);
                         }
                         return response(array("error" => false, "reset"=>false,"message" => "Profile updated successfully."),200);
@@ -160,16 +126,17 @@ class tutorController extends Controller
 
         $id = Session::get('user_id');
         $user = User::where('id', $id)->where('status', '1')->where('delete_status', '1')->first();
-        $tutor = Tutor::where('user_id', $id)->first();
+        $student = Student::where('user_id', $id)->first();
 
-        if($tutor && $user){
-            $data = array_merge($user->toArray(), $tutor->toArray());
-        }elseif(!$tutor && $user){
+        if($student && $user){
+            $data = array_merge($user->toArray(), $student->toArray());
+        }elseif(!$student && $user){
             $data = $user;
         }else{
             $data = array();
         }
-        return view('tutor.tutor-profile')->with('data', $data);
+
+        return view('student.student-profile')->with('data', $data);
 
     }
 }

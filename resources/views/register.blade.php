@@ -11,7 +11,7 @@
 								<h1>Register</h1>
 							</div>
 							<ul class="bread-crumb pull-right clearfix">
-								<li><a href="{{ url('/') }}">Home</a></li>
+								<li><a href="{{ route('index') }}">Home</a></li>
 								<li>Register</li>
 							</ul>
 						</div>

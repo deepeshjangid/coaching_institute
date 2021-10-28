@@ -67,22 +67,11 @@ Route::post('/register-submit', 'HomeController@Register')->name('register.submi
 Route::view('/login', 'login');
 Route::post('/login-submit', 'HomeController@Login')->name('login.submit');
 
-Route::post('/send-otp', 'HomeController@sendOtp')->name('send.otp');
-Route::post('/submit-otp', 'HomeController@submitOtp')->name('submit.otp');
+Route::group(['middleware' => 'Userauth'], function () {
 
-Route::group(['prefix'=>'student'], function () {
-	Route::get('/home', 'Student\StudentController@Index')->name('student.home');	
-	Route::get('/logout', 'Student\StudentController@Logout')->name('student.logout');
-
-	Route::match(['get','post'],'profile', 'Student\StudentController@Profile')->name('student.profile.update');
-
-});
-
-Route::group(['prefix'=>'tutor'], function () {
-	Route::get('/home', 'Tutor\TutorController@Index')->name('tutor.home');	
-	Route::get('/logout', 'Tutor\TutorController@Logout')->name('tutor.logout');
-
-	Route::match(['get','post'],'profile', 'Tutor\TutorController@Profile')->name('tutor.profile.update');
+	Route::match(['get','post'],'student-profile', 'StudentController@Profile')->name('student.profile');
+	Route::match(['get','post'],'tutor-profile', 'TutorController@Profile')->name('tutor.profile');
+	Route::match(['get','post'],'institute-profile', 'InstituteController@Profile')->name('institute.profile');
 
 });
 

@@ -7,11 +7,11 @@
 					<div class="col-lg-8 col-md-12 col-sm-12 content-column">
 						<div class="content-box clearfix">
 							<div class="title pull-left">
-								<h1>Student Profile</h1>
+								<h1>Institute Profile</h1>
 							</div>
 							<ul class="bread-crumb pull-right clearfix">
 								<li><a href="{{ route('index') }}">Home</a></li>
-								<li>Student Profile</li>
+								<li>Institute Profile</li>
 							</ul>
 						</div>
 					</div>
@@ -23,14 +23,9 @@
 				<div class="container">
 					<div class="row justify-content-center mr-tb-40">
 						<div class="col-lg-6">
-							<form class="contact-form"  id="form" action="{{ route('student.profile' )}}" method="post" enctype="multipart/form-data">
+							<form class="contact-form"  id="form" action="{{ route('institute.profile' )}}" method="post" enctype="multipart/form-data">
 							    @csrf
 								<div class="row">
-									<div class="col-md-12 col-sm-12 col-12">
-										<div>
-											<img class="mb-5 border rounded-circle" src="{{ asset('/uploads/students')}}/@if($data){{ $data['profile_image'] }}@endif" style="width:100px; height: 100px;">  
-										</div>
-									</div>
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
 											<input name="name" required type="text" class="form-control" placeholder="Name" value="@if($data){{ $data['name'] }}@endif" />
@@ -48,8 +43,25 @@
 									</div>
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-										<input name="subjects" type="text" class="form-control" placeholder="Subjects Name" value="@if($data){{ $data['subjects'] }}@endif" />
-
+											<input name="subjects" type="text" class="form-control" placeholder="Subjects Name" value="@if($data){{ $data['subjects'] }}@endif" />
+										</div>
+									</div>
+									<div class="col-md-12 col-sm-12 col-12 d-flex">
+										<div class="input-group gender-input">
+											<label>Type</label>
+											<label for="coaching"> 
+												<input id="coaching" style="margin-right: 10px !important;" type="radio" name="type" value="coaching" @if($data) @if($data['type'] == 'coaching') checked @endif @endif />
+												Coaching
+											</label>
+											<label for="institute">
+												<input id="institute" name="type" value="institute" style="margin-right: 10px !important;" type="radio" @if($data) @if($data['type'] == 'institute') checked @endif @endif />
+												Institute
+											</label>
+										</div>
+									</div>
+									<div class="col-md-12 col-sm-12 col-12">
+										<div class="input-group">
+											<input name="established_year" type="year" class="form-control" placeholder="Established Year" value="@if($data){{ $data['established_year'] }}@endif" />
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 col-12">
@@ -57,46 +69,14 @@
 											<input name="city" type="text" class="form-control" placeholder="City" value="@if($data){{ $data['city'] }}@endif" />
 										</div>
 									</div>
-									
-									<div class="col-md-12 col-sm-12 col-12 d-flex">
-										<div class="input-group gender-input">
-											<label>Gender</label>
-											<label for="male"> 
-												<input id="male" style="margin-right: 10px !important;" type="radio" name="gender" value="Male" @if($data) @if($data['gender'] == 'Male') checked @endif @endif />
-												Male
-											</label>
-											<label for="female">
-												<input id="female" name="gender" value="Female" style="margin-right: 10px !important;" type="radio" @if($data) @if($data['gender'] == 'Female') checked @endif @endif />
-												Female
-											</label>
-											<label for="other">
-												<input id="other" name="gender" value="Other" style="margin-right: 10px !important;" type="radio" @if($data) @if($data['gender'] == 'Other') checked @endif @endif/>
-												Other
-											</label>
+									<div class="col-md-12 col-sm-12 col-12">
+										<div class="input-group">
+											<input name="pincode" type="text" class="form-control" placeholder="Pin Code" value="@if($data){{ $data['pincode'] }}@endif" />
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
 											<input name="address" type="text" class="form-control" placeholder="Address" value="@if($data){{ $data['address'] }}@endif" />
-										</div>
-									</div>
-									
-									<div class="col-md-12 col-sm-12 col-12">
-										<div class="input-group">
-											<input name="institute_name" type="text" class="form-control" placeholder="School Name/College Name/Job" value="@if($data){{ $data['institute_name'] }}@endif" />
-										</div>
-									</div>
-									
-									<div class="col-md-12 col-sm-12 col-12">
-										<div class="input-group">
-											<input name="parents_name" type="text" class="form-control" 
-											placeholder="Father's/Mother Name" value="@if($data){{ $data['parents_name'] }}@endif"/>
-										</div>
-									</div>
-									
-									<div class="col-md-12 col-sm-12 col-12">
-										<div class="input-group">
-											<input name="profile_image" @if(!$data) @endif type="file" class="form-control" accept=".png, .jpg, .jpeg"/>
 										</div>
 									</div>
 									

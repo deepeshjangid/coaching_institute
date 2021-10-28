@@ -29,7 +29,7 @@
 		   <div class="container-fluid p-0" id="manu-bg">
 				  <nav class="navbar navbar-expand-md navigation-bar top-fixed myheader">
 					<div class="container p-0">
-					 <a class="navbar-brand my-logos" href="index.php">
+					 <a class="navbar-brand my-logos" href="{{ route('index') }}">
 					  <span style="font-weight:bold;font-size:26px;">LOGO</span>
 					 <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid" alt="logo" style="display:none;"></a>
 					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -47,9 +47,9 @@
 							 <ul class="navbar-nav mobile-call">
 								@if(Session::has('user_login'))
 									<li class="nav-item"><a class="nav-link" 
-									href="@if(Session::get('user_type')=='1'){{ route('student.profile.update') }}
-										@elseif(Session::get('user_type')=='2'){{ route('tutor.profile.update') }}
-										@elseif(Session::get('user_type')=='3'){{ route('institute.profile.update') }}
+									href="@if(Session::get('user_type')=='1'){{ route('student.profile') }}
+										@elseif(Session::get('user_type')=='2'){{ route('tutor.profile') }}
+										@elseif(Session::get('user_type')=='3'){{ route('institute.profile') }}
 										@endif">
 										<button type="button" class="site-button onlineCbseBtn Zokelijk-btn">Profile</button> </a>
 									</li>
