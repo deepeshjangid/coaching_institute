@@ -33,18 +33,18 @@ class tutorController extends Controller
             if($request->email !== null){
                 $rules=[
                     'mobile' => ['required',Rule::unique('users')->where(function($query) {
-                        $query->where('id', '!=', '3');
+                        $query->where('id', '!=', Session::get('user_id'));
                         })
                     ],
                     'email' => [Rule::unique('users')->where(function($query) {
-                        $query->where('id', '!=', '3');
+                        $query->where('id', '!=', Session::get('user_id'));
                         })
                     ],
                 ];
             }else{
                 $rules=[
                     'mobile' => ['required',Rule::unique('users')->where(function($query) {
-                        $query->where('id', '!=', '3');
+                        $query->where('id', '!=', Session::get('user_id'));
                         })
                     ],
                 ];
@@ -67,8 +67,7 @@ class tutorController extends Controller
 			}else{
 
 				try{
-                        // $id = Session::get('tutor_id');
-                        $id = '3';
+                        $id = Session::get('user_id');
 
                         if($request->hasFile('profile_image')) {
                             $image = $request->file('profile_image');
@@ -109,12 +108,6 @@ class tutorController extends Controller
                                 $id_proof = null;
                             }
                         }
-                        // User::insert([
-                        //     'name' => $request->name,
-                        //     'email' => $request->email,
-                        //     'mobile' => $request->mobile,
-                        //     'password' => Hash::make('123456789')
-                        // ]);
 
                         User::where('id', $id)->update([
                             'name' => $request->name,
@@ -165,8 +158,7 @@ class tutorController extends Controller
 
 		}
 
-        // $id = Session::get('tutor_id');
-        $id = '3';
+        $id = Session::get('user_id');
         $user = User::where('id', $id)->where('status', '1')->where('delete_status', '1')->first();
         $tutor = Tutor::where('user_id', $id)->first();
 

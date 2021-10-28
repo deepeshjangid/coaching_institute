@@ -1,17 +1,17 @@
-var form_original_data = JSON.stringify($("form#form").serializeArray()); 
+// var form_original_data = JSON.stringify($("form#form").serializeArray()); 
 
-$('form#form').bind('keyup change', function(e){
+// $('form#form').bind('keyup change', function(e){
 
-	if (JSON.stringify($(this).serializeArray()) == form_original_data) {
-		$('button[type="submit"]').prop('disabled', true);
-	}else{
-		$('button[type="submit"]').prop('disabled', false);
-	}
-});
+// 	if (JSON.stringify($(this).serializeArray()) == form_original_data) {
+// 		$('button[type="submit"]').prop('disabled', true);
+// 	}else{
+// 		$('button[type="submit"]').prop('disabled', false);
+// 	}
+// });
 
-$('button[type="reset"]').click('click', function(){
-    $('button[type="submit"]').prop('disabled', true);
-});
+// $('button[type="reset"]').click('click', function(){
+//     $('button[type="submit"]').prop('disabled', true);
+// });
 
 $("form#form").submit(function(e){
 
@@ -49,6 +49,12 @@ $("form#form").submit(function(e){
 				}
 				$('button[type="submit"]').prop('disabled', true);
 				sweetAlertMsg('success',data.message);
+				if(data.registration){
+					window.location.href = "/login";
+				}
+				if(data.login){
+					window.location.href = "/";
+				}
 			}
 			window.scrollTo({top: 0, behavior: 'smooth'});
 			$('#preloader').css('display','none');

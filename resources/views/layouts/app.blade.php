@@ -45,12 +45,26 @@
 							   <li class="nav-item"><a class="nav-link" href="#">Contact us</a></li>
 							</ul>
 							 <ul class="navbar-nav mobile-call">
-								 <li class="nav-item"><a class="nav-link" href="#0">
-									<button type="button" class="site-button onlineCbseBtn">Login</button> </a>
-								</li>
-								  <li class="nav-item"><a class="nav-link" href="#0">
-									<button type="button" class="site-button onlineCbseBtn Zokelijk-btn">Sign up</button> </a>
-								</li>
+								@if(Session::has('user_login'))
+									<li class="nav-item"><a class="nav-link" 
+									href="@if(Session::get('user_type')=='1'){{ route('student.profile.update') }}
+										@elseif(Session::get('user_type')=='2'){{ route('tutor.profile.update') }}
+										@elseif(Session::get('user_type')=='3'){{ route('institute.profile.update') }}
+										@endif">
+										<button type="button" class="site-button onlineCbseBtn Zokelijk-btn">Profile</button> </a>
+									</li>
+									<li class="nav-item"><a class="nav-link" href="{{ route('logout') }}">
+										<button type="button" class="site-button onlineCbseBtn">Log Out</button> </a>
+									</li>
+								@else
+									<li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">
+										<button type="button" class="site-button onlineCbseBtn">Login</button> </a>
+									</li>
+									<li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">
+										<button type="button" class="site-button onlineCbseBtn Zokelijk-btn">Sign up</button> </a>
+									</li>
+								@endif
+								
 							 </ul>
 						  </div>  
 				    </div>

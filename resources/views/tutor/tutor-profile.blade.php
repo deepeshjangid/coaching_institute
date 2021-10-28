@@ -120,14 +120,14 @@
 									
 									<div class="col-md-6 col-sm-6 col-12">
 										<div class="btn-block">
-											<button name="submit" type="submit" value="Submit" class="btn btn-primary" disabled>Update</button>
+											<button name="submit" type="submit" value="Submit" class="btn btn-primary">Update</button>
 										</div>
 									</div>
-									<div class="col-md-6 col-sm-6 col-12">
+									<!-- <div class="col-md-6 col-sm-6 col-12">
 										<div class="btn-block">
 											<button name="reset" type="reset" value="reset" class="btn btn-danger">Reset</button>
 										</div>
-									</div>
+									</div> -->
 								</div>
 							</form>
 						</div>

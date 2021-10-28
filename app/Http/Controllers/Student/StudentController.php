@@ -33,18 +33,18 @@ class StudentController extends Controller
             if($request->email !== null){
                 $rules=[
                     'mobile' => ['required',Rule::unique('users')->where(function($query) {
-                        $query->where('id', '!=', '2');
+                        $query->where('id', '!=', Session::get('user_id'));
                         })
                     ],
                     'email' => [Rule::unique('users')->where(function($query) {
-                        $query->where('id', '!=', '2');
+                        $query->where('id', '!=', Session::get('user_id'));
                         })
                     ],
                 ];
             }else{
                 $rules=[
                     'mobile' => ['required',Rule::unique('users')->where(function($query) {
-                        $query->where('id', '!=', '2');
+                        $query->where('id', '!=', Session::get('user_id'));
                         })
                     ],
                 ];
@@ -67,8 +67,7 @@ class StudentController extends Controller
 			}else{
 
 				try{
-                        // $id = Session::get('student_id');
-                        $id = '2';
+                        $id = Session::get('user_id');
 
                         if($request->hasFile('profile_image')) {
                             $image = $request->file('profile_image');
@@ -79,12 +78,6 @@ class StudentController extends Controller
                             $student = Student::where('user_id', $id)->first();
                             $image_update = $student->profile_image;
                         }
-                        // User::insert([
-                        //     'name' => $request->name,
-                        //     'email' => $request->email,
-                        //     'mobile' => $request->mobile,
-                        //     'password' => Hash::make('123456789')
-                        // ]);
 
                         User::where('id', $id)->update([
                             'name' => $request->name,
@@ -127,8 +120,7 @@ class StudentController extends Controller
 
 		}
 
-        // $id = Session::get('student_id');
-        $id = '2';
+        $id = Session::get('user_id');
         $user = User::where('id', $id)->where('status', '1')->where('delete_status', '1')->first();
         $student = Student::where('user_id', $id)->first();
 

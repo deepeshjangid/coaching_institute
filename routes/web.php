@@ -61,11 +61,14 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('index');
 
-Route::view('/login', 'login'); //mobile,otp(login/register)
+Route::view('/register', 'register');
+Route::post('/register-submit', 'HomeController@Register')->name('register.submit');
 
-Route::view('/student-form', 'student-form')->name('student.form');
-Route::view('/tutor-form', 'tutor-form')->name('tutor.form');
-Route::view('/institute-form', 'institute-form')->name('institute.form');
+Route::view('/login', 'login');
+Route::post('/login-submit', 'HomeController@Login')->name('login.submit');
+
+Route::post('/send-otp', 'HomeController@sendOtp')->name('send.otp');
+Route::post('/submit-otp', 'HomeController@submitOtp')->name('submit.otp');
 
 Route::group(['prefix'=>'student'], function () {
 	Route::get('/home', 'Student\StudentController@Index')->name('student.home');	
@@ -82,3 +85,5 @@ Route::group(['prefix'=>'tutor'], function () {
 	Route::match(['get','post'],'profile', 'Tutor\TutorController@Profile')->name('tutor.profile.update');
 
 });
+
+Route::get('/logout', 'HomeController@Logout')->name('logout');
