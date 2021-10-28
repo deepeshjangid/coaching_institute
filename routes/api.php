@@ -39,3 +39,6 @@ Route::post('/flat', [preLoginController::class, 'Flat']);
 Route::get('/event', [preLoginController::class, 'event']);
 Route::get('/splashscreen', [preLoginController::class, 'Splashscreen']);
 Route::post('/profile-update', [postLoginController::class, 'profileUpdate']);
+
+
+

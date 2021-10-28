@@ -68,8 +68,8 @@
 			
 	<!--Main Footer Section -->
 		<footer class="main-footer">
-			<div class="pattern-layer paroller"style="background-image:url(images/icon-1.png)"></div>
-			<div class="pattern-layer-two" style="background-image:url(images/icon-3.png)"></div>
+			<div class="pattern-layer paroller"style="background-image:url({{ asset('assets/images/icon-1.png')}})"></div>
+			<div class="pattern-layer-two" style="background-image:url({{ asset('assets/images/icon-3.png')}})"></div>
 			 <div class="container">
 				<div class="widgets-section">
 					<div class="row">

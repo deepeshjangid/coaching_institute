@@ -61,6 +61,8 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('index');
 
+Route::view('/login', 'login'); //mobile,otp(login/register)
+
 Route::view('/student-form', 'student-form')->name('student.form');
 Route::view('/tutor-form', 'tutor-form')->name('tutor.form');
 Route::view('/institute-form', 'institute-form')->name('institute.form');

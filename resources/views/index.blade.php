@@ -140,7 +140,7 @@
 				
 				
 		 <!---- Banner Section ----->
-			<div class="container-fluid call-to-action-section-two" style="background-image: url(images/3.png)">
+			<div class="container-fluid call-to-action-section-two" style="background-image: url({{ asset('assets/images/3.png') }}">
 				<div class="container">
 					<div class="content">
 						<h2>I'm A (static)</h2>
