@@ -23,130 +23,56 @@
 	
 	
    <div class="container-fluid account-page">
+     <div class="container">
 		<div class="content">
-				<div class="container">
-					<div class="row justify-content-center">
-						<div class="col-md-12">
-							<div class="account-content">
-								<div class="row align-items-center justify-content-center">
-									<div class="col-md-7 col-lg-6 login-left">
-									  <img alt="" src="{{ asset('assets/images/login-banner.png') }}" class="img-fluid">
-									</div>
-									<div class="col-md-12 col-lg-6 login-right">
-										<div class="login-header">
-											<h3 style="text-align:center;">Login </h3>
-										</div>
-										<form action="index.html">
-											<div class="form-group form-focus">
-												<input type="text" class="form-control floating" />
-												<label class="focus-label">Mobile Number</label>
-											</div>
-											<div class="text-right">
-												<a class="forgot-link" href="forgot-password.html">Forgot Password ?</a>
-											</div>
-											<button class="btn btn-primary btn-block btn-lg login-btn w-100" type="submit">Login</button>
-											<div class="login-or">
-												<span class="or-line"></span>
-												<span class="span-or">or</span>
-											</div>
-											<div class="text-center dont-have">Don’t have an account? <a href="i#0">Register</a></div>
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-md-12 ">
-								<div class="account-content">
-							<div class="row align-items-center justify-content-center">
+			<div class="row justify-content-center">
+				 <div class="col-md-12">
+					<div class="account-content">
+						<div class="row align-items-center justify-content-center">
 							<div class="col-md-7 col-lg-6 login-left">
 								 <img alt="" src="{{ asset('assets/images/login-banner.png') }}" class="img-fluid">
 							</div>
 							<div class="col-md-12 col-lg-6 login-right">
-							<div class="login-header">
-							<h3>OTP</h3>
-							<p class="small text-muted">Enter your Mobile  Number to get a password reset</p>
-							</div>
-
-							<form action="#0">
-							<div class="form-group form-focus">
-								 <input type="text" class="form-control floating">
-								<label class="focus-label">Otp</label>
+								<div class="login-header">
+									<h3> Login</h3>
 								</div>
-								<div class="text-right">
-								<a class="forgot-link" href="#0">Remember your password?</a>
-								</div>
-								<button class="btn btn-primary btn-block btn-lg login-btn w-100" type="submit">Reset Password</button>
-							</form>
-
-							</div>
-							</div>
-							</div>
-
-						</div>
-						</div>
-					
-					<div class="row justify-content-center">
-					<div class="col-md-12">
-						<div class="account-content">
-							<div class="row align-items-center justify-content-center">
-								<div class="col-md-7 col-lg-6 login-left">
-									 <img alt="" src="{{ asset('assets/images/login-banner.png') }}" class="img-fluid">
-								</div>
-								<div class="col-md-12 col-lg-6 login-right">
-									<div class="login-header">
-										<h3> Register</h3>
+								<form action="#0">
+									<div class="form-group form-focus">
+									  <select class="form-control" >
+										<option>Select option</option>
+										<option>Student</option>
+										<option>Tutor</option>
+										<option>Coaching/Institute</option>
+									  </select>
 									</div>
-
-									<form action="instructors-dashboard.html">
-										<div class="form-group form-focus">
-											<input type="text" class="form-control floating" />
-											<label class="focus-label">Name</label>
-										</div>
-										<div class="form-group form-focus">
-											<input type="text" class="form-control floating" />
-											<label class="focus-label">Mobile Number</label>
-										</div>
-										<div class="form-group form-focus">
-											<input type="text" class="form-control floating" />
-											<label class="focus-label">Email ID</label>
-										</div>
-										<div class="form-group form-focus">
-											<input type="text" class="form-control floating" />
-											<label class="focus-label">Subject </label>
-										</div>
-										<div class="form-group form-focus">
-											<input type="text" class="form-control floating" />
-											<label class="focus-label">City </label>
-										</div>
-										
-										<div class="form-group form-focus">
-											<input type="text" class="form-control floating" />
-											<label class="focus-label">Pincode </label>
-										</div>
+									
+									<div class="form-group form-focus">
+										<input type="text" class="form-control floating" placeholder="Name"/>
+									</div>
+									
+									<div class="form-group form-focus">
+										<input type="text" class="form-control floating" placeholder="Mobile"/>
+									</div>
+									
+									<div class="form-group form-focus">
+										<input type="eamil" class="form-control floating" placeholder="Eamil Id"/>
+									</div>
+									
+									<div class="form-group form-focus">
+										<input type="text" class="form-control floating" placeholder="Password"/>
+									</div>
 									
 									
-										<button class="btn btn-primary btn-block btn-lg login-btn w-100" type="submit">Signup</button>
-										<div class="login-or">
-											<span class="or-line"></span>
-											<span class="span-or">or</span>
-										</div>
-										
-											<div class="text-right">
-											<a class="forgot-link" href="#0">Already have an account?</a>
-										</div>
-										
-									</form>
-								</div>
+									
+								 <button class="btn btn-primary btn-block btn-lg login-btn w-100" type="submit">Login</button>
+								</form>
 							</div>
 						</div>
 					</div>
+					</div>
 				</div>
-
-				</div>
-			</div>
-			</div>
+			 </div>
+		</div>
+	 </div>
 			
 @endsection	
