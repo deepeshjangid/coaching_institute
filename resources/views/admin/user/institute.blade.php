@@ -35,11 +35,11 @@
 										<th>Email</th>
 										<th>Mobile</th>
 										<th>Subjects</th>
+										<th>Type</th>
+										<th>Established Year</th>
 										<th>City</th>
-										<th>Gender</th>
-										<th>School/College/Job Name</th>
-										<th>Father's/Mother Name</th>
-										<th>Profile Image</th>
+										<th>Pincode</th>
+										<th>Address</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -52,13 +52,11 @@
 										<td>{{$data->email}}</td>
 										<td>{{$data->mobile}}</td>
 										<td>{{$data->subjects}}</td>
+										<td>{{$data->type}}</td>
+										<td>{{$data->established_year}}</td>
 										<td>{{$data->city}}</td>
-										<td>{{$data->gender}}</td>
-										<td>{{$data->institute_name}}</td>
-										<td>{{$data->parents_name}}</td>
-										<td>
-                                            <img src="{{ asset('/uploads/students')}}/{{$data->profile_image}}" style="width:50px">  
-                                        </td>
+										<td>{{$data->pincode}}</td>
+										<td>{{$data->address}}</td>
                                     </tr>
                                     @php $count++; @endphp
                                     @endforeach

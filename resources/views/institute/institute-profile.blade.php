@@ -61,7 +61,7 @@
 									</div>
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="established_year" type="year" class="form-control" placeholder="Established Year" value="@if($data){{ $data['established_year'] }}@endif" />
+											<input name="established_year" type="year" class="form-control" placeholder="Established Year" value="@if($data){{ $data['established_year'] }}@endif" onkeypress="return /[0-9 ]/i.test(event.key)" pattern="^\d{4}$" min="4" maxLength="4"/>
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 col-12">

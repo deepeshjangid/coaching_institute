@@ -146,13 +146,13 @@
 						<h2>I'm A (static)</h2>
 						<div class="text"> Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two <br> waters own morning gathered greater shall had behold had seed.</div>
 						<div class="buttons-box">
-							<a href="{{ route('student.profile') }}" class="theme-btn btn-style-one">
+							<a href="" class="theme-btn btn-style-one">
 							 <span class="txt">Student</span>
 							</a>
-							<a href="{{ route('tutor.profile') }}" class="theme-btn btn-style-one">
+							<a href="" class="theme-btn btn-style-one">
 							 <span class="txt">Tutor</span>
 							</a>
-							<a href="{{ route('institute.profile') }}" class="theme-btn btn-style-one">
+							<a href="" class="theme-btn btn-style-one">
 							 <span class="txt">Coaching\Institute</span>
 							</a>
 						</div>
