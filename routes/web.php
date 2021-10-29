@@ -67,6 +67,14 @@ Route::post('/register-submit', 'HomeController@Register')->name('register.submi
 Route::view('/login', 'login');
 Route::post('/login-submit', 'HomeController@Login')->name('login.submit');
 
+Route::view('/iam-student', 'iam-student');
+Route::view('/iam-tutor', 'iam-tutor');
+Route::view('/iam-Institute', 'iam-Institute');
+
+
+
+
+
 Route::group(['middleware' => 'Userauth'], function () {
 
 	Route::match(['get','post'],'student-profile', 'StudentController@Profile')->name('student.profile');
