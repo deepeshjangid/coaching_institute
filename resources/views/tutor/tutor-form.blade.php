@@ -27,53 +27,53 @@
 				<div class="container">
 					<div class="row justify-content-center mr-tb-40">
 						<div class="col-lg-6">
-							<form class="contact-form" id="form" action="#0" method="post">
-								<input type="hidden" name="_token" value="" />
+						<form class="contact-form"  id="form" action="{{ route('tutor.form.submit' )}}" method="post" enctype="multipart/form-data">
+							    @csrf
 								<div class="row">
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="first_name" required="" type="text" class="form-control" placeholder="Name" />
+											<input name="name" required type="text" class="form-control" placeholder="Name" />
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="last_name" required="" type="text" class="form-control" placeholder="Mobile Number" />
-										</div>
-									</div>
-									
-									<div class="col-md-12 col-sm-12 col-12">
-										<div class="input-group">
-											<input name="last_name" required="" type="email" class="form-control" placeholder="Email Id" />
+											<input name="mobile" required type="tel" class="form-control" placeholder="Mobile Number" />
 										</div>
 									</div>
 									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="text" required="" type="text" class="form-control" placeholder="Subject" />
+											<input name="email" required type="email" class="form-control" placeholder="Email Id" />
 										</div>
 									</div>
 									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="text" required="" type="text" class="form-control" placeholder="City">
+											<input name="subjects" required type="text" class="form-control" placeholder="Subject" />
 										</div>
 									</div>
 									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="text" required="" type="text" class="form-control" placeholder="PinCode">
+											<input name="city" required type="text" class="form-control" placeholder="City">
 										</div>
 									</div>
 									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="text" required="" type="text" class="form-control" placeholder="Highest Qualication">
+											<input name="pincode" required type="text" class="form-control" placeholder="PinCode">
 										</div>
 									</div>
 									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="text" required="" type="text" class="form-control" placeholder="Experience">
+											<input name="highest_qualification" required type="text" class="form-control" placeholder="Highest Qualication">
+										</div>
+									</div>
+									
+									<div class="col-md-12 col-sm-12 col-12">
+										<div class="input-group">
+											<input name="experience" required type="text" class="form-control" placeholder="Experience">
 										</div>
 									</div>
 									

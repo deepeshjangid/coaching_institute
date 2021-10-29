@@ -158,4 +158,176 @@ class HomeController extends Controller
         }
     }
 
+    public function StudentForm(Request $request)
+    {
+
+        if($request->ajax()){
+
+            $rules=[
+                'name' => 'required',
+                'email' => 'required',
+                'mobile' => 'required',
+                'subjects' => 'required',
+                'city' => 'required',
+                'pincode' => 'required',
+            ];
+			
+			$validator = Validator::make($request->all(), $rules);
+
+			$response = array("error" => true, "message" => "Something went wrong.please try again"); 
+			
+			if ($validator->fails()) {
+				$message = [];
+				$messages_l = json_decode(json_encode($validator->messages()), true);
+				foreach ($messages_l as $msg) {
+					$message= $msg[0];
+					break;
+				} 
+				
+				return response(array("error"=>false,"message" => $message),403);  
+						
+			}else{
+
+				try{
+                        DB::table('student_forms')->insert([
+                            'name' => $request->name,
+                            'email' => $request->email,
+                            'mobile' => $request->mobile,
+                            'subjects' => $request->subjects,
+                            'city' => $request->city,
+                            'pincode'=> $request->pincode,
+                        ]);
+                        
+                        return response(array("error" => false, "reset"=>true, "message" => "Form successfully submitted."),200);
+						
+					}
+				catch (\Exception $e) {
+					return response(array("error" 
+						=> true, "message" => $e->getMessage()),403); 
+				}
+			}
+			
+			return response($response);
+
+		}
+    }
+
+    public function TutorForm(Request $request)
+    {
+
+        if($request->ajax()){
+
+            $rules=[
+                'name' => 'required',
+                'email' => 'required',
+                'mobile' => 'required',
+                'subjects' => 'required',
+                'city' => 'required',
+                'pincode' => 'required',
+                'highest_qualification' => 'required',
+                'experience' => 'required',
+            ];
+			
+			$validator = Validator::make($request->all(), $rules);
+
+			$response = array("error" => true, "message" => "Something went wrong.please try again"); 
+			
+			if ($validator->fails()) {
+				$message = [];
+				$messages_l = json_decode(json_encode($validator->messages()), true);
+				foreach ($messages_l as $msg) {
+					$message= $msg[0];
+					break;
+				} 
+				
+				return response(array("error"=>false,"message" => $message),403);  
+						
+			}else{
+
+				try{
+                        DB::table('tutor_forms')->insert([
+                            'name' => $request->name,
+                            'email' => $request->email,
+                            'mobile' => $request->mobile,
+                            'subjects' => $request->subjects,
+                            'city' => $request->city,
+                            'pincode'=> $request->pincode,
+                            'highest_qualification'=> $request->highest_qualification,
+                            'experience'=> $request->experience,
+                        ]);
+                        
+                        return response(array("error" => false, "reset"=>true, "message" => "Form successfully submitted."),200);
+						
+					}
+				catch (\Exception $e) {
+					return response(array("error" 
+						=> true, "message" => $e->getMessage()),403); 
+				}
+			}
+			
+			return response($response);
+
+		}
+    }
+
+    public function InstituteForm(Request $request)
+    {
+
+        if($request->ajax()){
+
+            $rules=[
+                'name' => 'required',
+                'email' => 'required',
+                'mobile' => 'required',
+                'type' => 'required',
+                'subjects' => 'required',
+                'address' => 'required',
+                'city' => 'required',
+                'pincode' => 'required',
+                'established_year' => 'required',
+            ];
+			
+			$validator = Validator::make($request->all(), $rules);
+
+			$response = array("error" => true, "message" => "Something went wrong.please try again"); 
+			
+			if ($validator->fails()) {
+				$message = [];
+				$messages_l = json_decode(json_encode($validator->messages()), true);
+				foreach ($messages_l as $msg) {
+					$message= $msg[0];
+					break;
+				} 
+				
+				return response(array("error"=>false,"message" => $message),403);  
+						
+			}else{
+
+				try{
+                        DB::table('institute_forms')->insert([
+                            'name' => $request->name,
+                            'email' => $request->email,
+                            'mobile' => $request->mobile,
+                            'type' => $request->type,
+                            'subjects' => $request->subjects,
+                            'address' => $request->address,
+                            'city' => $request->city,
+                            'pincode'=> $request->pincode,
+                            'established_year'=> $request->established_year,
+                        ]);
+                        
+                        return response(array("error" => false, "reset"=>true, "message" => "Form successfully submitted."),200);
+						
+					}
+				catch (\Exception $e) {
+					return response(array("error" 
+						=> true, "message" => $e->getMessage()),403); 
+				}
+			}
+			
+			return response($response);
+
+		}
+    }
+
 }

@@ -84,4 +84,23 @@ class UserController extends Controller
   
         return response()->json(['success'=>'User status change successfully.']);
     }
+
+    public function StudentForms()
+    {
+		$datas = DB::table('student_forms')->where('delete_status','1')->orderBy('id', 'desc')->get();
+        return view('admin.form.student')->with('datas',$datas);
+    }
+
+    public function TutorForms()
+    {
+		$datas = DB::table('tutor_forms')->where('delete_status','1')->orderBy('id', 'desc')->get();
+        return view('admin.form.tutor')->with('datas',$datas);
+    }
+
+    public function InstituteForms()
+    {
+		$datas = DB::table('institute_forms')->where('delete_status','1')->orderBy('id', 'desc')->get();
+        return view('admin.form.institute')->with('datas',$datas);
+    }
+
 }

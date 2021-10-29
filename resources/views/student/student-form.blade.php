@@ -11,7 +11,7 @@
 								<h1>Student </h1>
 							</div>
 							<ul class="bread-crumb pull-right clearfix">
-								<li><a href="#0">Home</a></li>
+								<li><a href="{{ route('index') }}">Home</a></li>
 								<li>Student Form</li>
 							</ul>
 						</div>
@@ -25,59 +25,40 @@
 				<div class="container">
 					<div class="row justify-content-center mr-tb-40">
 						<div class="col-lg-6">
-							<form class="contact-form" id="form" action="#0" method="post">
-								<input type="hidden" name="_token" value="" />
+						<form class="contact-form"  id="form" action="{{ route('student.form.submit' )}}" method="post" enctype="multipart/form-data">
+							    @csrf
 								<div class="row">
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="first_name" required="" type="text" class="form-control" placeholder="Name" />
+											<input name="name" required type="text" class="form-control" placeholder="Name" />
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="last_name" required="" type="text" class="form-control" placeholder="Mobile Number" />
+											<input name="mobile" required type="tel" class="form-control" placeholder="Mobile Number" />
 										</div>
 									</div>
 									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="last_name" required="" type="email" class="form-control" placeholder="Email Id" />
+											<input name="email" required type="email" class="form-control" placeholder="Email Id" />
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="dob" required="" type="date" class="form-control" />
-										</div>
-									</div>
-									<div class="col-md-12 col-sm-12 col-12 d-flex">
-										<div class="input-group gender-input">
-											<label>Gender</label>
-											<label for="male"> <input id="male" style="margin-right: 10px !important;" required="" type="radio" name="gender" value="M" checked="" />Male </label>
-											<label for="female">
-												<input id="female" name="gender" value="F" style="margin-right: 10px !important;" required="" type="radio" />
-												Female
-											</label>
-											<label for="female">
-												<input id="female" name="gender" value="O" style="margin-right: 10px !important;" required="" type="radio" />
-												Other
-											</label>
-										</div>
-									</div>
-									<div class="col-md-12 col-sm-12 col-12">
-										<div class="input-group">
-											<input name="text" required="" type="text" class="form-control" placeholder="Subject" />
+											<input name="subjects" required type="text" class="form-control" placeholder="Subject" />
 										</div>
 									</div>
 									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="text" required="" type="text" class="form-control" placeholder="City">
+											<input name="city" required type="text" class="form-control" placeholder="City">
 										</div>
 									</div>
 									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="text" required="" type="text" class="form-control" placeholder="PinCode">
+											<input name="pincode" required type="text" class="form-control" placeholder="PinCode">
 										</div>
 									</div>
 									

@@ -44,6 +44,14 @@ Route::group(['prefix'=>'admin','middleware' => 'admin'], function () {
 
 	});
 
+	Route::group(['prefix'=>'forms'],function() {
+
+		Route::get('/student', 'Admin\UserController@StudentForms')->name('admin.student.forms');
+		Route::get('/tutor', 'Admin\UserController@TutorForms')->name('admin.tutor.forms');
+		Route::get('/institute', 'Admin\UserController@InstituteForms')->name('admin.institute.forms');
+
+	});
+
 	Route::group(['prefix'=>'testimonial'],function() {
 
 		Route::match(['get','post'],'add', 'Admin\TestimonialController@index')->name('admin.testimonial.add');
@@ -61,19 +69,20 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('index');
 
-Route::view('/register', 'register');
+Route::view('/register', 'register')->name('register');
 Route::post('/register-submit', 'HomeController@Register')->name('register.submit');
 
-Route::view('/login', 'login');
+Route::view('/login', 'login')->name('login');
 Route::post('/login-submit', 'HomeController@Login')->name('login.submit');
 
-Route::view('/iam-student', 'iam-student');
-Route::view('/iam-tutor', 'iam-tutor');
-Route::view('/iam-Institute', 'iam-Institute');
+Route::view('/student-form', 'student.student-form')->name('student.form');
+Route::post('/student-form-submit', 'HomeController@StudentForm')->name('student.form.submit');
 
+Route::view('/tutor-form', 'tutor.tutor-form')->name('tutor.form');
+Route::post('/tutor-form-submit', 'HomeController@TutorForm')->name('tutor.form.submit');
 
-
-
+Route::view('/institute-form', 'institute.institute-form')->name('institute.form');
+Route::post('/institute-form-submit', 'HomeController@InstituteForm')->name('institute.form.submit');
 
 Route::group(['middleware' => 'Userauth'], function () {
 

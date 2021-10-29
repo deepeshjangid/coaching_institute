@@ -70,7 +70,7 @@
                                     </div>
                                     
                                     <div class="text-right">
-                                        <a class="forgot-link" href="{{ url('/login') }}">Already have an account?</a>
+                                        <a class="forgot-link" href="{{ route('login') }}">Already have an account?</a>
                                     </div>
 								</form>
 							</div>

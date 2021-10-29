@@ -77,7 +77,7 @@
                 <span class="logo-lg">
                     <img src="{{ asset('admin-assets/Aakrashanlogo.png')}}" alt="">
                 </span> -->
-                <h3 class="text-left text-white">Education Management</h3>
+                <h3 class="text-left text-white">Coaching</h3>
             </a>
 
             <!-- Header Navbar -->
@@ -144,6 +144,19 @@
                             <li class="@yield('Students')"><a href="{{ route('admin.students') }}">Students</a></li>
                             <li class="@yield('Tutors')"><a href="{{ route('admin.tutors') }}">Tutors</a></li>
                             <li class="@yield('Institutes')"><a href="{{ route('admin.institutes') }}">Institutes</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview @yield('Form')">
+                        <a href="#">
+                        <i class="fa fa-wpforms" aria-hidden="true"></i><span>Forms</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="@yield('Student Forms')"><a href="{{ route('admin.student.forms') }}">Students</a></li>
+                            <li class="@yield('Tutor Forms')"><a href="{{ route('admin.tutor.forms') }}">Tutors</a></li>
+                            <li class="@yield('Institute Forms')"><a href="{{ route('admin.institute.forms') }}">Institutes</a></li>
                         </ul>
                     </li>
                     <li class="treeview @yield('Testimonial')">

@@ -47,7 +47,7 @@ $("form#form").submit(function(e){
 				if(data.reset){
 					$('#'+formId)[0].reset();
 				}
-				$('button[type="submit"]').prop('disabled', true);
+				// $('button[type="submit"]').prop('disabled', true);
 				sweetAlertMsg('success',data.message);
 				if(data.registration){
 					window.location.href = "/login";

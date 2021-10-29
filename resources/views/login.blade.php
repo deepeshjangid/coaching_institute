@@ -53,7 +53,7 @@
 									</div>
 									
 										<div class="text-right">
-										<a class="forgot-link" href="{{ url('/register') }}">Don't have any account?</a>
+										<a class="forgot-link" href="{{ route('register') }}">Don't have any account?</a>
 									</div>
 								</form>
 							</div>

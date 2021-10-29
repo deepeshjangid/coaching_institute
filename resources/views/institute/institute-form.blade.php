@@ -26,45 +26,43 @@
 				<div class="container">
 					<div class="row justify-content-center mr-tb-40">
 						<div class="col-lg-6">
-							<form class="contact-form" id="form" action="#0" method="post">
-								<input type="hidden" name="_token" value="" />
+						<form class="contact-form"  id="form" action="{{ route('institute.form.submit' )}}" method="post" enctype="multipart/form-data">
+							    @csrf
 								<div class="row">
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="first_name" required="" type="text" class="form-control" placeholder="Name Of Institute" />
+											<input name="name" required type="text" class="form-control" placeholder="Name Of Institute" />
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 col-12">
-										<input type="hidden" name="_token" value="">
 										<div class="form-group form-focus">
-                                        <select class="form-control" name="user_type" required>
+                                        <select class="form-control" name="type" required>
                                             <option value="">Type </option>
-                                            <option value="1">Coaching</option>
-                                            <option value="2">Institute</option>
+                                            <option value="Coaching">Coaching</option>
+                                            <option value="Institute">Institute</option>
                                         </select>
 									  </div>
 									</div>
 									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="last_name" required="" type="text" class="form-control" placeholder="Mobile Number" />
+											<input name="mobile" required type="tel" class="form-control" placeholder="Mobile Number" />
 										</div>
 									</div>
 									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="last_name" required="" type="email" class="form-control" placeholder="Email Id" />
+											<input name="email" required type="email" class="form-control" placeholder="Email Id" />
 										</div>
 									</div>
 									
 									
 									<div class="col-md-12 col-sm-12 col-12">
-										<input type="hidden" name="_token" value="">
 										<div class="form-group form-focus">
-                                        <select class="form-control" name="user_type" required>
-                                            <option value="0"> Subject / Institute</option>
-                                            <option value="1">Coures Name 1</option>
-                                            <option value="1">Coures Name 2</option>
+                                        <select class="form-control" name="subjects" required>
+                                            <option value="0"> Subject / Course</option>
+                                            <option value="Coures Name 1">Coures Name 1</option>
+                                            <option value="Coures Name 2">Coures Name 2</option>
                                         </select>
 									  </div>
 									</div>
@@ -72,26 +70,26 @@
 									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="text" required="" type="text" class="form-control" placeholder="Established Year">
+											<input name="established_year" required type="text" class="form-control" placeholder="Established Year">
 										</div>
 									</div>
 									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="text" required="" type="text" class="form-control" placeholder="Full Address">
+											<input name="address" required type="text" class="form-control" placeholder="Full Address">
 										</div>
 									</div>
 									
 									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="text" required="" type="text" class="form-control" placeholder="City Name ">
+											<input name="city" required type="text" class="form-control" placeholder="City Name ">
 										</div>
 									</div>
 									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="text" required="" type="text" class="form-control" placeholder="PinCode">
+											<input name="pincode" required type="text" class="form-control" placeholder="PinCode">
 										</div>
 									</div>
 									
