@@ -2,7 +2,6 @@
 
 @section('content')
 	    
-		
 			   <section class="page-title">
 					<div class="container">
 						<div class="row clearfix">
@@ -12,7 +11,7 @@
 										<h1>Contact</h1>
 									</div>
 									<ul class="bread-crumb pull-right clearfix">
-										<li><a href="">Home</a></li>
+										<li><a href="{{ route('index') }}">Home</a></li>
 										<li>Contact Us</li>
 									</ul>
 								</div>
@@ -32,8 +31,7 @@
 									<div class="address-text">
 										<h3 class="contact-title">Call Us</h3>
 										<ul class="numbers">
-											<li> <a href="tel:123456789">123456789</a> </li>
-											<li> <a href="tel:+222-4344-666">123456789</a> </li>
+											<li> <a href="tel:123456789">@if($row) {{ $row->mobile }} @endif</a> </li>
 										</ul>
 									</div>
 								</div>
@@ -46,7 +44,7 @@
 									<div class="address-text">
 										<h3 class="contact-title">Mail Us</h3>
 										<ul class="numbers">
-											<li><a href="mailto:info@indianhometutor.com">info@indianhometutor.com</a></li>
+											<li><a href="mailto:info@indianhometutor.com">@if($row) {{ $row->email }} @endif</a></li>
 										</ul>
 									</div>
 								</div>
@@ -58,12 +56,7 @@
 									</div>
 									<div class="address-text">
 										<h3 class="contact-title">Address</h3>
-										<p>PSB Group 
-											2nd floor ,sudama Hardware,
-											Bajnamath Chowk ,
-											Shashtri nagar Jabalpur (M.P.)
-											Pin:-482001
-										</p>
+										<p>@if($row) {{ $row->address }} @endif</p>
 									</div>
 								</div>
 							</div>
@@ -86,22 +79,23 @@
 											Suspendisse ex neque, sollicitudin in velit eu, luctus gravida nunc. Nulla pul-vinar risus sed metus euismod sodales ut sed nisi.
 										</p>
 										<div class="form-part">
-											<form id="contact-form" method="post" action="mailer.php">
+											<form class="contact-form"  id="form" action="{{ route('contact.submit' )}}" method="post" enctype="multipart/form-data">
+												@csrf
 												<div class="row">
 													<div class="col-lg-6 col-12 mb-20">
-														<input class="form-control" type="text" id="name" name="name" placeholder="Name" required="">
+														<input class="form-control" type="text" id="name" name="name" placeholder="Name" required>
 													</div>
 													<div class="col-lg-6 col-12 mb-20">
-														<input class="form-control" type="email" id="email" name="email" placeholder="E-mail" required="">
+														<input class="form-control" type="email" id="email" name="email" placeholder="E-mail" required>
 													</div>
 													<div class="col-lg-6 col-12 mb-20">
-														<input class="form-control" type="text" id="phone_number" name="phone_number" placeholder="Phone number" required="">
+														<input class="form-control" type="tel" id="phone_number" name="mobile" placeholder="Phone number" required onkeypress="return /[0-9 ]/i.test(event.key)" pattern="^\d{10}$" min="10" maxLength="10" >
 													</div>
 													<div class="col-lg-6 col-12 mb-20">
-														<input class="form-control" type="text" id="Subject" name="Subject" placeholder="Subject" required="">
+														<input class="form-control" type="text" id="Subject" name="subject" placeholder="Subject" required>
 													</div>
 													<div class="col-lg-12 col-12 mb-30">
-														<textarea class="form-control" rows="4" id="message" name="message" placeholder=" Your messege here" required=""></textarea>
+														<textarea class="form-control" rows="4" id="message" name="message" placeholder=" Your messege here" required></textarea>
 													</div>
 													<div class="col-lg-12 col-12">
 														<button class="type">Submit Now</button>

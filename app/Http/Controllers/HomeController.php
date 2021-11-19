@@ -348,4 +348,62 @@ class HomeController extends Controller
         return view('plan-purchage', compact('plan', 'plan_id', 'price'));
     }
 
+    public function ContactUs()
+    {
+        $row = DB::table('contact_us_information')->first();
+        return view('contact', compact('row'));
+    }
+
+    public function ContactUsSubmit(Request $request)
+    {
+
+        if($request->ajax()){
+
+            $rules=[
+                'name' => 'required',
+                'email' => 'required',
+                'mobile' => 'required',
+                'subject' => 'required',
+                'message' => 'required',
+            ];
+			
+			$validator = Validator::make($request->all(), $rules);
+
+			$response = array("error" => true, "message" => "Something went wrong.please try again"); 
+			
+			if ($validator->fails()) {
+				$message = [];
+				$messages_l = json_decode(json_encode($validator->messages()), true);
+				foreach ($messages_l as $msg) {
+					$message= $msg[0];
+					break;
+				} 
+				
+				return response(array("error"=>false,"message" => $message),403);  
+						
+			}else{
+
+				try{
+                        DB::table('contact_us')->insert([
+                            'name' => $request->name,
+                            'email' => $request->email,
+                            'mobile' => $request->mobile,
+                            'subject' => $request->subject,
+                            'message' => $request->message,
+                        ]);
+                        
+                        return response(array("error" => false, "reset"=>true, "message" => "Thank you for getting in touch."),200);
+						
+					}
+				catch (\Exception $e) {
+					return response(array("error" 
+						=> true, "message" => $e->getMessage()),403); 
+				}
+			}
+			
+			return response($response);
+
+		}
+    }
+
 }

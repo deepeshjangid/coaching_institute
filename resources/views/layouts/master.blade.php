@@ -187,6 +187,18 @@
                             <li class="@yield('PurchagePlans')"><a href="{{ url('admin/subscription-plan/purchage-plans') }}">Purchage Plans</a></li>
                         </ul>
                     </li>
+                    <li class="treeview @yield('ContactUs')">
+                        <a href="#">
+                        <i class="fa fa-phone" aria-hidden="true"></i><span>Contact Us</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="@yield('AddContactUs')"><a href="{{ route('admin.contact.add') }}">Add Contact Us</a></li>
+                            <li class="@yield('ContactUsList')"><a href="{{ route('admin.contact.list') }}">Contact Us List</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar -->

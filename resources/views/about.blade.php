@@ -11,7 +11,7 @@
 									<h1>About</h1>
 								</div>
 								<ul class="bread-crumb pull-right clearfix">
-									<li><a href="">Home</a></li>
+									<li><a href="{{ route('index') }}">Home</a></li>
 									<li>About Us</li>
 								</ul>
 							</div>

@@ -150,21 +150,19 @@
 											<div class="address-icon">
 												<i class="fa fa-home"></i>
 											</div>
-											<p>No.123 Chalingt Gates,
-												Supper market New York
-											</p>
+											<p>@if($contact) {{ $contact->address }} @endif</p>
 										</div>
 										<div class="sigle-address">
 											<div class="address-icon">
 												<i class="fa fa-envelope-o"></i>
 											</div>
-											<p>support@gmail.com</p>
+											<p>@if($contact) {{ $contact->email }} @endif</p>
 										</div>
 										<div class="sigle-address">
 											<div class="address-icon">
-												<i class="fa fa-headphones"></i>
+												<i class="fa fa-phone"></i>
 											</div>
-											<p>+012 (4567) 789</p>
+											<p>@if($contact) {{ $contact->mobile }} @endif</p>
 										</div>
 									</div>
 								</div>

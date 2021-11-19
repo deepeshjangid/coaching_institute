@@ -63,6 +63,12 @@ Route::group(['prefix'=>'admin','middleware' => 'admin'], function () {
 		Route::post('change-status','Admin\SubscriptionPlanController@changeStatus')->name('admin.subscriptionplan.changestatus');
 	});
 
+	Route::group(['prefix'=>'contact-us'],function() {
+		Route::match(['get','post'],'add', 'Admin\ContactUsController@index')->name('admin.contact.add');
+		Route::get('/list', 'Admin\ContactUsController@show')->name('admin.contact.list');
+		Route::get('/delete/{id}', 'Admin\ContactUsController@destroy')->name('admin.contact.delete');
+	});
+
 
 });
 
@@ -88,7 +94,9 @@ Route::post('/institute-form-submit', 'HomeController@InstituteForm')->name('ins
 Route::get('/subscription-plan', 'HomeController@SubscriptionPlan')->name('subscription.plan');
 
 Route::view('/about', 'about')->name('about');
-Route::view('/contact', 'contact')->name('contact');
+
+Route::get('/contact', 'HomeController@ContactUs')->name('contact');
+Route::post('/contact-submit', 'HomeController@ContactUsSubmit')->name('contact.submit');
 
 Route::group(['middleware' => 'Userauth'], function () {
 
