@@ -21,11 +21,25 @@
 <body>
 	  <!--- Header Area Section--->
 		   <div class="container-fluid p-0" id="manu-bg">
-				  <nav class="navbar navbar-expand-md navigation-bar top-fixed myheader">
-					<div class="container p-0">
+				 <div class="container">
+					   <nav class="navbar navbar-expand-md navigation-bar top-fixed myheader">
 					 <a class="navbar-brand my-logos" href="{{ route('index') }}">
 					  <span style="font-weight:bold;font-size:26px;">LOGO</span>
 					 <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid" alt="logo" style="display:none;"></a>
+					 
+					 <ul class="navbar-nav mobile-call">
+							
+							
+									<li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">
+										<button type="button" class="site-button onlineCbseBtn">Login</button> </a>
+									</li>
+									<li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">
+										<button type="button" class="site-button onlineCbseBtn Zokelijk-btn">Sign up</button> </a>
+									</li>
+								@endif
+								
+							 </ul>
+					 
 					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 						<span> <i class="fa fa-bars" aria-hidden="true"></i> </span>
 					  </button>
@@ -61,8 +75,9 @@
 								
 							 </ul>
 						  </div>  
-				    </div>
+				      </div>
 			     </nav>
+			 </div>  
 			 </div>  
 
 
