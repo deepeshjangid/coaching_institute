@@ -639,10 +639,20 @@ background: #2882ad;
     margin-bottom: 16px;
 }
 .address-icon {
-    float: left;
-    display: block;
-    margin-right: 10px;
-    margin-top: 3px;
+	 /* float: left; */
+	 /* display: block; */
+	 margin-right: 10px;
+	 margin-top: 3px;
+}
+.address-icon1 {
+	 float: left;
+	 display: block;
+	 margin-right: 10px; 
+	 margin-top: 3px; 
+}
+.address-icon1 i{
+	    color: #626262;
+    font-size: 18px;
 }
 .address-icon i {
     color: #626262;
@@ -1154,9 +1164,41 @@ background: #2882ad;
 	color: #fff;
 }
 
-
-
-
+ /* about us */
+.pd-tb-50{
+	padding:50px 0;
+} 
+.wel-box{
+	 /* border: 1px solid #f9f9f9; */
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+    padding: 11px;
+    background: #fff;
+    /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.12); */
+    box-shadow: 0px 0px 10px #00000024;
+}
+/*--- Welcome Section CSS --*/
+.wel-box-body .sub-text{
+    color: #2882ad;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: none;
+    line-height: 26px;
+    letter-spacing: 3px;
+}
+.wel-box-body h1{
+    color: #222;
+    font-size: 37px;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    font-weight: 800;
+}
+.wel-box-body p{
+    font-size: 15px;
+    line-height: 28px;
+}
 
 
 
@@ -1392,3 +1434,169 @@ background: #2882ad;
   #preload {
       display: none;
   }
+  
+  .map{
+	padding-top: 20px;
+	padding-bottom: 50px;
+}
+.content-heading{
+	margin-left: 36px;
+	padding-top: 32px;
+	padding-right: 70px;
+	padding-bottom: 70px;
+	padding-left: 35px;
+	background-color: #fafafa;
+	border-radius: 10px;
+}
+.heading{
+    color: #282828;
+    position: relative;
+    padding-bottom: 26px;
+    font-weight: 800;
+    font-size: 37px;
+    font-family: var(--headfont);
+}
+.heading::after {
+    content: "";
+    position: absolute;
+    border: 0;
+    width: 50px;
+    height: 5px;
+    background: #2882ad;
+    z-index: 9;
+    margin-left: 0;
+    left: 0;
+    bottom: 0;
+}
+.pb-45 {
+    padding-bottom: 20px;
+    padding-top: 17px;
+    font-size:15px;
+    color: #646464;
+}
+.margin-0 {
+    margin: 0;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+.form-part::placeholder{
+	color:#646464;
+}
+.form-control{
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 49px 0 rgba(0, 0, 0, 0.08);
+    padding: 10px 18px;
+    height: 45px;
+    font-size: 14px;
+}
+.mb-30 {
+    margin-bottom: 30px;
+}
+.type{
+	color: #fff;
+	text-transform: uppercase;
+	padding: 14px 40px;
+	width: 100%;
+	max-width: 100%;
+	border-radius: 5px;
+	background: #2882ad;
+	border: 2px solid;
+	border-color: #009961;
+	-webkit-appearance: button;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+	font-size: 18px;
+	font-weight: 700;
+}
+.pb-100{
+	padding-bottom: 50px;
+	padding-top: 50px;
+}
+.address-item{
+	padding: 25px;
+	background-color: #ededed;
+	border-radius: 4px;
+	text-align: center;
+	box-shadow: 2px 2px #cfc8c8;
+	height: 250px;
+}
+.address-icon{
+    background: #2882ad;
+    height: 70px;
+    width: 70px;
+    line-height: 87px;
+    border-radius: 100%;
+    position: relative;
+    margin: 0 auto 15px;
+}
+.address-icon i::before{
+    font-size: 42px;
+    color: #ffffff;
+    margin-top: 0;
+    margin-left: 0;
+	line-height: 10px;
+}
+.address-item .address-icon::before{
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 70px;
+    height: 70px;
+    background: #2882ad;
+    border-radius: 50%;
+    animation: pulse-border 1.5s ease-out infinite;
+    opacity: 0;
+    visibility: hidden;
+}
+.address-item:hover .address-icon:before {
+  opacity: 1;
+  visibility: visible;
+}
+@keyframes pulse-border {
+  0% {
+    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.contact-title{
+    font-size: 22px;
+    margin: 0 0 10px;
+    font-weight: 700;
+    color: #2882ad;
+}
+.numbers li a{
+	text-decoration:none;
+	color: #505050;
+}
+.numbers{
+	list-style:none;
+}
+.numbers li{
+	font-size:15px;
+}
+.time{
+	list-style:none;
+	padding-left:0;
+}
+.address-text ul li{
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 400;
+    color: #505050;
+}
+.address-text p{
+	color: #505050;
+}
+

@@ -69,6 +69,9 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('index');
 
+Route::view('/about', 'about')->name('about');
+Route::view('/contact', 'contact')->name('contact');
+
 Route::view('/register', 'register')->name('register');
 Route::post('/register-submit', 'HomeController@Register')->name('register.submit');
 

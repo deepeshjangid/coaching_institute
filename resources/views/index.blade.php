@@ -117,14 +117,12 @@
 					<div class="row section-content align-items-center justify-content-center">
 						<div class="col-sm-12 col-md-6">
 							<h3><span>Welcome To Coaching Institute </span></h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisi cing elit. Quos dolo rem consequ untur, natus laudantium commodi earum aliquid in ullam.Lorem ipsum.</p>
+							<p>Indianhometutor is India's largest and most trusted Learning Network. Our vision is to be one-stop learning partner for every Indian with Verified Tutors, Trainers & Institutes, we are a trusted partner of choice for students, parents and professionals visiting us every month to fulfill learning requirements across more than 1000 categories.</p>
 							<p class="mb-15">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum sunt ut dolorem laboriosam culpa excepturi sed distinctio eius! Ut magnam numquam libero quia vero blanditiis fugit corporis quisquam, debitis quidem
-								laudantium deleniti.
+								Using Indianhometutor.com, students, parents and professionals can compare multiple Tutors, Trainers and Institutes and choose the ones that best suit their requirements.
 							</p>
 							<p class="mb-10">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum sunt ut dolorem laboriosam culpa excepturi sed distinctio eius! Ut magnam numquam libero quia vero blanditiis fugit corporis quisquam, debitis quidem
-								laudantium deleniti.
+								If you are a Tutor, Trainer or an Institute, you can get relevant enquiries based on your skills and offer online as well as offline coaching services.
 							</p>
 					   </div>
 						

@@ -39,10 +39,9 @@
 						<div class="collapse navbar-collapse" id="collapsibleNavbar">
 							 <ul class="navbar-nav ml-auto manubar">
 							   <li class="nav-item active"><a class="nav-link " href="{{ route('index') }}">Home</a></li>
-							   <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-							   <li class="nav-item"><a class="nav-link" href="#">Services </a></li>
-							   <li class="nav-item"><a class="nav-link" href="#">Subscription Plan</a></li>
-							   <li class="nav-item"><a class="nav-link" href="#">Contact us</a></li>
+							   <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About</a></li>
+							   <li class="nav-item"><a class="nav-link" href="#0">Subscription Plan</a></li>
+							   <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact us</a></li>
 							</ul>
 							 <ul class="navbar-nav mobile-call">
 								@if(Session::has('user_login'))
@@ -143,24 +142,25 @@
 									<div class="footer-widget links-widget">
 										<h4>Contact Us </h4>
 										 <div class="sigle-address">
-											<div class="address-icon">
+											<div class="address-icon1">
 												<i class="fa fa-home"></i>
 											</div>
-											<p>No.123 Chalingt Gates,
-												Supper market New York
+											<p>PSB Group 2nd floor ,sudama Hardware, Bajnamath Chowk , Shashtri nagar Jabalpur (M.P.) Pin:-482001
 											</p>
 										</div>
 										<div class="sigle-address">
-											<div class="address-icon">
+											<div class="address-icon1">
 												<i class="fa fa-envelope-o"></i>
 											</div>
-											<p>support@gmail.com</p>
+											<p>info@indianhometutor.com</p>
 										</div>
 										<div class="sigle-address">
-											<div class="address-icon">
+											<div class="address-icon1">
 												<i class="fa fa-headphones"></i>
 											</div>
-											<p>+012 (4567) 789</p>
+											<p>123456789</p>
+												
+											
 										</div>
 									</div>
 								</div>
