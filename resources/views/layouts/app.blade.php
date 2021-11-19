@@ -99,7 +99,7 @@
 											<a href="{{ route('index') }}"> <span style="font-weight:bold;font-size:26px;">LOGO</span>
 											<!-- <img src="images/footer-logo.png" alt="" /> --> </a>
 										</div>
-										<div class="text"> Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two waters own morning gathered greater.</div>
+										<div class="text"> Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two waters own morning gathered greater. Using Indianhometutor.com.</div>
 										<div class="social-box">
 											<a href="#" class="fa fa-facebook"></a>
 											<a href="#" class="fa fa-instagram"></a>
@@ -147,19 +147,19 @@
 									<div class="footer-widget links-widget">
 										<h4>Contact Us </h4>
 										 <div class="sigle-address">
-											<div class="address-icon">
+											<div class="address-icon1">
 												<i class="fa fa-home"></i>
 											</div>
 											<p>@if($contact) {{ $contact->address }} @endif</p>
 										</div>
 										<div class="sigle-address">
-											<div class="address-icon">
+											<div class="address-icon1">
 												<i class="fa fa-envelope-o"></i>
 											</div>
 											<p>@if($contact) {{ $contact->email }} @endif</p>
 										</div>
 										<div class="sigle-address">
-											<div class="address-icon">
+											<div class="address-icon1">
 												<i class="fa fa-phone"></i>
 											</div>
 											<p>@if($contact) {{ $contact->mobile }} @endif</p>
