@@ -23,7 +23,7 @@ class Userauth
             
 
         }else{
-            $request->session()->flash('error','Access Denied');
+            $request->session()->flash('error',"You will need to login");
             return redirect('/login');
 
         }

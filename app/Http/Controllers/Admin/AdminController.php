@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\admin;
 use App\Models\User;
+use App\Models\Testimonial;
 use DB;
 use Hash;
 use Validator;
@@ -100,10 +101,15 @@ class AdminController extends Controller
 
     public function dashboard()
     {   
+       $users = User::where('user_type', '!=', '4')->where('delete_status','1')->get();
        $students = User::where('user_type','1')->where('delete_status','1')->get();
        $tutors = User::where('user_type','2')->where('delete_status','1')->get();
        $institutes = User::where('user_type','3')->where('delete_status','1')->get();
-	   return view('admin.dashboard')->with(compact('students', 'tutors', 'institutes'));
+       $student_forms = DB::table('student_forms')->where('delete_status','1')->get();
+       $tutor_forms = DB::table('tutor_forms')->where('delete_status','1')->get();
+       $institute_forms = DB::table('institute_forms')->where('delete_status','1')->get();
+       $testimonials = Testimonial::where('delete_status','1')->get();
+	   return view('admin.dashboard')->with(compact('users', 'students', 'tutors', 'institutes','student_forms','tutor_forms','institute_forms', 'testimonials'));
     }
     
    

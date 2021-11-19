@@ -37,7 +37,7 @@
 									</div>
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="mobile" required type="tel" class="form-control" placeholder="Mobile Number" />
+											<input name="mobile" required type="tel" class="form-control" placeholder="Mobile Number" onkeypress="return /[0-9 ]/i.test(event.key)" pattern="^\d{10}$" min="10" maxLength="10" />
 										</div>
 									</div>
 									
@@ -77,7 +77,12 @@
 										</div>
 									</div>
 									
-									<div class="col-md-12 col-sm-6 col-12">
+									<div class="col-md-6 col-sm-3 col-6">
+										<div class="btn-block">
+											<button class="btn btn-danger"><a href="{{ route('index') }}">Back</a></button>
+										</div>
+									</div>
+									<div class="col-md-6 col-sm-3 col-6">
 										<div class="btn-block">
 											<button name="submit" type="submit" value="Submit" class="btn btn-primary">Submit</button>
 										</div>

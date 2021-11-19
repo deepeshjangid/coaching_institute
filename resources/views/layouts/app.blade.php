@@ -19,12 +19,6 @@
 		
 </head>
 <body>
-
-
-<div id="preloader" style="display: none;">
-	  <div class="loader_spinner_inside"></div>
-	  <span class="loader_spinner_text">Please Wait...</span>
-	</div>
 	  <!--- Header Area Section--->
 		   <div class="container-fluid p-0" id="manu-bg">
 				  <nav class="navbar navbar-expand-md navigation-bar top-fixed myheader">
@@ -40,11 +34,12 @@
 							 <ul class="navbar-nav ml-auto manubar">
 							   <li class="nav-item active"><a class="nav-link " href="{{ route('index') }}">Home</a></li>
 							   <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About</a></li>
-							   <li class="nav-item"><a class="nav-link" href="#0">Subscription Plan</a></li>
+							   <li class="nav-item"><a class="nav-link" href="{{ route('subscription.plan') }}">Subscription Plan</a></li>
 							   <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact us</a></li>
 							</ul>
 							 <ul class="navbar-nav mobile-call">
 								@if(Session::has('user_login'))
+							
 									<li class="nav-item"><a class="nav-link" 
 									href="@if(Session::get('user_type')=='1'){{ route('student.profile') }}
 										@elseif(Session::get('user_type')=='2'){{ route('tutor.profile') }}
@@ -73,6 +68,16 @@
 
              @yield('content')
 
+			 <div class="toast" data-autohide="true" style="padding:20px;border-radius: 10px;">
+        <div class="toast-body">kjsddddddddddddd
+
+        </div>
+    </div>
+    <div id="preloader" style="display: none;">
+        <div class="loader_spinner_inside"></div>
+        <span class="loader_spinner_text">Please Wait...</span>
+    </div>
+
              	<!--Arrow -->
 			<div class="scroll-to-top scroll-to-target">
 			  <span class="fa fa-arrow-circle-up"></span>
@@ -91,7 +96,7 @@
 								<div class="footer-column col-lg-7 col-md-6 col-sm-12">
 									<div class="footer-widget logo-widget">
 										<div class="logo">
-											<a href="index.php"> <span style="font-weight:bold;font-size:26px;">LOGO</span>
+											<a href="{{ route('index') }}"> <span style="font-weight:bold;font-size:26px;">LOGO</span>
 											<!-- <img src="images/footer-logo.png" alt="" /> --> </a>
 										</div>
 										<div class="text"> Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two waters own morning gathered greater.</div>
@@ -142,25 +147,24 @@
 									<div class="footer-widget links-widget">
 										<h4>Contact Us </h4>
 										 <div class="sigle-address">
-											<div class="address-icon1">
+											<div class="address-icon">
 												<i class="fa fa-home"></i>
 											</div>
-											<p>PSB Group 2nd floor ,sudama Hardware, Bajnamath Chowk , Shashtri nagar Jabalpur (M.P.) Pin:-482001
+											<p>No.123 Chalingt Gates,
+												Supper market New York
 											</p>
 										</div>
 										<div class="sigle-address">
-											<div class="address-icon1">
+											<div class="address-icon">
 												<i class="fa fa-envelope-o"></i>
 											</div>
-											<p>info@indianhometutor.com</p>
+											<p>support@gmail.com</p>
 										</div>
 										<div class="sigle-address">
-											<div class="address-icon1">
+											<div class="address-icon">
 												<i class="fa fa-headphones"></i>
 											</div>
-											<p>123456789</p>
-												
-											
+											<p>+012 (4567) 789</p>
 										</div>
 									</div>
 								</div>
@@ -175,13 +179,27 @@
 	
 
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/popper.min.js.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('assets/js/slider-one.js') }}"></script>
-<script src="{{asset('assets/js/jquery-1.12.4.min.js')}}" type="text/javascript"></script>
+<!-- <script src="{{asset('assets/js/jquery-1.12.4.min.js')}}" type="text/javascript"></script> -->
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{asset('assets/js/sweetalert.min.js')}}" type="text/javascript"></script>
+
 <script type="text/javascript" language="javascript" src="{{ asset('assets/js/common.js') }}"></script>
+
+<script>
+		$(document).ready(function(){
+
+			@if(Session::has('error'))
+				showMsg('error', "{{ Session::get('error') }}")
+			@elseif(Session::has('success'))
+				showMsg('success', "{{ Session::get('success') }}")
+			@endif
+
+		});
+    </script>
  <script>
 	 $(document).ready(function () {
 		 $(window).scroll(function () {

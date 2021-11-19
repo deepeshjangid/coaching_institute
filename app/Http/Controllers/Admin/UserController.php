@@ -58,7 +58,7 @@ class UserController extends Controller
 		$checkResult=User::find($id);
 		
 		if($checkResult){
-			User::where('id', $id)->update(["delete_status"=>"0"]);
+			User::where('id', $id)->delete();
 			$request->session()->flash('success','User deleted successfully.');
 		}else{
 			$request->session()->flash('error','Something went wrong. Please try again.');

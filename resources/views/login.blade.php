@@ -38,6 +38,7 @@
 								</div>
 								<form id="form" action="{{ route('login.submit') }}" method="post">
 									@csrf
+
 									<div class="form-group form-focus">
 										<input type="tel" name="mobile" class="form-control floating" placeholder="Mobile" required onkeypress="return /[0-9 ]/i.test(event.key)" pattern="^\d{10}$" min="10" maxLength="10"/>
 									</div>

@@ -1,7 +1,10 @@
+
 @extends('layouts/master')
-@section('title',__('All Student Forms'))
-@section('Form',__('active'))
-@section('Student Forms',__('active'))
+
+@section('title',__('Subscription Plan List'))
+@section('data',__('active'))
+@section('PurchagePlans',__('active'))
+
 @section('content')
 
 <!-- Content Wrapper. Contains page content -->
@@ -14,15 +17,19 @@
                     <div class="panel-heading">
 						<i class="fa fa-th"></i> Goto
 					</div>
+					<div class="panel-body">
+                        <div class="btn-group" id="buttonlist">
+                            <a class="btn btn-add " href="{{ route('admin.subscriptionplan.add')}}">
+                                <i class="fa fa-plus"></i> Add Subscription Plan </a>
+                        </div>
+                    </div>
 				</div>
 			</div>
 
-            
-			
 			<div class="col-sm-12">
                 <div class="panel panel-bd ">
                     <div class="panel-heading">
-                        <i class="fa fa-list"> Student Forms List</i>
+                        <i class="fa fa-list">Purchage Subscription Plans</i>
                     </div>
 			
                     <div class="panel-body">
@@ -31,26 +38,31 @@
                                 <thead>
                                     <tr>
                                         <th>S.N.</th>
-                                        <th>Name</th>
-										<th>Email</th>
-										<th>Mobile</th>
-										<th>Subjects</th>
-										<th>City</th>
-										<th>Pincode</th>
+										<th>User Name</th>
+										<th>Plan Name</th>
+										<th>Price</th>
+										<th>Order Id</th>
+										<th>Transaction Id</th>
+										<th>Payment</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @if($datas)
                                     @php $count="1"; @endphp
-                                    @foreach($datas as $data)
+                                    @foreach($datas as $key=>$data)
                                     <tr>
                                         <td>{{$count}}</td>
-                                        <td>{{$data->name}}</td>
-										<td>{{$data->email}}</td>
-										<td>{{$data->mobile}}</td>
-										<td>{{$data->subjects}}</td>
-										<td>{{$data->city}}</td>
-										<td>{{$data->pincode}}</td>
+										<td>{{$data['user']['name']}}</td>
+										<td>{{$data['subscriptionplan']['name']}}</td>
+										<td>{{$data['amount']}}</td>
+										<td>{{$data['order_id']}}</td>
+										<td>{{$data['transaction_id']}}</td>
+										<td>
+                                            @if($data['status'] == '0') Failed
+                                            @elseif($data['status'] == '1') Success
+                                            @elseif($data['status'] == '2') Pending
+                                            @endif
+                                        </td>
                                     </tr>
                                     @php $count++; @endphp
                                     @endforeach
@@ -73,3 +85,5 @@
 <!-- /.content-wrapper -->
 
 @endsection
+
+

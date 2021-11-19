@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Student;
 use App\Models\Tutor;
 use App\Models\Institue;
+use App\Models\SubscriptionPlan;
 use App\Helpers\commonHelper;
 use Validator;
 use Hash;
@@ -328,6 +329,23 @@ class HomeController extends Controller
 			return response($response);
 
 		}
+    }
+
+    public function SubscriptionPlan()
+    {
+        $students_plans = SubscriptionPlan::where('user_type', '1')->where('delete_status', '1')->get();
+        $tutors_plans = SubscriptionPlan::where('user_type', '2')->where('delete_status', '1')->get();
+        $institutes_plans = SubscriptionPlan::where('user_type', '3')->where('delete_status', '1')->get();
+        return view('subscription-plan', compact('students_plans', 'tutors_plans', 'institutes_plans'));
+    }
+
+    public function PlanPurchage(Request $request)
+    {
+        $plan_id = $request->id;
+        $plan = SubscriptionPlan::where('id', $plan_id)->first();
+        $price = $request->price;
+
+        return view('plan-purchage', compact('plan', 'plan_id', 'price'));
     }
 
 }

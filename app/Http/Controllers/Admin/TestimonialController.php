@@ -99,7 +99,7 @@ class TestimonialController extends Controller
 		$checkResult=Testimonial::find($id);
 		
 		if($checkResult){
-			Testimonial::where('id',$id)->update(['delete_status'=>'0']);
+			Testimonial::where('id',$id)->delete();
 			$request->session()->flash('success','Testimonial deleted successfully.');
 		}else{
 			$request->session()->flash('error','Something went wrong. Please try again.');

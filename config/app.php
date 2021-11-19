@@ -178,6 +178,8 @@ return [
         Laravel\Passport\PassportServiceProvider::class,
         Ixudra\Curl\CurlServiceProvider::class,
 
+        // Anand\LaravelPaytmWallet\PaytmWalletServiceProvider::class,
+
     ],
 
     /*
@@ -231,6 +233,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Curl' => Ixudra\Curl\Facades\Curl::class,
+
+        // 'PaytmWallet' => Anand\LaravelPaytmWallet\Facades\PaytmWallet::class,
 
     ],
 

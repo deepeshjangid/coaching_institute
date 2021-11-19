@@ -76,7 +76,7 @@
 							<div class="benefit-header">
 								<h6>SUBSCRIPTION PLAN</h6>
 								<h2>Discover our Top School Child Benefits</h2>
-								<a href="#0" class="btn btn-fill">Login / Signup</a>
+								<a href="{{ route('login') }}" class="btn btn-fill">Login / Signup</a>
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6 col-12 col-lg">
@@ -119,10 +119,10 @@
 							<h3><span>Welcome To Coaching Institute </span></h3>
 							<p>Indianhometutor is India's largest and most trusted Learning Network. Our vision is to be one-stop learning partner for every Indian with Verified Tutors, Trainers & Institutes, we are a trusted partner of choice for students, parents and professionals visiting us every month to fulfill learning requirements across more than 1000 categories.</p>
 							<p class="mb-15">
-								Using Indianhometutor.com, students, parents and professionals can compare multiple Tutors, Trainers and Institutes and choose the ones that best suit their requirements.
+							Using Indianhometutor.com, students, parents and professionals can compare multiple Tutors, Trainers and Institutes and choose the ones that best suit their requirements.
 							</p>
 							<p class="mb-10">
-								If you are a Tutor, Trainer or an Institute, you can get relevant enquiries based on your skills and offer online as well as offline coaching services.
+							If you are a Tutor, Trainer or an Institute, you can get relevant enquiries based on your skills and offer online as well as offline coaching services.
 							</p>
 					   </div>
 						

@@ -8,26 +8,28 @@
 					<div class="col-lg-8 col-md-12 col-sm-12 content-column">
 						<div class="content-box clearfix">
 							<div class="title pull-left">
-								<h1>Student </h1>
+								<h1>Plan Purchage </h1>
 							</div>
 							<ul class="bread-crumb pull-right clearfix">
 								<li><a href="{{ route('index') }}">Home</a></li>
-								<li>Student Form</li>
+								<li>Plan Purchage</li>
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
-	</section>
+		</section>
 	
 	
 	  <div class="container-fluid " style="padding:70px 0">
 				<div class="container">
 					<div class="row justify-content-center mr-tb-40">
 						<div class="col-lg-6">
-						<form class="contact-form"  id="form" action="{{ route('student.form.submit' )}}" method="post" enctype="multipart/form-data">
-							    @csrf
+						<form class="contact-form" action="{{ route('make.payment' )}}" method="post" enctype="multipart/form-data">
+                                @csrf
 								<div class="row">
+									<input name="plan_id" required type="hidden" class="form-control" value="@if($plan_id) {{ $plan_id }} @endif" />
+                                  
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
 											<input name="name" required type="text" class="form-control" placeholder="Name" />
@@ -38,38 +40,24 @@
 											<input name="mobile" required type="tel" class="form-control" placeholder="Mobile Number" onkeypress="return /[0-9 ]/i.test(event.key)" pattern="^\d{10}$" min="10" maxLength="10" />
 										</div>
 									</div>
-									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="email" required type="email" class="form-control" placeholder="Email Id" />
+											<input name="services" required type="text" class="form-control" placeholder="Services" />
 										</div>
 									</div>
-									<div class="col-md-12 col-sm-12 col-12">
+                                    <div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="subjects" required type="text" class="form-control" placeholder="Subject" />
+											<input name="plan_name" readonly type="text" class="form-control" value="@if($plan) {{ $plan->name }} @endif" />
 										</div>
 									</div>
-									
-									<div class="col-md-12 col-sm-12 col-12">
+                                    <div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="city" required type="text" class="form-control" placeholder="City">
+											<input name="amount" readonly type="text" class="form-control" value="@if($price) {{ $price }} @endif" />
 										</div>
 									</div>
-									
-									<div class="col-md-12 col-sm-12 col-12">
-										<div class="input-group">
-											<input name="pincode" required type="text" class="form-control" placeholder="PinCode">
-										</div>
-									</div>
-									
-									<div class="col-md-6 col-sm-3 col-6">
+									<div class="col-md-12 col-sm-6 col-12">
 										<div class="btn-block">
-											<button class="btn btn-danger"><a href="{{ route('index') }}">Back</a></button>
-										</div>
-									</div>
-									<div class="col-md-6 col-sm-3 col-6">
-										<div class="btn-block">
-											<button name="submit" type="submit" value="Submit" class="btn btn-primary">Submit</button>
+											<button name="submit" type="submit" value="Submit" class="btn btn-primary">Payment</button>
 										</div>
 									</div>
 								</div>

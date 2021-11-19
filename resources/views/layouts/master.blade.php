@@ -25,6 +25,7 @@
     <link href="{{ asset('admin-assets/plugins/pace/flash.css')}}" rel="stylesheet" type="text/css" />
     <!-- Font Awesome -->
     <link href="{{ asset('admin-assets/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
+
     <!-- Pe-icon -->
     <link href="{{ asset('admin-assets/pe-icon-7-stroke/css/pe-icon-7-stroke.css')}}" rel="stylesheet"
         type="text/css" />
@@ -171,6 +172,21 @@
                             <li class="@yield('Testimonials')"><a href="{{ route('admin.testimonial.list') }}">Testimonials List</a></li>
                         </ul>
                     </li>
+                    <li class="treeview @yield('SubscriptionPlan')">
+                        <a href="#">
+                        <i class="fa fa-rocket" aria-hidden="true"></i><span>Subscription Plans</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="@yield('AddSubscriptionPlan')"><a href="{{ route('admin.subscriptionplan.add') }}">Add Subscription Plan</a></li>
+                            <li class="@yield('StudentSubscriptionPlans')"><a href="{{ url('admin/subscription-plan/list/1') }}">Student Subscription Plans</a></li>
+                            <li class="@yield('TutorSubscriptionPlans')"><a href="{{ url('admin/subscription-plan/list/2') }}">Tutor Subscription Plans</a></li>
+                            <li class="@yield('InstituteSubscriptionPlans')"><a href="{{ url('admin/subscription-plan/list/3') }}">Institute Subscription Plans</a></li>
+                            <li class="@yield('PurchagePlans')"><a href="{{ url('admin/subscription-plan/purchage-plans') }}">Purchage Plans</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar -->
@@ -206,13 +222,19 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 	<script src="{{ asset('admin-assets/plugins/bootstrap-toggle/bootstrap-toggle.min.js')}}" type="text/javascript"></script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="{{asset('admin-assets/plugins/sweetalert/sweetalert.min.js')}}" type="text/javascript"></script>
+
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" language="javascript" src="{{ asset('admin-assets/js/common.js') }}"></script>
    
- 
 	
 	<script>
+        $('#summernote').summernote({
+            placeholder: '',
+            tabsize: 1,
+            height: 200
+        });
 		$(document).ready(function(){
 			@if(Session::has('error'))
 				sweetAlertMsg('error',"{{ Session::get('error') }}");

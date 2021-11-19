@@ -159,7 +159,7 @@ class TutorController extends Controller
 		}
 
         $id = Session::get('user_id');
-        $user = User::where('id', $id)->where('status', '1')->where('delete_status', '1')->first();
+        $user = User::where('id', $id)->where('delete_status', '1')->first();
         $tutor = Tutor::where('user_id', $id)->first();
 
         if($tutor && $user){

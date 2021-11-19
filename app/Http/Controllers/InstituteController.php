@@ -109,7 +109,7 @@ class InstituteController extends Controller
 		}
 
         $id = Session::get('user_id');
-        $user = User::where('id', $id)->where('status', '1')->where('delete_status', '1')->first();
+        $user = User::where('id', $id)->where('delete_status', '1')->first();
         $institute = Institute::where('user_id', $id)->first();
 
         if($institute && $user){

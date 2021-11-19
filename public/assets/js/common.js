@@ -32,23 +32,27 @@ $("form#form").submit(function(e){
 		error:function(xhr,textStatus){
 			
 			if(xhr && xhr.responseJSON.message){
-				sweetAlertMsg('error', xhr.status + ': ' + xhr.responseJSON.message);
+				showMsg('error', xhr.status + ': ' + xhr.responseJSON.message);
+
 			}else{
-				sweetAlertMsg('error', xhr.status + ': ' + xhr.statusText);
+				showMsg('error', xhr.status + ': ' + xhr.statusText);
+
 			}
 			
 			$('#preloader').css('display','none');
 		},
 		success: function(data){
 			if(data.error){
-				sweetAlertMsg('error',data.message);
+				showMsg('error', data.message);
+
 			}else{
 				
 				if(data.reset){
 					$('#'+formId)[0].reset();
 				}
 				// $('button[type="submit"]').prop('disabled', true);
-				sweetAlertMsg('success',data.message);
+				showMsg('success', data.message);
+
 				if(data.registration){
 					window.location.href = "/login";
 				}
@@ -89,3 +93,22 @@ function sweetAlertMsg(type,msg){
 		});
 	}
 }
+
+function showMsg(type, msg) {
+	if (type == 'error') {
+		$('.toast-body').html('<i class="fa fa-times-circle red" style="color:red"></i> ' + msg);
+	} else if (type == 'success') {
+		$('.toast-body').html('<i class="fa fa-check-circle green" style="color:green"></i> ' + msg);
+	} else {
+		$('.toast-body').html('<i class="fa fa-exclamation-circle warning" style="color:#d0b718"></i> ' + msg);
+	}
+
+	$(".toast").toast({
+		delay: 5000
+	});
+	$('.toast').toast('show');
+}
+
+$('.toast').mouseleave(function() {
+	$('.toast').toast('hide');
+});
