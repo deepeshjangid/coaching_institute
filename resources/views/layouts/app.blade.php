@@ -3,7 +3,8 @@
 <head>
    <title> {{ config('app.name', 'Laravel') }} </title>
     <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#"/>
 
     <!-- CSRF Token -->
@@ -35,7 +36,7 @@
 							   <li class="nav-item active"><a class="nav-link " href="{{ route('index') }}">Home</a></li>
 							   <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About</a></li>
 							   <li class="nav-item"><a class="nav-link" href="{{ route('subscription.plan') }}">Subscription Plan</a></li>
-							   <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact us</a></li>
+							   <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact Us</a></li>
 							</ul>
 							 <ul class="navbar-nav mobile-call">
 								@if(Session::has('user_login'))
