@@ -76,8 +76,6 @@
 									<div class="content-heading">
 										<h2 class="heading">Get In Touch</h2>
 										<p class="margin-0 pb-45">
-											Suspendisse ex neque, sollicitudin in velit eu, luctus gravida nunc. Nulla pul-vinar risus sed metus euismod sodales ut sed nisi.
-										</p>
 										<div class="form-part">
 											<form class="contact-form"  id="form" action="{{ route('contact.submit' )}}" method="post" enctype="multipart/form-data">
 												@csrf
