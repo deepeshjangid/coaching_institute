@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db7299a379bff19c97435e7021659b30",
+    "content-hash": "82ccac38b0f397c2203781c61c3def09",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -289,16 +289,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "2.13.4",
+            "version": "2.13.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "2411a55a2a628e6d8dd598388ab13474802c7b6e"
+                "reference": "d92ddb260547c2a7b650ff140f744eb6f395d8fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/2411a55a2a628e6d8dd598388ab13474802c7b6e",
-                "reference": "2411a55a2a628e6d8dd598388ab13474802c7b6e",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/d92ddb260547c2a7b650ff140f744eb6f395d8fc",
+                "reference": "d92ddb260547c2a7b650ff140f744eb6f395d8fc",
                 "shasum": ""
             },
             "require": {
@@ -311,13 +311,13 @@
             "require-dev": {
                 "doctrine/coding-standard": "9.0.0",
                 "jetbrains/phpstorm-stubs": "2021.1",
-                "phpstan/phpstan": "0.12.99",
+                "phpstan/phpstan": "1.1.1",
                 "phpunit/phpunit": "^7.5.20|^8.5|9.5.10",
                 "psalm/plugin-phpunit": "0.16.1",
-                "squizlabs/php_codesniffer": "3.6.0",
+                "squizlabs/php_codesniffer": "3.6.1",
                 "symfony/cache": "^4.4",
                 "symfony/console": "^2.0.5|^3.0|^4.0|^5.0",
-                "vimeo/psalm": "4.10.0"
+                "vimeo/psalm": "4.12.0"
             },
             "suggest": {
                 "symfony/console": "For helpful console commands such as SQL execution and import of files."
@@ -378,7 +378,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/2.13.4"
+                "source": "https://github.com/doctrine/dbal/tree/2.13.5"
             },
             "funding": [
                 {
@@ -394,7 +394,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-02T15:59:26+00:00"
+            "time": "2021-11-11T16:27:36+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -896,16 +896,16 @@
         },
         {
             "name": "firebase/php-jwt",
-            "version": "v5.5.0",
+            "version": "v5.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/firebase/php-jwt.git",
-                "reference": "cf814442ce0e9eebe5317d61b63ccda4b85de67a"
+                "reference": "83b609028194aa042ea33b5af2d41a7427de80e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/cf814442ce0e9eebe5317d61b63ccda4b85de67a",
-                "reference": "cf814442ce0e9eebe5317d61b63ccda4b85de67a",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/83b609028194aa042ea33b5af2d41a7427de80e6",
+                "reference": "83b609028194aa042ea33b5af2d41a7427de80e6",
                 "shasum": ""
             },
             "require": {
@@ -947,9 +947,9 @@
             ],
             "support": {
                 "issues": "https://github.com/firebase/php-jwt/issues",
-                "source": "https://github.com/firebase/php-jwt/tree/v5.5.0"
+                "source": "https://github.com/firebase/php-jwt/tree/v5.5.1"
             },
-            "time": "2021-11-04T16:21:41+00:00"
+            "time": "2021-11-08T20:18:51+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",
@@ -1296,16 +1296,16 @@
         },
         {
             "name": "ixudra/curl",
-            "version": "6.21.0",
+            "version": "6.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ixudra/curl.git",
-                "reference": "796bd307ca35c66a3f6a47b559f8ccad9f06e93f"
+                "reference": "23cf5977a03a3ebcc41e979ef9e6ba87ae508f0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ixudra/curl/zipball/796bd307ca35c66a3f6a47b559f8ccad9f06e93f",
-                "reference": "796bd307ca35c66a3f6a47b559f8ccad9f06e93f",
+                "url": "https://api.github.com/repos/ixudra/curl/zipball/23cf5977a03a3ebcc41e979ef9e6ba87ae508f0e",
+                "reference": "23cf5977a03a3ebcc41e979ef9e6ba87ae508f0e",
                 "shasum": ""
             },
             "require": {
@@ -1348,22 +1348,22 @@
             ],
             "support": {
                 "issues": "https://github.com/ixudra/curl/issues",
-                "source": "https://github.com/ixudra/curl/tree/6.21.0"
+                "source": "https://github.com/ixudra/curl/tree/6.22.0"
             },
-            "time": "2020-09-22T12:50:01+00:00"
+            "time": "2021-11-14T14:39:54+00:00"
         },
         {
             "name": "laravel/framework",
-            "version": "v7.30.4",
+            "version": "v7.30.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "9dd38140dc2924daa1a020a3d7a45f9ceff03df3"
+                "reference": "afb0c034072a03a5ab1872fbdea54f8befd873c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/9dd38140dc2924daa1a020a3d7a45f9ceff03df3",
-                "reference": "9dd38140dc2924daa1a020a3d7a45f9ceff03df3",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/afb0c034072a03a5ab1872fbdea54f8befd873c3",
+                "reference": "afb0c034072a03a5ab1872fbdea54f8befd873c3",
                 "shasum": ""
             },
             "require": {
@@ -1512,7 +1512,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-01-21T14:10:48+00:00"
+            "time": "2021-11-17T15:00:14+00:00"
         },
         {
             "name": "laravel/passport",
@@ -2716,20 +2716,20 @@
         },
         {
             "name": "psr/container",
-            "version": "1.1.2",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/container.git",
-                "reference": "513e0666f7216c7459170d56df27dfcefe1689ea"
+                "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/container/zipball/513e0666f7216c7459170d56df27dfcefe1689ea",
-                "reference": "513e0666f7216c7459170d56df27dfcefe1689ea",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/8622567409010282b7aeebe4bb841fe98b58dcaf",
+                "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.4.0"
+                "php": ">=7.2.0"
             },
             "type": "library",
             "autoload": {
@@ -2758,9 +2758,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-fig/container/issues",
-                "source": "https://github.com/php-fig/container/tree/1.1.2"
+                "source": "https://github.com/php-fig/container/tree/1.1.1"
             },
-            "time": "2021-11-05T16:50:12+00:00"
+            "time": "2021-03-05T17:36:06+00:00"
         },
         {
             "name": "psr/event-dispatcher",
@@ -3370,6 +3370,128 @@
                 "source": "https://github.com/ranium/laravel-seedonce/tree/v1.3.0"
             },
             "time": "2020-12-26T10:31:48+00:00"
+        },
+        {
+            "name": "razorpay/razorpay",
+            "version": "2.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/razorpay/razorpay-php.git",
+                "reference": "4ad7b6a5bd9896305858ec0a861f66020e39f628"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/razorpay/razorpay-php/zipball/4ad7b6a5bd9896305858ec0a861f66020e39f628",
+                "reference": "4ad7b6a5bd9896305858ec0a861f66020e39f628",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=5.3.0",
+                "rmccue/requests": "v1.8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8|~5.0",
+                "raveren/kint": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Razorpay\\Api\\": "src/",
+                    "Razorpay\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Abhay Rana",
+                    "email": "nemo@razorpay.com",
+                    "homepage": "https://captnemo.in",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Shashank Kumar",
+                    "email": "shashank@razorpay.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Razorpay PHP Client Library",
+            "homepage": "https://docs.razorpay.com",
+            "keywords": [
+                "api",
+                "client",
+                "php",
+                "razorpay"
+            ],
+            "support": {
+                "email": "contact@razorpay.com",
+                "issues": "https://github.com/Razorpay/razorpay-php/issues",
+                "source": "https://github.com/Razorpay/razorpay-php"
+            },
+            "time": "2021-11-08T11:13:39+00:00"
+        },
+        {
+            "name": "rmccue/requests",
+            "version": "v1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WordPress/Requests.git",
+                "reference": "afbe4790e4def03581c4a0963a1e8aa01f6030f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WordPress/Requests/zipball/afbe4790e4def03581c4a0963a1e8aa01f6030f1",
+                "reference": "afbe4790e4def03581c4a0963a1e8aa01f6030f1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+                "php-parallel-lint/php-console-highlighter": "^0.5.0",
+                "php-parallel-lint/php-parallel-lint": "^1.3",
+                "phpcompatibility/php-compatibility": "^9.0",
+                "phpunit/phpunit": "^4.8 || ^5.7 || ^6.5 || ^7.5",
+                "requests/test-server": "dev-master",
+                "squizlabs/php_codesniffer": "^3.5",
+                "wp-coding-standards/wpcs": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Requests": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan McCue",
+                    "homepage": "http://ryanmccue.info"
+                }
+            ],
+            "description": "A HTTP library written in PHP, for human beings.",
+            "homepage": "http://github.com/WordPress/Requests",
+            "keywords": [
+                "curl",
+                "fsockopen",
+                "http",
+                "idna",
+                "ipv6",
+                "iri",
+                "sockets"
+            ],
+            "support": {
+                "issues": "https://github.com/WordPress/Requests/issues",
+                "source": "https://github.com/WordPress/Requests/tree/v1.8.0"
+            },
+            "time": "2021-04-27T11:05:25+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6187,16 +6309,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.16.0",
+            "version": "2.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "23400e6cc565c9dcae2c53704b4de1c4870c0697"
+                "reference": "29b533f63a3b269aa599d08dd4d22a0d720e295f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/23400e6cc565c9dcae2c53704b4de1c4870c0697",
-                "reference": "23400e6cc565c9dcae2c53704b4de1c4870c0697",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/29b533f63a3b269aa599d08dd4d22a0d720e295f",
+                "reference": "29b533f63a3b269aa599d08dd4d22a0d720e295f",
                 "shasum": ""
             },
             "require": {
@@ -6260,7 +6382,7 @@
                 "issues": "https://github.com/facade/ignition/issues",
                 "source": "https://github.com/facade/ignition"
             },
-            "time": "2021-10-28T11:47:23+00:00"
+            "time": "2021-11-16T13:09:30+00:00"
         },
         {
             "name": "facade/ignition-contracts",
@@ -7702,16 +7824,16 @@
         },
         {
             "name": "sebastian/exporter",
-            "version": "3.1.3",
+            "version": "3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "6b853149eab67d4da22291d36f5b0631c0fd856e"
+                "reference": "0c32ea2e40dbf59de29f3b49bf375176ce7dd8db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/6b853149eab67d4da22291d36f5b0631c0fd856e",
-                "reference": "6b853149eab67d4da22291d36f5b0631c0fd856e",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/0c32ea2e40dbf59de29f3b49bf375176ce7dd8db",
+                "reference": "0c32ea2e40dbf59de29f3b49bf375176ce7dd8db",
                 "shasum": ""
             },
             "require": {
@@ -7720,7 +7842,7 @@
             },
             "require-dev": {
                 "ext-mbstring": "*",
-                "phpunit/phpunit": "^6.0"
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "extra": {
@@ -7767,7 +7889,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/exporter/issues",
-                "source": "https://github.com/sebastianbergmann/exporter/tree/3.1.3"
+                "source": "https://github.com/sebastianbergmann/exporter/tree/3.1.4"
             },
             "funding": [
                 {
@@ -7775,7 +7897,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-30T07:47:53+00:00"
+            "time": "2021-11-11T13:51:24+00:00"
         },
         {
             "name": "sebastian/global-state",
@@ -8286,7 +8408,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2.5"
+        "php": "^7.3|^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"

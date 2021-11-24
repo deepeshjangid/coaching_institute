@@ -95,7 +95,7 @@ Route::get('/subscription-plan', 'HomeController@SubscriptionPlan')->name('subsc
 
 Route::view('/about', 'about')->name('about');
 
-Route::get('/contact', 'HomeController@ContactUs')->name('contact');
+Route::get('/contact-us', 'HomeController@ContactUs')->name('contact');
 Route::post('/contact-submit', 'HomeController@ContactUsSubmit')->name('contact.submit');
 
 Route::group(['middleware' => 'Userauth'], function () {
@@ -105,9 +105,7 @@ Route::group(['middleware' => 'Userauth'], function () {
 	Route::match(['get','post'],'institute-profile', 'InstituteController@Profile')->name('institute.profile');
 
 	Route::post('/plan-purchage','HomeController@PlanPurchage')->name('plan.purchage');
-
-	Route::post('/payment','PaytmController@pay')->name('make.payment');
-	Route::post('/payment/status', 'PaytmController@paymentCallback')->name('status');
+	Route::post('payment', 'PaymentController@Payment')->name('make.payment');
 
 });
 

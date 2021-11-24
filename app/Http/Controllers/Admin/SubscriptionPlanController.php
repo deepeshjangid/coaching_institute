@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\SubscriptionPlan;
-use App\Models\Paytm;
+use App\Models\PurchagePlan;
 use DB;
 use Session;
 use Validator;
@@ -92,7 +92,7 @@ class SubscriptionPlanController extends Controller
 
 	public function PurchagePlan()
     {
-		$datas = Paytm::with('User')->with('SubscriptionPlan')->get();
+		$datas = PurchagePlan::with('User')->with('SubscriptionPlan')->get();
         return view('admin.subscription-plan.purchage-plans')->with(['datas' => $datas]);
     }
 
