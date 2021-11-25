@@ -48,7 +48,7 @@
 							   <li class="nav-item"><a class="nav-link" href="{{ route('subscription.plan') }}">Subscription Plan</a></li>
 							   <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact Us</a></li>
 							</ul>
-							 <ul class="navbar-nav mobile-call">
+							 <ul class="navbar-nav mobile-call desktop-btn">
 								@if(Session::has('user_login'))
 							
 									<li class="nav-item"><a class="nav-link" 
