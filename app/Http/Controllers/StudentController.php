@@ -111,7 +111,7 @@ class StudentController extends Controller
                                 'profile_image'=> $image_update,
                             ]);
                         }
-                        return response(array("error" => false, "reset"=>false,"message" => "Profile updated successfully."),200);
+                        return response(array("error" => false, "reset"=>false,"message" => "Your profile has been updated."),200);
 						
 					}
 				catch (\Exception $e) {

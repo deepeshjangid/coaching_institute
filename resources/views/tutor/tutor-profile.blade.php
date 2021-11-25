@@ -28,7 +28,11 @@
 								<div class="row">
 									<div class="col-md-12 col-sm-12 col-12">
 										<div>
-											<img class="mb-5 border rounded-circle" src="{{ asset('/uploads/tutors/profile-images')}}/@if($data){{ $data['profile_image'] }}@endif" style="width:100px; height: 100px;">  
+											@if($data['profile_image'])
+											<img class="mb-5 border rounded-circle" src="{{ asset('/uploads/tutors/profile-images')}}/@if($data){{ $data['profile_image'] }} @endif" style="width:100px; height: 100px;">  
+											@else
+											<i class="fa fa-user" aria-hidden="true" style="font-size: 100px; margin-bottom: 20px; color: lightslategrey;"></i>
+											@endif
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 col-12">
@@ -96,19 +100,34 @@
 									</div>
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="highest_qualification_doc" @if(!$data) @endif type="file" class="form-control" />
+											<input name="highest_qualification_doc" @if(!$data) @endif type="file" class="form-control" data-image-preview="quadoc" />
+										</div>
+										<div class="form-group previewimages" id="quadoc">
+											@if($data && $data['highest_qualification_doc']!='')
+											    <p>{{ $data['highest_qualification_doc'] }}</p>
+											@endif	
 										</div>
 									</div>
 									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="profile_image" @if(!$data) @endif type="file" class="form-control" accept=".png, .jpg, .jpeg"/>
+											<input name="profile_image" @if(!$data) @endif type="file" class="form-control" accept=".png, .jpg, .jpeg" data-image-preview="profileimage" />
+										</div>
+										<div class="form-group previewimages" id="profileimage">
+											@if($data && $data['profile_image']!='')
+												<img src="{{ asset('/uploads/tutors/profile-images/'.$data['profile_image']) }}" style="width: 100px;margin-right: 13px" />
+											@endif	
 										</div>
 									</div>
 
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="id_proof" @if(!$data) @endif type="file" class="form-control"  accept=".png, .jpg, .jpeg"/>
+											<input name="id_proof" @if(!$data) @endif type="file" class="form-control"  accept=".png, .jpg, .jpeg" data-image-preview="idprooofimage"/>
+										</div>
+										<div class="form-group previewimages" id="idprooofimage">
+											@if($data && $data['id_proof']!='')
+												<img src="{{ asset('/uploads/tutors/id-proofs/'.$data['id_proof']) }}" style="width: 100px;margin-right: 13px" />
+											@endif	
 										</div>
 									</div>
 
@@ -120,7 +139,7 @@
 									
 									<div class="col-md-6 col-sm-6 col-12">
 										<div class="btn-block">
-											<button name="submit" type="submit" value="Submit" class="btn btn-primary">Update</button>
+											<button name="submit" type="submit" value="Submit" class="btn btn-primary" disabled>Update</button>
 										</div>
 									</div>
 									<!-- <div class="col-md-6 col-sm-6 col-12">

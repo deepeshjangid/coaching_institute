@@ -44,7 +44,7 @@ class HomeController extends Controller
                 'name' => 'required',
                 'mobile' => 'required|max:10|unique:users,mobile',
                 'email' => 'required|email|unique:users,email',
-                'password' => 'required',
+                'password' => 'required|confirmed',
 			];
 			
 			$validator = Validator::make($request->all(), $rules);
@@ -69,7 +69,7 @@ class HomeController extends Controller
                         $userResult=User::where('mobile', $request->mobile)->first();
                         
                         if($userResult){
-                            return response(array("error" => false, "reset"=>false, "message" => "User already registered. Please login!"),200);
+                            return response(array("error" => false, "reset"=>false, "message" => "This mobile number is already exists. Try another mobile number."),200);
                         }else{
                             
                             User::insert([
@@ -83,7 +83,7 @@ class HomeController extends Controller
                                 'admin_verify'=> '1',
                             ]);
 
-                            return response()->json(['error' => false, 'registration' => true, 'message'=>'Registration successfully completed']);
+                            return response()->json(['error' => false, 'registration' => true, 'message'=>'Your registration has been successfully completed.']);
                         }
                     }
 
@@ -106,7 +106,7 @@ class HomeController extends Controller
 			
 			$validator = Validator::make($request->all(), $rules);
 
-			$response = array("error" => true, "message" => "Something went wrong. try again!"); 
+			$response = array("error" => true, "message" => "Something went wrong. try again."); 
 			
 			if ($validator->fails()) {
 				$message = [];
@@ -127,13 +127,13 @@ class HomeController extends Controller
                                 Session::put('user_id', $user->id);
                                 Session::put('user_mobile', $user->mobile);
                                 Session::put('user_type', $user->user_type);
-                                return response()->json(['error' => false, 'login' => true, 'message'=>'Login successfully completed']);
+                                return response()->json(['error' => false, 'login' => true, 'message'=>'You are successfully logged in.']);
                             }else{
-                                return response()->json(['error' => true, 'message'=>'Incorrect Password']);
+                                return response()->json(['error' => true, 'message'=>'That password’s not right. Try again.']);
                             }
                             
                         }else{
-                            return response()->json(['error' => true, 'message'=>'Mobile number not registered']);
+                            return response()->json(['error' => true, 'message'=> 'This mobile number is not register.']);
                         }
                     }
                 }catch (\Exception $e) {
@@ -153,9 +153,9 @@ class HomeController extends Controller
             $request->session()->forget('user_type');
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-            return redirect('/')->with('success','Successfully log out');
+            return redirect('/')->with('success','You have been successfully logged out.');
         }else{
-            return redirect('/')->with('success','Successfully log out');
+            return redirect('/')->with('success','You have been successfully logged out.');
         }
     }
 

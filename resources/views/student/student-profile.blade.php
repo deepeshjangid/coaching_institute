@@ -28,7 +28,11 @@
 								<div class="row">
 									<div class="col-md-12 col-sm-12 col-12">
 										<div>
-											<img class="mb-5 border rounded-circle" src="{{ asset('/uploads/students')}}/@if($data){{ $data['profile_image'] }}@endif" style="width:100px; height: 100px;">  
+											@if($data['profile_image'])
+											<img class="mb-5 border rounded-circle" src="{{ asset('/uploads/students')}}/@if($data){{ $data['profile_image'] }} @endif" style="width:100px; height: 100px;">  
+											@else
+											<i class="fa fa-user" aria-hidden="true" style="font-size: 100px; margin-bottom: 20px; color: lightslategrey;"></i>
+											@endif
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 col-12">
@@ -96,7 +100,12 @@
 									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="profile_image" @if(!$data) @endif type="file" class="form-control" accept=".png, .jpg, .jpeg"/>
+											<input name="profile_image" @if(!$data) @endif type="file" class="form-control" accept=".png, .jpg, .jpeg" data-image-preview="profileimage"/>
+										</div>
+										<div class="form-group previewimages" id="profileimage">
+											@if($data && $data['profile_image']!='')
+												<img src="{{ asset('/uploads/students/'.$data['profile_image']) }}" style="width: 100px;margin-right: 13px" />
+											@endif	
 										</div>
 									</div>
 									

@@ -62,6 +62,9 @@
 									<div class="form-group form-focus">
 										<input type="password" name="password" class="form-control floating" placeholder="Password" required/>
 									</div>
+									<div class="form-group form-focus">
+										<input type="password" name="conform-password" class="form-control floating" placeholder="Conform Password" required/>
+									</div>
 
 								    <button class="btn btn-primary btn-block btn-lg login-btn w-100" type="submit">Register</button>
                                     <div class="login-or">

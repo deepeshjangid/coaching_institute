@@ -145,7 +145,7 @@ class TutorController extends Controller
                                 'occupation'=> $request->occupation,
                             ]);
                         }
-                        return response(array("error" => false, "reset"=>false,"message" => "Profile updated successfully."),200);
+                        return response(array("error" => false, "reset"=>false,"message" => "Your profile has been updated."),200);
 						
 					}
 				catch (\Exception $e) {

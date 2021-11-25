@@ -63,6 +63,31 @@ Route::group(['prefix'=>'admin','middleware' => 'admin'], function () {
 		Route::post('change-status','Admin\SubscriptionPlanController@changeStatus')->name('admin.subscriptionplan.changestatus');
 	});
 
+	Route::group(['prefix'=>'course-category'],function() {
+		Route::match(['get','post'],'add', 'Admin\CategoryController@index')->name('admin.course.category.add');
+		Route::get('/list', 'Admin\CategoryController@show')->name('admin.course.category.list');
+		Route::get('/update/{id}', 'Admin\CategoryController@update')->name('admin.course.category.update');
+		Route::get('/delete/{id}', 'Admin\CategoryController@destroy')->name('admin.course.category.delete');
+		Route::post('change-status','Admin\CategoryController@changeStatus')->name('admin.course.category.changestatus');
+	});
+
+	Route::group(['prefix'=>'course-sub-category'],function() {
+		Route::match(['get','post'],'add', 'Admin\SubCategoryController@index')->name('admin.course.sub.category.add');
+		Route::get('/list', 'Admin\SubCategoryController@show')->name('admin.course.sub.category.list');
+		Route::get('/update/{id}', 'Admin\SubCategoryController@update')->name('admin.course.sub.category.update');
+		Route::get('/delete/{id}', 'Admin\SubCategoryController@destroy')->name('admin.course.sub.category.delete');
+		Route::post('change-status','Admin\SubCategoryController@changeStatus')->name('admin.course.sub.category.changestatus');
+	});
+
+	Route::group(['prefix'=>'course'],function() {
+		Route::match(['get','post'],'add', 'Admin\CourseController@index')->name('admin.course.add');
+		Route::get('/list', 'Admin\CourseController@show')->name('admin.course.list');
+		Route::get('/update/{id}', 'Admin\CourseController@update')->name('admin.course.update');
+		Route::get('/delete/{id}', 'Admin\CourseController@destroy')->name('admin.course.delete');
+		Route::post('change-status','Admin\CourseController@changeStatus')->name('admin.course.changestatus');
+		Route::post('get','Admin\CourseController@Get')->name('admin.course.get');
+	});
+
 	Route::group(['prefix'=>'contact-us'],function() {
 		Route::match(['get','post'],'add', 'Admin\ContactUsController@index')->name('admin.contact.add');
 		Route::get('/list', 'Admin\ContactUsController@show')->name('admin.contact.list');

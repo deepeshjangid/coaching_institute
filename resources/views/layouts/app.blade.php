@@ -28,8 +28,7 @@
 					  <span style="font-weight:bold;font-size:26px;">LOGO</span>
 					 <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid" alt="logo" style="display:none;"></a>
 					 
-					 <ul class="navbar-nav mobile-call">
-							
+					 		<!-- <ul class="navbar-nav mobile-call">
 							
 									<li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">
 										<button type="button" class="site-button onlineCbseBtn">Login</button> </a>
@@ -37,9 +36,8 @@
 									<li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">
 										<button type="button" class="site-button onlineCbseBtn Zokelijk-btn">Sign up</button> </a>
 									</li>
-								@endif
 								
-							 </ul>
+							 </ul> -->
 					 
 					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 						<span> <i class="fa fa-bars" aria-hidden="true"></i> </span>
@@ -85,7 +83,7 @@
              @yield('content')
 
 			 <div class="toast" data-autohide="true" style="padding:20px;border-radius: 10px;">
-        <div class="toast-body">kjsddddddddddddd
+        <div class="toast-body">
 
         </div>
     </div>

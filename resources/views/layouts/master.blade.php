@@ -187,6 +187,47 @@
                             <li class="@yield('PurchagePlans')"><a href="{{ url('admin/subscription-plan/purchage-plans') }}">Purchage Plans</a></li>
                         </ul>
                     </li>
+
+                    <li class="treeview @yield('Category')">
+                        <a href="#">
+                        <i class="fa fa-sitemap" aria-hidden="true"></i><span>Course Category</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="@yield('AddCategory')"><a href="{{ route('admin.course.category.add') }}">Add Course Category</a></li>
+                            <li class="@yield('CategoryList')"><a href="{{ route('admin.course.category.list') }}">Course Category List</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview @yield('SubCategory')">
+                        <a href="#">
+                        <i class="fa fa-sitemap" aria-hidden="true"></i><span>Course Sub Category</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="@yield('AddSubCategory')"><a href="{{ route('admin.course.sub.category.add') }}">Add Course Sub Category</a></li>
+                            <li class="@yield('SubCategoryList')"><a href="{{ route('admin.course.sub.category.list') }}">Course Sub Category List</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview @yield('Course')">
+                        <a href="#">
+                        <i class="fa fa-book" aria-hidden="true"></i><span>Course</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="@yield('AddCourse')"><a href="{{ route('admin.course.add') }}">Add Course</a></li>
+                            <li class="@yield('CourseList')"><a href="{{ route('admin.course.list') }}">Course List</a></li>
+                        </ul>
+                    </li>
+
+                    
                     <li class="treeview @yield('ContactUs')">
                         <a href="#">
                         <i class="fa fa-phone" aria-hidden="true"></i><span>Contact Us</span>

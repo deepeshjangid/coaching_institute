@@ -1,12 +1,13 @@
 // var form_original_data = JSON.stringify($("form#form").serializeArray()); 
 
-// $('form#form').bind('keyup change', function(e){
+// $('form#form').bind('keyup', function(e){
 
 // 	if (JSON.stringify($(this).serializeArray()) == form_original_data) {
 // 		$('button[type="submit"]').prop('disabled', true);
 // 	}else{
 // 		$('button[type="submit"]').prop('disabled', false);
 // 	}
+
 // });
 
 // $('button[type="reset"]').click('click', function(){
@@ -112,3 +113,38 @@ function showMsg(type, msg) {
 $('.toast').mouseleave(function() {
 	$('.toast').toast('hide');
 });
+
+$(function (){
+	    $("input[type='file']").change(function () { 
+	        	var uploadType=$(this).data('type'); 
+	           	var dvPreview = $("#"+$(this).data('image-preview'));
+	
+	            if (typeof (FileReader) != "undefined") {
+	                var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp|.xlsx)$/;  
+	                $($(this)[0].files).each(function (){
+	                    var file = $(this);
+	                    if (regex.test(file[0].name.toLowerCase())) {
+	                        var reader = new FileReader();
+	                        reader.onload = function (e) {
+	                            var img = $("<img />");
+	                            img.attr("style", "width: 100px;margin-right: 13px");
+	                            img.attr("src", e.target.result);
+	                            
+	                            if(uploadType=='multiple'){
+	                                dvPreview.append(img);
+	                            }else{
+	                                dvPreview.html(img);
+	                            } 
+	                        }
+	                        reader.readAsDataURL(file[0]);
+	                    } else {
+	                        alert(file[0].name + " is not a valid image file.");
+	                        dvPreview.html(file[0].name);
+	                        return false;
+	                    }
+	                });
+	            } else {
+	                alert("This browser does not support HTML5 FileReader.");
+	            }
+	        });
+	    });

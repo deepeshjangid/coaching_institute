@@ -95,7 +95,7 @@ class InstituteController extends Controller
                                 'address'=> $request->address,
                             ]);
                         }
-                        return response(array("error" => false, "reset"=>false,"message" => "Profile updated successfully."),200);
+                        return response(array("error" => false, "reset"=>false,"message" => "Your profile has been updated."),200);
 						
 					}
 				catch (\Exception $e) {

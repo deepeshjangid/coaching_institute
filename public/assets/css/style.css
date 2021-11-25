@@ -232,10 +232,15 @@ textarea {
 
 .social-bx li a i {}
 
+
+.container-fluid {
+  background: #f0f5fb;
+}
+
 .navigation-bar {
     padding: 8px 0px;
     background: #f0f5fb;
-    border-top: 2px solid dimgrey;
+    /* border-top: 2px solid dimgrey; */
 }
 
 .manubar {
@@ -260,7 +265,7 @@ textarea {
 }
 .mobile-call{
   
-margin-left: 40px;
+margin-left: 15px;
 }
 #quik-call-btn, .onlineCbseBtn {
     color: #fff;
