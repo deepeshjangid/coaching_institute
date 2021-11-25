@@ -1830,9 +1830,21 @@ color: #505050;
 .btn-bg-1 {
   background: #08c1d7;
 }
+.mobile-user{
+	display:none;
+}
 
-
+ 
  @media only screen and (min-width:320px) and (max-width:767px){
+.mobile-user{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}	 
+.mobile-user li{}
+.mobile-user li a{
+	padding:7px;
+}
 .navbar-toggler{
 	    font-size: 22px;
 }	 
@@ -1843,9 +1855,62 @@ color: #505050;
 }	 
 .manubar li a {
     font-size: 16px;
-    padding: 3px 13px !important;
-}	 
-	 
+    padding: 3px 1px !important;
+}	
+#quik-call-btn, .onlineCbseBtn {
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 11px;
+}
+.mobile-call {
+    margin-left: 50px !important;
+}
+	.info-section {
+    padding: 22px 0;
+}
+.banner-card {
+    padding: 10px;
+    background: #f0f5fb;
+    border-radius: 4px;
+    box-shadow: 7px 9px 34px rgb(215 209 209 / 5%);
+    border: 1px solid #da700d;
+    margin-bottom: 16px;
+}
+.banner-count h2 {
+    color: #f97d44;
+    font-size: 24px;
+    font-weight: 600;
+    padding-right: 10px;
+    border-right: 1px solid #fff;
+    line-height: 20px;
+}
+.benefits-section {
+    background: #1D1762;
+    position: relative;
+    z-index: 1;
+    padding: 30px 0;
+}
+.benefit-header h2 {
+    font-size: 25px;
+    line-height: 33px;
+    color: #fff;
+    margin: 0 0 0px;
+}
+.btn-fill {
+    background: #dd006a;
+    color: #fff;
+    border-radius: 30px;
+    box-shadow: -2px 2px 4px rgb(5 90 190 / 10%);
+    font-size: 10px;
+    padding: 7px 13px 8px;
+    font-weight: 700;
+}
+.benefit-widget {
+    padding: 12px 20px;
+}
+
+
+ } 
 	 
 	 
  }
