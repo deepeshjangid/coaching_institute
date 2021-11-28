@@ -347,14 +347,7 @@ background-position:center top;
 position:relative;
 }
 
-.call-to-action-section-two .content h2{
-position: relative;
-color: #ffffff;
-line-height: 1.4em;
-font-weight: 700;
-font-size: 38px;
-text-transform: capitalize;
-}
+.call-to-action-section-two .content h2{position: relative;color: #ffffff;line-height: 1.4em;font-weight: 700;font-size: 38px;text-transform: capitalize;}
 
 .call-to-action-section-two .content .text{
   position: relative;
@@ -680,7 +673,7 @@ margin:0 auto;
   font-size: 40px;
   line-height: 50px;
   color: #1D1762;
-  margin: 0 0 25px;
+  margin: 0 0 15px;
   font-weight: bold;
 }
 .btn-fill {
@@ -835,15 +828,7 @@ background:#00ab15;
 
 /** page-title **/
 
-.page-title{
-position: relative;
-width: 100%;
-padding-top: 120px;
-background-size: cover !important;
-background-repeat: no-repeat;
-background-position: center;
-background: linear-gradient(rgb(0 0 0 / 69%), rgb(3 5 9 / 90%)), url(../images/bg-title-about.jpg);
-}
+.page-title{position: relative;width: 100%;padding-top: 120px;background-size: cover !important;background-repeat: no-repeat;background-position: center;background: linear-gradient(rgb(0 0 0 / 69%), rgb(3 5 9 / 90%)), url(../images/bg-title-about.jpg);}
 
 .page-title .content-box{
 position: relative;
@@ -877,15 +862,7 @@ position: relative;
 margin-top: 11px;
 }
 
-.page-title .content-box .bread-crumb li{
-position: relative;
-display: inline-block;
-font-size: 16px;
-color: #fff;
-font-weight: 600;
-padding-right: 30px;
-margin-right: 7px;
-}
+.page-title .content-box .bread-crumb li{position: relative;display: inline-block;font-size: 16px;color: #fff;font-weight: 600;padding-right: 30px;margin-right: 7px;}
 
 .page-title .content-box .bread-crumb li:last-child{
 padding: 0px;
@@ -1976,7 +1953,7 @@ display:none;
 
 
 
-@media only screen and (min-width:320px) and (max-width:767px){
+@media only screen and (min-width: 320px) and (max-width: 767px){
 .mobile-user{
 display: flex;
 justify-content: space-between;
@@ -2003,7 +1980,7 @@ padding:7px;
   font-size: 11px;
 }
 .mobile-call {
-  margin-left: 50px !important;
+  margin-left: 28px !important;
 }
 .info-section {
   padding: 22px 0;
@@ -2034,7 +2011,7 @@ padding:7px;
   font-size: 25px;
   line-height: 33px;
   color: #fff;
-  margin: 0 0 0px;
+  margin: 0px 0px 10px;
 }
 .btn-fill {
   background: #dd006a;
@@ -2048,6 +2025,7 @@ padding:7px;
 .benefit-widget {
   padding: 12px 20px;
   box-shadow: none;
+  margin-bottom: 30px;
 }
 .desktop-btn{
   display:none;
@@ -2068,7 +2046,7 @@ padding:7px;
   font-size: 22px;
 }
 .call-to-action-section-two {
-  padding: 53px 0px 50px;
+  padding: 15px 0px 20px;
 }
 .btn-style-one {
   padding: 10px 15px;
@@ -2081,6 +2059,83 @@ padding:7px;
   background: #f5f4f3;
   padding: 20px 0 40px;
 }
+.call-to-action-section-two .content h2 {
+    font-size: 24px;
+}
+.call-to-action-section-two .content .text {
+    font-size: 15px;
+    margin: 5px 0;
+}
+.single-testimonial-item {
+    padding: 20px;
+    border-radius: 30px 0 30px 0;
+}
+.sec-title h3 {
+    font-size: 25px;
+    margin-bottom: 0;
+}
+.pull-left {
+    display: none;
+}
+.page-title .content-box .bread-crumb {
+    margin-top: 0;
+}
+.page-title .content-box {
+    margin-right: 92px;
+    padding: 10px 50px 10px 0px;
+}
+.page-title .content-box .bread-crumb li {
+    font-size: 13px;
+}
+.ticket-price .section-title h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.ticket-price {
+    padding: 30px 0 50px;
+}
+.address-item {
+    padding: 20px;
+    background-color: #ededed;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 2px 2px #cfc8c8;
+    height: auto;
+    margin-bottom: 20px;
+}
+.content-heading {
+    margin-left: 15px;
+}
+.contact-form input {
+    border-radius: 10px;
+	margin-bottom:0px !important
+}
+.contact-form {
+    padding: 30px 15px;
+}
 } 
  
- 
+@media only screen and (min-width:768px) and (max-width:1024px){
+.manubar li a {
+    font-size: 15px;
+    padding: 15px 8px !important;
+}	
+#quik-call-btn, .onlineCbseBtn {
+    padding: 8px 19px 9PX;
+}	
+.bg-set-image-1, .bg-set-image-2, .bg-set-image-3 {
+    height: 280px;
+}	
+
+.megamenu-links ul li a {
+    font-size: 11px;
+}
+.benefits-section {
+    padding: 20px 0;
+}
+.benefit-header h2 {
+    font-size: 29px;
+    margin: 0 0 0px;
+    font-weight: bold;
+}
+} 

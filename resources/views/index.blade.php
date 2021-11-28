@@ -118,7 +118,7 @@
 			<div class="container-fluid megacourse-menu"> 
 					<div class="container p-0">
 						<div class="row">
-						<div class="col-md-4 col-sm-12 col-12 menu-box-one">
+						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-one">
 							<div class="menu-heading">
 							</div>
 							<div class="megamenu-links">
@@ -141,7 +141,7 @@
 						
 						</div>
 						
-						<div class="col-md-4 col-sm-12 col-12 menu-box-two">
+						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-two">
 							<div class="menu-heading">
 							</div>
 							<div class="megamenu-links">
@@ -164,7 +164,7 @@
 							</div>
 						</div>
 						
-						<div class="col-md-4 col-sm-12 col-12 menu-box-three">
+						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
 							<div class="menu-heading">
 							</div>
 							<div class="megamenu-links">
@@ -185,7 +185,7 @@
 							</div>
 						</div>
 
-						<div class="col-md-4 col-sm-12 col-12 menu-box-three">
+						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
 							<div class="menu-heading">
 							</div>
 							<div class="megamenu-links">
@@ -208,7 +208,7 @@
 						</div>
 
 
-						<div class="col-md-4 col-sm-12 col-12 menu-box-three">
+						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
 							<div class="menu-heading">
 							</div>
 							<div class="megamenu-links">
@@ -225,7 +225,7 @@
 							</div>
 						</div>
 
-						<div class="col-md-4 col-sm-12 col-12 menu-box-three">
+						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
 							<div class="menu-heading">
 							</div>
 							<div class="megamenu-links">
@@ -241,7 +241,7 @@
 						</div>
 
 
-						<div class="col-md-4 col-sm-12 col-12 menu-box-three">
+						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
 							<div class="menu-heading">
 							</div>
 							<div class="megamenu-links">
@@ -255,7 +255,7 @@
 							</div>
 						</div>
 
-						<div class="col-md-4 col-sm-12 col-12 menu-box-three">
+						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
 							<div class="menu-heading">
 							</div>
 							<div class="megamenu-links">
@@ -270,7 +270,7 @@
 						</div>
 
 
-						<div class="col-md-4 col-sm-12 col-12 menu-box-three">
+						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
 							<div class="menu-heading">
 							</div>
 							<div class="megamenu-links">
@@ -290,7 +290,7 @@
 							</div>
 						</div>
 
-						<div class="col-md-4 col-sm-12 col-12 menu-box-three">
+						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
 							<div class="menu-heading">
 							</div>
 							<div class="megamenu-links">
@@ -311,7 +311,7 @@
 
 
 
-						<div class="col-md-4 col-sm-12 col-12 menu-box-three">
+						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
 							<div class="menu-heading">
 							</div>
 							<div class="megamenu-links">
@@ -332,7 +332,7 @@
 							</div>
 						</div>
 
-						<div class="col-md-4 col-sm-12 col-12 menu-box-three">
+						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
 							<div class="menu-heading">
 							</div>
 							<div class="megamenu-links">
@@ -348,7 +348,7 @@
 						</div>
 
 
-						<div class="col-md-4 col-sm-12 col-12 menu-box-three">
+						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
 							<div class="menu-heading">
 							</div>
 							<div class="megamenu-links">
