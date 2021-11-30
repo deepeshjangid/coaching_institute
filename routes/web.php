@@ -101,8 +101,10 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('index');
 
-Route::view('/register', 'register')->name('register');
-Route::post('/register-submit', 'HomeController@Register')->name('register.submit');
+Route::get('/register', 'HomeController@Register')->name('register');
+Route::post('/get-sub-category', 'HomeController@GetSubCategory')->name('get.sub.category');
+Route::post('/get-course', 'HomeController@GetCourse')->name('get.course');
+Route::post('/register-submit', 'HomeController@RegisterSubmit')->name('register.submit');
 
 Route::view('/login', 'login')->name('login');
 Route::post('/login-submit', 'HomeController@Login')->name('login.submit');

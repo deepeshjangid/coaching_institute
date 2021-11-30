@@ -46,6 +46,29 @@
                                             <option value="3">Coaching/Institute</option>
                                         </select>
 									</div>
+
+									<div class="form-group form-focus">
+                                        <select class="form-control" name="category" id="category_id" required>
+                                            <option value="" selected>Select Category</option>
+											@if($categories)
+											@foreach($categories as $cat)
+                                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+											@endforeach
+											@endif
+                                        </select>
+									</div>
+
+									<div class="form-group form-focus">
+                                        <select class="form-control" name="sub_category" id="sub_category_id" required>
+                                            <option value="" selected>Select Sub Category</option>
+                                        </select>
+									</div>
+
+									<div class="form-group form-focus">
+                                        <select class="form-control" name="course" id="course_id" required>
+                                            <option value="" selected>Select Course</option>
+                                        </select>
+									</div>
 									
 									<div class="form-group form-focus">
 										<input type="text" name="name" class="form-control floating" placeholder="Name" required/>

@@ -118,30 +118,32 @@
 			<div class="container-fluid megacourse-menu"> 
 					<div class="container p-0">
 						<div class="row">
+						@if($categories)
+						@foreach($categories as $cat)
 						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-one">
-							<div class="menu-heading">
-							</div>
+							<div class="menu-heading"></div>
 							<div class="megamenu-links">
 								<ul>
-								<li><a href="#0">School</a></li>
-								   <li class="megamenu-links2">
-									<a href="#0">Nursery-KG Tuition</a><span>|</span>
-									<a href="#0">Class 1 to 5 Tuition</a><span>|</span><br>
-									<a href="#0">Class 6 Tuition</a><span>|</span>
-									<a href="#0">Class 7 Tuition</a><span>|</span>
-									<a href="#0">Class 8 Tuition</a><span>|</span><br>
-									<a href="#0">Class 9 Tuition</a><span>|</span>
-									<a href="#0">Class 10 Tuition</a><span>|</span>
-									<a href="#0">Class 11 Tuition</a><span>|</span><br>
-									<a href="#0">Class 12 Tuition</a><span>|</span>
-								</li>
+								<li><a href="#0">{{ $cat->name }}</a></li>
+								   	@foreach($cat['SubCategory'] as $subcat)
+								   	<li class="megamenu-links2"><a href="#0">{{ $subcat->name }}</a></li>
+										@php
+										$courses = DB::table('courses')->where('category_id', $cat->id)->where('sub_category_id', $subcat->id)->where('status', '1')->where('delete_status', '1')->get();
+										@endphp
+								
+										<!-- <ul> -->
+											@foreach($courses as $course)
+											<li class="megamenu-links3" style="padding-left:50px;"><a href="#0" class="">{{ $course->name }}</a></li>
+											@endforeach
+										<!-- </ul> -->
+									@endforeach
 								</ul>
 							</div>
-							
-						
 						</div>
+						@endforeach
+						@endif
 						
-						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-two">
+						<!-- <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-two">
 							<div class="menu-heading">
 							</div>
 							<div class="megamenu-links">
@@ -367,14 +369,13 @@
 								</li>
 								</ul>
 							</div>
-						</div>
+						</div> -->
 
 						
-						
-					
 					</div>
 			 	 </div>
 			   </div> 
+			</div> 
 			</div> 
 				
 			

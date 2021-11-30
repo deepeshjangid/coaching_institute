@@ -13,7 +13,7 @@ class UserController extends Controller
 {
 	public function Users()
     {
-		$datas = User::whereIn('user_type', ['1','2','3'])->where('delete_status','1')->get();
+		$datas = User::with('Category')->with('SubCategory')->with('Course')->whereIn('user_type', ['1','2','3'])->where('delete_status','1')->get();
         return view('admin.user.user')->with('datas',$datas);
     }
 

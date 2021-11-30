@@ -9,6 +9,9 @@ use App\Models\Student;
 use App\Models\Tutor;
 use App\Models\Institue;
 use App\Models\SubscriptionPlan;
+use App\Models\Course;
+use App\Models\Category;
+use App\Models\SubCategory;
 use App\Helpers\commonHelper;
 use Validator;
 use Hash;
@@ -32,19 +35,57 @@ class HomeController extends Controller
     public function index()
     {
         $testimonials = Testimonial::where('status', '1')->where('delete_status', '1')->get();
-        return view('index', compact('testimonials'));
+        $categories = Category::with('SubCategory')->where('status', '1')->where('delete_status', '1')->get();
+        return view('index', compact('testimonials','categories'));
     }
 
-    public function Register(Request $request){ 
+    public function Register()
+    {
+        $categories = Category::where('status', '1')->where('delete_status', '1')->get();
+        return view('register', compact('categories'));
+    }
+    public function GetSubCategory(Request $request)
+    {
+		$subcategories = SubCategory::where('category_id', $request->id)->where('status','1')->where('delete_status','1')->get();
+		
+		$output='';
+		$output.='<option value="">Select Sub Category</option>';
+		
+		foreach($subcategories as $subcategory){
+			$output.= '<option '; if($request->id==$subcategory->id){ $output.='selected'; } $output.=' value="'.$subcategory->id.'">'.$subcategory->name.'</option>';
+		}
+
+		return Response($output);
+    }
+    public function GetCourse(Request $request)
+    {
+        echo $request->cat_id;
+        echo $request->sub_id;
+		$subcategories = Course::where('category_id', $request->cat_id)->where('sub_category_id', $request->sub_id)->where('status','1')->where('delete_status','1')->get();
+		
+		$output='';
+		$output.='<option value="">Select Course</option>';
+		
+		foreach($subcategories as $subcategory){
+			$output.= '<option '; $output.=' value="'.$subcategory->id.'">'.$subcategory->name.'</option>';
+		}
+
+		return Response($output);
+    }
+
+    public function RegisterSubmit(Request $request){ 
 
 		if($request->ajax()){
 
 			$rules=[
                 'user_type' => 'required',
+                'category' => 'required',
+                'sub_category' => 'required',
+                'course' => 'required',
                 'name' => 'required',
                 'mobile' => 'required|max:10|unique:users,mobile',
                 'email' => 'required|email|unique:users,email',
-                'password' => 'required|confirmed',
+                'password' => 'required',
 			];
 			
 			$validator = Validator::make($request->all(), $rules);
@@ -81,6 +122,9 @@ class HomeController extends Controller
                                 'status'=> '1',
                                 'delete_status'=> '1',
                                 'admin_verify'=> '1',
+                                'category_id'=>$request->category,
+                                'sub_category_id'=>$request->sub_category,
+                                'course_id'=>$request->course,
                             ]);
 
                             return response()->json(['error' => false, 'registration' => true, 'message'=>'Your registration has been successfully completed.']);

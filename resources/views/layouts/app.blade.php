@@ -227,6 +227,70 @@
 		 });
 	   });
   </script>
+<script>
+
+$('#category_id').on('change', function() {
+	var level_one_id = this.value;
+
+	$.ajax({
+		url: "{{ url('get-sub-category')}}",
+		type: "POST",
+		data: {
+		id: level_one_id
+		},
+		headers: {
+		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+		},
+		cache: false,
+		beforeSend: function(){
+			$('#preloader').css('display','block');
+		},
+		error:function(xhr,textStatus){
+
+		sweetAlertMsg('error',xhr.responseJSON.message);
+		},
+		success: function(result){
+		    $("#sub_category_id").html(result);
+			$('#preloader').css('display','none');
+		}
+
+	});
+
+});
+
+$('#sub_category_id').on('change', function() {
+
+var level_one_id = $('#category_id').val();
+var level_two_id = this.value;
+
+
+$.ajax({
+	url: "{{ url('get-course')}}",
+	type: "POST",
+	data: {
+	cat_id: level_one_id, sub_id: level_two_id,
+	},
+	headers: {
+	'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+	},
+	cache: false,
+	beforeSend: function(){
+		$('#preloader').css('display','block');
+	},
+	error:function(xhr,textStatus){
+
+	sweetAlertMsg('error',xhr.responseJSON.message);
+	},
+	success: function(result){
+		$("#course_id").html(result);
+		$('#preloader').css('display','none');
+	}
+
+});
+
+});
+
+</script>
 </body>
 </html>
 
