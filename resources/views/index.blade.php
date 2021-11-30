@@ -133,7 +133,7 @@
 								
 										<!-- <ul> -->
 											@foreach($courses as $course)
-											<li class="megamenu-links3" style="padding-left:50px;"><a href="#0" class="">{{ $course->name }}</a></li>
+											<li class="megamenu-link2"><a href="#0" class="">{{ $course->name }}</a></li>
 											@endforeach
 										<!-- </ul> -->
 									@endforeach
