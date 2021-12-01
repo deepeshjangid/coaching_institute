@@ -24,27 +24,29 @@
 				 <div class="container containers">
 				   <div class="row">
 					<nav class="navbar navbar-expand-md navigation-bar top-fixed myheader">
-					 <div class="col-xl-2 col-md-2 col-sm-2 col-2">
+					 <div class="col-xl-2 col-md-2 col-sm-12 col-12">
 						 <a class="navbar-brand my-logos" href="{{ route('index') }}">
 						  <span style="font-weight:bold;font-size:26px;">LOGO</span>
 						 <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid" alt="logo" style="display:none;"></a>
+						 
+						
+						   <ul class="mobile-call mobile-user">
+								<li class="nav-item"><a class="nav-link" href="">
+									<button type="button" class="site-button onlineCbseBtn">Gopal Saini</button> </a>
+								</li>
+								<li class="nav-item"><a class="nav-link" href="">
+									<button type="button" class="site-button onlineCbseBtn Zokelijk-btn">Logout</button> </a>
+								</li>
+					          </ul>
+						 
+						 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+								<span> <i class="fa fa-bars" aria-hidden="true"></i> </span>
+							  </button>	
+							  
 					 </div>
 					 
 					  <div class="col-xl-7 col-md-7 col-sm-7 col-12">
-						  <ul class="mobile-call mobile-user">
-							  <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">
-									<button type="button" class="site-button onlineCbseBtn">Login</button> </a>
-								</li>
-								<li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">
-									<button type="button" class="site-button onlineCbseBtn Zokelijk-btn">Sign up</button> </a>
-								</li>
-							</ul>
-							 
-							  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-								<span> <i class="fa fa-bars" aria-hidden="true"></i> </span>
-							  </button>
-						 
-							  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+							   <div class="collapse navbar-collapse" id="collapsibleNavbar">
 								 <ul class="navbar-nav ml-auto manubar">
 								   <li class="nav-item active"><a class="nav-link " href="{{ route('index') }}">Home</a></li>
 								   <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About</a></li>
@@ -52,10 +54,11 @@
 								   <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact Us</a></li>
 								</ul>
 								
-							  </div>  
-				        </div>
+							  </div> 
+						  </div>
 						  <!-- Login and User profile -->
 							<div class="col-xl-3 col-lg-3 col-md-3 login-left">
+							 
 								<ul class="user-profile-btn login-boxsss" style="">
 									@if(Session::get('user_login'))
 									<li class="nav-item dropdown">
