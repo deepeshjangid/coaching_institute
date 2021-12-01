@@ -19,6 +19,61 @@
 				  </a>
 			   </div>
 		    </div>
+			
+			 <div class="container-fluid search-section">
+			   <div class="container">
+			     <div class="row justify-content-center align-items-center">
+				     <div class="col-md-10 col-sm-12 col-12">
+					   <div class="col-md-12 title-search">
+						 <h2> We Help Students and Tutors Find Each Other </h2>
+						</div>
+							<div class="row" id="pin-serach">
+									<div class="col-xl-3 col-lg-3 col-md-3 col-12 pin-0 p-0">
+									  <div class="searching-products mobile-searching-products">
+											<form action="#" method="get">
+												<div class="input-group">
+													<input type="text" class="form-control search"
+														placeholder="Aera Search" id="search" autocomplete="off">
+														<a href="#0" class="input-group-text" id="basic-addon1">
+														<i class="icon-magnifier"></i>
+													</a>
+												</div>
+											</form>
+										</div>
+									</div>
+									
+									<div class="col-xl-3 col-lg-3 col-md-3 col-12 pin-0 p-0">
+									  <div class="form-group select-pincode">
+										  <select class="form-control form-select" id="">
+											<option>Alwar</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+										  </select>
+										</div>
+									</div>
+									
+									<div class="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-12 pdr-0 p-0">
+										<div class="searching-products mobile-searching-products">
+											<form action="#" method="get">
+												<div class="input-group">
+													
+													<input type="text" class="form-control search"
+														placeholder="Enter Course or Subject Keywords to Search" id="search" autocomplete="off">
+														<a href="#0" class="input-group-text" id="basic-addon1">
+														<i class="icon-magnifier"></i>
+													</a>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+								
+					  </div>
+				  </div>
+				</div>
+			 </div>
 			 
 			 
 			 <div class="container-fluid info-section">

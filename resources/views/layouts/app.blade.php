@@ -6,10 +6,8 @@
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#"/>
-
-    <!-- CSRF Token -->
+	<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
 	<link rel="shortcut icon" type="images/x-icon" href="{{ asset('assets/images/favicon.png') }}" />
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/carousel.css') }}">
@@ -17,61 +15,65 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">	
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/carousel.css') }}">
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" integrity="sha512-QKC1UZ/ZHNgFzVKSAhV5v5j73eeL9EEN289eKAEFaAjgAiobVAnVv/AGuPbXsKl1dNoel3kNr6PYnSiTzVVBCw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		
 </head>
 <body>
 	  <!--- Header Area Section--->
 		   <div class="container-fluid p-0" id="manu-bg">
-				 <div class="container">
-					   <nav class="navbar navbar-expand-md navigation-bar top-fixed myheader">
-					 <a class="navbar-brand my-logos" href="{{ route('index') }}">
-					  <span style="font-weight:bold;font-size:26px;">LOGO</span>
-					 <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid" alt="logo" style="display:none;"></a>
-					  <ul class="mobile-call mobile-user">
-						
-									<li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">
-										<button type="button" class="site-button onlineCbseBtn">Login</button> </a>
-									</li>
-									<li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">
-										<button type="button" class="site-button onlineCbseBtn Zokelijk-btn">Sign up</button> </a>
-									</li>
-						 </ul>
+				 <div class="container containers">
+				   <div class="row">
+					<nav class="navbar navbar-expand-md navigation-bar top-fixed myheader">
+					 <div class="col-xl-2 col-md-2 col-sm-2 col-2">
+						 <a class="navbar-brand my-logos" href="{{ route('index') }}">
+						  <span style="font-weight:bold;font-size:26px;">LOGO</span>
+						 <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid" alt="logo" style="display:none;"></a>
+					 </div>
 					 
-					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-						<span> <i class="fa fa-bars" aria-hidden="true"></i> </span>
-					  </button>
-					 
-						<div class="collapse navbar-collapse" id="collapsibleNavbar">
-							 <ul class="navbar-nav ml-auto manubar">
-							   <li class="nav-item active"><a class="nav-link " href="{{ route('index') }}">Home</a></li>
-							   <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About</a></li>
-							   <li class="nav-item"><a class="nav-link" href="{{ route('subscription.plan') }}">Subscription Plan</a></li>
-							   <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact Us</a></li>
+					  <div class="col-xl-7 col-md-7 col-sm-7 col-12">
+						  <ul class="mobile-call mobile-user">
+							  <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">
+									<button type="button" class="site-button onlineCbseBtn">Login</button> </a>
+								</li>
+								<li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">
+									<button type="button" class="site-button onlineCbseBtn Zokelijk-btn">Sign up</button> </a>
+								</li>
 							</ul>
-							 <ul class="navbar-nav mobile-call desktop-btn">
-								@if(Session::has('user_login'))
-							
-									<li class="nav-item"><a class="nav-link" 
-									href="@if(Session::get('user_type')=='1'){{ route('student.profile') }}
-										@elseif(Session::get('user_type')=='2'){{ route('tutor.profile') }}
-										@elseif(Session::get('user_type')=='3'){{ route('institute.profile') }}
-										@endif">
-										<button type="button" class="site-button onlineCbseBtn Zokelijk-btn">Profile</button> </a>
-									</li>
-									<li class="nav-item"><a class="nav-link" href="{{ route('logout') }}">
-										<button type="button" class="site-button onlineCbseBtn">Log Out</button> </a>
-									</li>
-								@else
-									<li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">
-										<button type="button" class="site-button onlineCbseBtn">Login</button> </a>
-									</li>
-									<li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">
-										<button type="button" class="site-button onlineCbseBtn Zokelijk-btn">Sign up</button> </a>
-									</li>
-								@endif
+							 
+							  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+								<span> <i class="fa fa-bars" aria-hidden="true"></i> </span>
+							  </button>
+						 
+							  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+								 <ul class="navbar-nav ml-auto manubar">
+								   <li class="nav-item active"><a class="nav-link " href="{{ route('index') }}">Home</a></li>
+								   <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About</a></li>
+								   <li class="nav-item"><a class="nav-link" href="{{ route('subscription.plan') }}">Subscription Plan</a></li>
+								   <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact Us</a></li>
+								</ul>
 								
-							 </ul>
-						  </div>  
+							  </div>  
+				        </div>
+						  <!-- Login and User profile -->
+							<div class="col-xl-3 col-lg-3 col-md-3 login-left">
+								<ul class="user-profile-btn login-boxsss" style="">
+									 <li class="nav-item dropdown">
+										<a href="#" id="navbardrop" style="background:#09618C"><i class="icon-user"></i>
+										<p><span>Sign up</span></p></a>
+									</li>
+									 <li class="nav-item dropdown">
+										<a href="#" id="navbardrop"><i class="icon-user"></i>
+										<p><span>Login</span></p></a>
+										<div class="dropdown-menu user-profile-list">
+											<ul>
+												<li><a class="login" href="{{ route('logout') }}"><i class="icon-user-following"></i> User Profile</a></li>
+												<li><a class="login" href="#"><i class="icon-power"></i> Logout</a></li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+                           </div>
+				         </div>
 				      </div>
 			     </nav>
 			 </div>  
