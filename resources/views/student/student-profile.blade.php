@@ -22,7 +22,23 @@
 		<div class="container-fluid " style="padding:70px 0">
 				<div class="container">
 					<div class="row justify-content-center mr-tb-40">
-						<div class="col-lg-6">
+					  <div class="col-m-d-4">
+					      <section class="ticket-price">
+								<div class="container">
+									<div class="section-title center"><h2> Students Subscription Plans</h2></div>
+										<div class="row row-25 clearfix">
+										
+
+
+
+
+
+								</div>
+							   </section>
+							</div>
+					  
+					  
+				<div class="col-lg-8">
 							<form class="contact-form"  id="form" action="{{ route('student.profile' )}}" method="post" enctype="multipart/form-data">
 							    @csrf
 								<div class="row">

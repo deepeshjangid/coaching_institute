@@ -19,6 +19,7 @@ Route::get('/migrate', function(){
     dd('migrated!');
 });
 
+Route::view('/plan-listing', 'plan-listing');
 Route::view('/admin', 'admin.login');
 Route::post('/admin-login', 'Admin\AdminController@login')->name('admin');
 
