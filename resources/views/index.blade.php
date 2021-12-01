@@ -27,49 +27,44 @@
 					   <div class="col-md-12 title-search">
 						 <h2> We Help Students and Tutors Find Each Other </h2>
 						</div>
+						<form action="{{ route('search') }}" method="GET"> 
+							@csrf
 							<div class="row" id="pin-serach">
+							
 									<div class="col-xl-3 col-lg-3 col-md-3 col-12 pin-0 p-0">
-									  <div class="searching-products mobile-searching-products">
-											<form action="#" method="get">
-												<div class="input-group">
-													<input type="text" class="form-control search"
-														placeholder="Aera Search" id="search" autocomplete="off">
-														<a href="#0" class="input-group-text" id="basic-addon1">
-														<i class="icon-magnifier"></i>
-													</a>
-												</div>
-											</form>
+										<div class="form-group select-pincode">
+										  <select class="form-control form-select" id="area" name="area" required>
+											<option value="" slected>Choose an Area</option>
+											<option value="alwar">Alwar</option>
+											<option value="jaipur">Jaipur</option>
+											<option value="jodhpur">Jodhpur</option>
+										  </select>
 										</div>
 									</div>
 									
 									<div class="col-xl-3 col-lg-3 col-md-3 col-12 pin-0 p-0">
 									  <div class="form-group select-pincode">
-										  <select class="form-control form-select" id="">
-											<option>Alwar</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
+										  <select class="form-control form-select" id="type" name="type" required>
+											<option value="student" selected>Student</option>
+											<option value="tutor">Tutor</option>
+											<option value="institute">Institute</option>
 										  </select>
 										</div>
 									</div>
 									
 									<div class="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-12 pdr-0 p-0">
 										<div class="searching-products mobile-searching-products">
-											<form action="#" method="get">
-												<div class="input-group">
-													
-													<input type="text" class="form-control search"
-														placeholder="Enter Course or Subject Keywords to Search" id="search" autocomplete="off">
-														<a href="#0" class="input-group-text" id="basic-addon1">
-														<i class="icon-magnifier"></i>
-													</a>
-												</div>
-											</form>
+											<div class="input-group">
+												<input type="text" class="form-control search" name="course"
+													placeholder="Enter Course or Subject Keywords to Search" id="search" autocomplete="off" required>
+													<button type="submit" class="input-group-text" id="basic-addon1"><i class="icon-magnifier"></i></button>
+											</div>
 										</div>
+										<div id="search-result"></div>
 									</div>
 								</div>
 							</div>
-								
+						</form> 
 					  </div>
 				  </div>
 				</div>
@@ -168,8 +163,6 @@
 					</div>
 				</div>
 			</div>
-
-
 			<div class="container-fluid megacourse-menu"> 
 					<div class="container p-0">
 						<div class="row">
@@ -179,16 +172,17 @@
 							<div class="menu-heading"></div>
 							<div class="megamenu-links">
 								<ul>
-								<li><a href="#0">{{ $cat->name }}</a></li>
+								<li><a>{{ $cat->name }}</a></li>
 								   	@foreach($cat['SubCategory'] as $subcat)
-								   	<li class="megamenu-links2"><a href="#0">{{ $subcat->name }}</a></li>
+								   	<li class="megamenu-links2"><a>{{ $subcat->name }}</a></li>
 										@php
 										$courses = DB::table('courses')->where('category_id', $cat->id)->where('sub_category_id', $subcat->id)->where('status', '1')->where('delete_status', '1')->get();
 										@endphp
 								
 										<!-- <ul> -->
 											@foreach($courses as $course)
-											<li class="megamenu-link2"><a href="#0" class="">{{ $course->name }}</a></li>
+											@php $dd = str_replace(' ', '-', $course->name); $cs = strtolower($dd); @endphp
+											<li class="megamenu-links3" style="padding-left:50px;"><a href="{{ asset('course/'.$cs) }}" class="">{{ $course->name }}</a></li>
 											@endforeach
 										<!-- </ul> -->
 									@endforeach
@@ -197,235 +191,6 @@
 						</div>
 						@endforeach
 						@endif
-						
-						<!-- <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-two">
-							<div class="menu-heading">
-							</div>
-							<div class="megamenu-links">
-								<ul>
-								<li><a href="#0">Subject</a></li>
-								<li class="megamenu-links2">
-									<a href="#0">All</a><span>|</span>
-									<a href="#0">All</a><span>|</span>
-									<a href="#0">Mathematics</a><span>|</span>
-									<a href="#0">English</a><span>|</span>
-									<a href="#0">Science</a><span>|</span>
-									<a href="#0">Physics </a><span>|</span><br>
-									<a href="#0">Hindi</a><span>|</span>
-									<a href="#0">Chemestry</a><span>|</span>
-									<a href="#0">Biology</a><span>|</span>
-									<a href="#0">Accounting</a><span>|</span>
-									<a href="#0">Economics</a><span>|</span>
-								</li>
-								</ul>
-							</div>
-						</div>
-						
-						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
-							<div class="menu-heading">
-							</div>
-							<div class="megamenu-links">
-								<ul>
-								<li><a href="#0">College</a></li>
-								<li class="megamenu-links2">
-									<a href="#0">B.Tech Tuition</a><span>|</span>
-									<a href="#0">B.Com Tuition</a><span>|</span>
-									<a href="#0">BAA Tuition</a><span>|</span>
-									<a href="#0">BSC Tuition</a><span>|</span><br>
-									<a href="#0">Engineering Diploma</a><span>|</span>
-									<a href="#0">MBA</a><span>|</span>
-									<a href="#0">BHMS</a><span>|</span>
-									<a href="#0">BAMS</a><span>|</span>
-									<a href="#0">MBBS</a><span>|</span>
-								</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
-							<div class="menu-heading">
-							</div>
-							<div class="megamenu-links">
-								<ul>
-								<li><a href="#0">Exam Coaching</a></li>
-								<li class="megamenu-links2">
-								<a href="#0">Engineering Entrance</a><span>|</span>
-										<a href="#0">CA Coaching</a><span>|</span>
-										<a href="#0">MBA Entrance</a><span>|</span><br>
-										<a href="#0">Medical Entrance</a><span>|</span>
-										<a href="#0">CET</a><span>|</span>
-										<a href="#0">IBPS Exam</a><span>|</span>
-										<a href="#0">UPSC Exam</a><span>|</span><br>
-										<a href="#0">SSC Exam</a><span>|</span>
-										<a href="#0">Bank Clerical Exam</a><span>|</span>
-										<a href="#0">UGC NET</a><span>|</span>
-								</li>
-								</ul>
-							</div>
-						</div>
-
-
-						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
-							<div class="menu-heading">
-							</div>
-							<div class="megamenu-links">
-								<ul>
-								<li><a href="#0">IT Courses<span style="display:block;">Programming Language</span></a></li>
-								<li class="megamenu-links2">
-								<a href="#0">JAVA Training</a><span>|</span>
-								<a href="#0">Payton Training</a><span>|</span>
-								<a href="#0">.NET Training</a><span>|</span><br>
-								<a href="#0">C Training</a><span>|</span>
-								<a href="#0">C++ Training</a><span>|</span>
-								</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
-							<div class="menu-heading">
-							</div>
-							<div class="megamenu-links">
-								<ul>
-								<li><a href="#0">IT Courses<span style="display:block;">IT Training</span></a></li>
-								<li class="megamenu-links2">
-								<a href="#0">SAP</a><span>|</span>
-								<a href="#0">Microsoft EXCEL ,PPT ,WORD </a><span>|</span>
-								<a href="#0">Amazon Web Services</a>
-								</li>
-								</ul>
-							</div>
-						</div>
-
-
-						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
-							<div class="menu-heading">
-							</div>
-							<div class="megamenu-links">
-								<ul>
-								<li><a href="#0">IT Courses<span style="display:block;">WEB Development</span></a></li>
-								<li class="megamenu-links2">
-								<a href="#0">PHP</a><span>|</span>
-								<a href="#0">Java Script Training</a>
-								</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
-							<div class="menu-heading">
-							</div>
-							<div class="megamenu-links">
-								<ul>
-								<li><a href="#0">IT Courses<span style="display:block;">othert</span></a></li>
-								<li class="megamenu-links2">
-								<a href="#0">Adobe Photoshop Training</a><span>|</span>
-								<a href="#0">Data Science</a>
-								</li>
-								</ul>
-							</div>
-						</div>
-
-
-						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
-							<div class="menu-heading">
-							</div>
-							<div class="megamenu-links">
-								<ul>
-								<li><a href="#0">Hobby Classes<span style="display:block;">Dance & Music</span></a></li>
-								<li class="megamenu-links2">
-								<a href="#0"> Dance </a><span>|</span>
-								<a href="#0"> Hindustani Music </a><span>|</span>
-								<a href="#0"> Guitar </a><span>|</span>
-								<a href="#0"> Carnatic Music </a><span>|</span><br>
-								<a href="#0"> Keyboard </a><span>|</span>
-								<a href="#0"> Singing </a><span>|</span>
-								<a href="#0"> Violin </a><span>|</span>
-								<a href="#0"> Piano</a>
-								</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
-							<div class="menu-heading">
-							</div>
-							<div class="megamenu-links">
-								<ul>
-								<li><a href="#0">Hobby Classes<span style="display:block;">Other Hobbies</span></a></li>
-								<li class="megamenu-links2">
-								<a href="#0"> Yoga  </a><span>|</span>
-								<a href="#0"> cooking </a><span>|</span>
-								<a href="#0"> Photography </a><span>|</span>
-								<a href="#0"> Drawing </a><span>|</span><br>
-								<a href="#0"> painting </a><span>|</span>
-								<a href="#0"> Makeup  </a><span>|</span>
-								<a href="#0"> Handwriting </a>
-								</li>
-								</ul>
-							</div>
-						</div>
-
-
-
-						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
-							<div class="menu-heading">
-							</div>
-							<div class="megamenu-links">
-								<ul>
-								<li><a href="#0">Languages<span style="display:block;">Foreign Language</span></a></li>
-								<li class="megamenu-links2">
-								<a href="#0"> Spoken English  </a><span>|</span>
-								<a href="#0"> German Language </a><span>|</span>
-								<a href="#0"> French Language </a><br>
-								<a href="#0"> Spanish Language </a><span>|</span>
-								<a href="#0"> Russian Language </a><span>|</span><br>
-								<a href="#0"> Japanese Language  </a><span>|</span>
-								<a href="#0"> Chinese Language </a><span>|</span><br>
-								<a href="#0"> Arabic Language </a><span>|</span>
-								<a href="#0"> Italian Language </a>
-								</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
-							<div class="menu-heading">
-							</div>
-							<div class="megamenu-links">
-								<ul>
-								<li><a href="#0">Internship</a></li>
-								<li class="megamenu-links2">
-								<a href="#0"> BE/Btech  </a><span>|</span>
-								<a href="#0"> MBA  </a><span>|</span>
-								<a href="#0"> other</a>
-								</li>
-								</ul>
-							</div>
-						</div>
-
-
-						<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 menu-box-three">
-							<div class="menu-heading">
-							</div>
-							<div class="megamenu-links">
-								<ul>
-								<li><a href="#0">More </a></li>
-								<li class="megamenu-links2">
-								<a href="#0"> NCERT Solutions </a><span>|</span>
-								<a href="#0"> CBSC Syllabus  </a><span>|</span>
-								<a href="#0"> All tuitions</a><span>|</span>
-								<a href="#0"> IIT JEE</a><span>|</span><br>
-								<a href="#0"> AIIMS</a><span>|</span>
-								<a href="#0"> CAT</a><span>|</span>
-								<a href="#0"> GATE</a><span>|</span>
-								<a href="#0"> GRE</a><span>|</span>
-								<a href="#0"> GMAT</a>
-								</li>
-								</ul>
-							</div>
-						</div> -->
-
 						
 					</div>
 			 	 </div>

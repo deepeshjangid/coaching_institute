@@ -17,6 +17,16 @@ class User extends Authenticatable
         //return $this->hasOne(Phone::class);
         return $this->belongsTo('App\Models\Student');
     }
+    public function Tutor()
+    {
+        //return $this->hasOne(Phone::class);
+        return $this->belongsTo('App\Models\Tutor');
+    }
+    public function Institute()
+    {
+        //return $this->hasOne(Phone::class);
+        return $this->belongsTo('App\Models\Institute');
+    }
     public function Category()
     {
         //return $this->hasOne(Phone::class);

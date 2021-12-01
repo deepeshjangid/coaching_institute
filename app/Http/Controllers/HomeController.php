@@ -7,7 +7,7 @@ use App\Models\Testimonial;
 use App\Models\User;
 use App\Models\Student;
 use App\Models\Tutor;
-use App\Models\Institue;
+use App\Models\Institute;
 use App\Models\SubscriptionPlan;
 use App\Models\Course;
 use App\Models\Category;
@@ -169,6 +169,7 @@ class HomeController extends Controller
                             if(Hash::check($request->password, $user->password)){
                                 Session::put('user_login', true);
                                 Session::put('user_id', $user->id);
+                                Session::put('user_name', $user->name);
                                 Session::put('user_mobile', $user->mobile);
                                 Session::put('user_type', $user->user_type);
                                 return response()->json(['error' => false, 'login' => true, 'message'=>'You are successfully logged in.']);
@@ -193,6 +194,7 @@ class HomeController extends Controller
         if(Session::get('user_login')){
             $request->session()->forget('user_login');
             $request->session()->forget('user_id');
+            $request->session()->forget('user_name');
             $request->session()->forget('user_mobile');
             $request->session()->forget('user_type');
             $request->session()->invalidate();
@@ -449,5 +451,88 @@ class HomeController extends Controller
 
 		}
     }
+
+    public function Searchabcd(Request $request){ 
+
+		if($request->ajax()){
+
+			$rules=[
+                'course' => 'required',
+                'area' => 'required',
+                'type' => 'required',
+			];
+			
+			$validator = Validator::make($request->all(), $rules);
+
+			$response = array("error" => true, "message" => "Something went wrong. Try again!"); 
+			
+			if ($validator->fails()) {
+				$message = [];
+				$messages_l = json_decode(json_encode($validator->messages()), true);
+				foreach ($messages_l as $msg) {
+					$message= $msg[0];
+					break;
+				} 
+				return response(array("error"=>false,"message" => $message),403);  
+						
+			}else{
+
+				try{
+
+                    if($request->type == 'student'){
+                        $students=Student::where('city', 'LIKE', $request->area. '%')->get();
+    
+                        $output='';
+                        
+                        foreach($students as $student){
+                            $output.= '<li><a class="select-area"><strong>'.ucfirst($request->area).'</strong>'.str_ireplace($request->area,"",$student->city)."<input type='hidden' value='".$student->city."'></a></li>";
+                        }
+                    }
+                    if($request->type == 'tutor'){
+                        $tutors=Tutor::where('city', 'LIKE', $request->area. '%')->get();
+    
+                        $output='';
+                        
+                        foreach($tutors as $tutor){
+                            $output.= '<li><a class="select-area"><strong>'.ucfirst($request->area).'</strong>'.str_ireplace($request->area,"",$tutor->city)."<input type='hidden' value='".$tutor->city."'></a></li>";
+                        }
+                    }      
+                    if($request->type == 'institute'){
+                        $institutes=Institute::where('city', 'LIKE', $request->area. '%')->get();
+    
+                        $output='';
+                        
+                        foreach($institutes as $institute){
+                            $output.= '<li><a class="select-area"><strong>'.ucfirst($institute->area).'</strong>'.str_ireplace($request->area,"",$institute->city)."<input type='hidden' value='".$institute->city."'></a></li>";
+                        }
+                    }
+            
+                    return Response($output);
+                        
+                }catch (\Exception $e) {
+					return response(array("error" => true, "message" => $e->getMessage()),403); 
+				}
+			}
+			return response($response);
+		}
+    }
+
+    public function Search(Request $request){
+
+        if($request->type == 'student'){
+            $rows=Student::with('User')->where('subjects', 'LIKE', '%' .$request->course. '%')->where('city', $request->area)->get();
+            return view('search', compact('rows'));
+        }
+        if($request->type == 'tutor'){
+            $rows=Tutor::with('User')->where('subjects', 'LIKE', '%' .$request->course. '%')->where('city', $request->area)->get();
+            return view('search', compact('rows'));
+        }      
+        if($request->type == 'institute'){
+            $rows=Institute::with('User')->where('subjects', 'LIKE', '%' .$request->course. '%')->where('city', $request->area)->get();
+            return view('search', compact('rows'));
+        }
+		
+    }
+
 
 }

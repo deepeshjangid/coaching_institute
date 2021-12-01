@@ -57,20 +57,27 @@
 						  <!-- Login and User profile -->
 							<div class="col-xl-3 col-lg-3 col-md-3 login-left">
 								<ul class="user-profile-btn login-boxsss" style="">
-									 <li class="nav-item dropdown">
-										<a href="#" id="navbardrop" style="background:#09618C"><i class="icon-user"></i>
-										<p><span>Sign up</span></p></a>
-									</li>
-									 <li class="nav-item dropdown">
+									@if(Session::get('user_login'))
+									<li class="nav-item dropdown">
 										<a href="#" id="navbardrop"><i class="icon-user"></i>
-										<p><span>Login</span></p></a>
+										<p><span>Hi, {{ Session::get('user_name') }}</span></p></a>
 										<div class="dropdown-menu user-profile-list">
 											<ul>
-												<li><a class="login" href="{{ route('logout') }}"><i class="icon-user-following"></i> User Profile</a></li>
-												<li><a class="login" href="#"><i class="icon-power"></i> Logout</a></li>
+												<li><a class="login" href="{{ route('profile') }}"><i class="icon-user-following"></i> Profile</a></li>
+												<li><a class="login" href="{{ route('logout') }}"><i class="icon-power"></i> Logout</a></li>
 											</ul>
 										</div>
 									</li>
+									@else
+									<li class="nav-item dropdown">
+										<a href="{{ route('login') }}" id="navbardrop"><i class="icon-user"></i>
+										<p><span>Login</span></p></a>
+									</li>
+									<li class="nav-item dropdown">
+										<a href="{{ route('register') }}" id="navbardrop" style="background:#09618C"><i class="icon-user"></i>
+										<p><span>Sign up</span></p></a>
+									</li>
+									@endif
 								</ul>
                            </div>
 				         </div>
@@ -289,6 +296,41 @@ $.ajax({
 	}
 
 });
+
+});
+$('#search-input').on('keyup', function() {
+	var course = this.value;
+	var area = $('#area').value;
+	var type = $('#type').value;
+
+	if(course.length == 0){
+		$("#search_result").hide();
+	}else{
+
+		$.ajax({
+			url: "{{ url('search')}}",
+			type: "POST",
+			data: {
+			course: course,area: area,type: type,
+			},
+			headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+			},
+			cache: false,
+			error:function(xhr,textStatus){
+				sweetAlertMsg('error',xhr.responseJSON.message);
+			},
+			success: function(result){
+				if(result){
+					$("#search_result").show();
+					$("#search_result").html(result);
+				}else{
+					$("#search_result").hide();
+				}
+			}
+
+		});
+	}
 
 });
 
