@@ -32,16 +32,14 @@
 						 <a class="navbar-brand my-logos" href="{{ route('index') }}">
 						  <span style="font-weight:bold;font-size:26px;">LOGO</span>
 						 <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid" alt="logo" style="display:none;"></a>
-						 
-						
-						   <ul class="mobile-call mobile-user">
+						  <ul class="mobile-call mobile-user">
 								<li class="nav-item"><a class="nav-link" href="">
 									<button type="button" class="site-button onlineCbseBtn">Gopal Saini</button> </a>
 								</li>
 								<li class="nav-item"><a class="nav-link" href="">
 									<button type="button" class="site-button onlineCbseBtn Zokelijk-btn">Logout</button> </a>
 								</li>
-					          </ul>
+					      </ul>
 						 
 						 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 								<span> <i class="fa fa-bars" aria-hidden="true"></i> </span>

@@ -24,53 +24,96 @@
 			</div>
 		</section>
 		      
-			<div class="container-fluid plan-sec">
+			<div class="container-fluid user-profile-signle">
 			  <div class="container">
-				<div class="col-xl-4 col-lg-4 col-lg-4 col-sm-12 col-12">
-					@if($row)
-						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-							<div class="products-collection">
-								<div class="item-product mb-30">
-									<div class="thumbnail-container">
-										@if($row->profile_image != null)
-										<img src="{{ asset('uploads/students/'.$row->profile_image) }}" class="img-fluid frant-img">
-										@else
-										<img src="https://static.hometutorsite.com/content/images/userinfo/male-default-lg.jpg" class="img-fluid frant-img">
-										@endif
+			      <div class="row">
+					<div class="col-md-8">
+					     <div class="row profiletitle">
+							 <div class="col-md-12 ">
+							   <div class="row section-headdig">
+								 <div class="col-md-9">
+								   <div class="col-md-12 p-0">
+									<div class="header-profile">
+									   <h2>Wanted home tutor for Sr. Kg cbse, English maths hindi</h2>
+										</div>
+										<div class="profile-detailes">
+											<label><b>Course</b></label>&nbsp;&nbsp;
+											<label>Sr. Kg cbse</label>
+											<div class="height-10"></div>
+											<label><b>Subject</b></label>&nbsp;&nbsp;
+											<label>English maths hindi</label>
+											<div class="height-10"></div>
+											<label><b>Tuition Type</b></label>&nbsp;&nbsp;
+											<label>HomeTuition</label>
+											<div class="height-10"></div>
+											<label><b>City</b></label>&nbsp;&nbsp;
+											<label>Ahmedabad</label>
+											<div class="height-10"></div>
+											<label><b>Location</b></label>&nbsp;&nbsp;
+											<label>Ahmedabad</label>
+											<div class="height-10"></div>
+											<label><b>Pincode</b></label>&nbsp;&nbsp;
+											<label>380008</label>
+									   </div>
+									  </div>
+									  </div>
+									  
+									  <div class="col-md-3">
+										<div class="apply-btn">
+										  <a href="#0" class="appy-bnt"> Apply Tuition </a>
+									    </div>
 									</div>
+									
+                                   </div>
+								
+								    <div class="row tuition-preferences">
+										<div class="col-md-12">
+											<h3 class="public-profile-sub-heading">Preferences</h3>
+										</div>
+										<div class="col-md-4">
+											<h4>Gender</h4>
+											<p>Any</p>
+										</div>
+										<div class="col-md-4">
+											<h4>Preferred Time</h4>
+											<p>Evening</p>
+										</div>
+										<div class="col-md-4">
+											<h4>Monthly Fee</h4>
+											<p>Rs 2500.00</p>
+										</div>
 								</div>
-								<div class="product-info">
-									<h2>{{ $row['User']['name'] }}</h2>
-								</div>
-								<div class="product-pricesss">
-									<span class="product-prices">Age: 41Y, </span><span>{{ $row->gender }} </span></span>
-								</div>
-								<div class="wishlist-quickview">
-								<ul>
-									@if($row->address)<li> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ $row->address }}, {{ $row->city }}</li>@endif
-									@if($row->institute_name)<li><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ $row->institute_name }}</li>@endif
-									@if($row->parents_name)<li><i class="fa fa-male" aria-hidden="true"></i>{{ $row->parents_name }}</li>@endif
-									@if($row->subjects)<li><i class="fa fa-book" aria-hidden="true"></i> {{ $row->subjects }}</li>@endif
-								</ul>
-								</div>
-								<div class="add-to-vart d-flex justify-content-center">
-									<a href="{{ url('user-profile/'.$type. '/' . $row->id) }}" data-user_id="2" data-product_type="package"
-										class="btn btn-to-select add_to_cart">
-										<i class="fa fa-user"></i>
-										<span>View Profile </span>
-									</a>
-									<a href="#0" class="btn btn-to-select add_to_cart" type="submit" value="Submit">
-										<i class="fa fa-graduation-cap" aria-hidden="true"></i>
-										<span>Get for Demo</span>
-									</a>
+								
+							   <div class="row tuition-preferences">
+								<div class="col-md-12">
+									<h3 class="public-profile-sub-heading">Tuition Description</h3>
+									<p>Wanted home tutor for Sr. Kg cbse, English maths hindi</p>
+									<div class="height-10"></div>
 								</div>
 							</div>
+								
+							  </div>
+							</div>
+						
+						
+						    <div class="col-md-12">
+							
+							
+						 </div>
 						</div>
-					@else
-					User Not Found
-					@endif
+						</div>
+				  
+				  
+					<div class="col-md-4">
+						   
+					
+					
+					</div>
+				  
+				  
+				 </div>
 				</div>
-			 </div>
+			  </div>
 			</div>
 			
 @endsection	
