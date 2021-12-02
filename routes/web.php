@@ -19,7 +19,6 @@ Route::get('/migrate', function(){
     dd('migrated!');
 });
 
-Route::view('/plan-listing', 'plan-listing');
 Route::view('/admin', 'admin.login');
 Route::post('/admin-login', 'Admin\AdminController@login')->name('admin');
 
@@ -122,7 +121,9 @@ Route::get('/subscription-plan', 'HomeController@SubscriptionPlan')->name('subsc
 
 Route::post('/area-search', 'HomeController@AreaSearch')->name('area-search');
 Route::post('/course-search', 'HomeController@CourseSearch')->name('course-search');
-Route::get('/search', 'HomeController@Search')->name('search');
+Route::get('/students-tutors-institutes', 'HomeController@Search')->name('search');
+
+Route::get('/user-profile/{type}/{id}', 'HomeController@UserProfile')->name('user.profile');
 
 Route::view('/about', 'about')->name('about');
 

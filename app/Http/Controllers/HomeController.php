@@ -493,19 +493,38 @@ class HomeController extends Controller
     public function Search(Request $request){
 
         if($request->type == 'student'){
+            $type = $request->type;
             $rows=Student::with('User')->where('subjects', 'LIKE', '%' .$request->course. '%')->where('city', $request->area)->get();
-            return view('search', compact('rows'));
+            return view('students-tutors-institutes', compact('rows','type'));
         }
         if($request->type == 'tutor'){
+            $type = $request->type;
             $rows=Tutor::with('User')->where('subjects', 'LIKE', '%' .$request->course. '%')->where('city', $request->area)->get();
-            return view('search', compact('rows'));
+            return view('students-tutors-institutes', compact('rows','type'));
         }      
         if($request->type == 'institute'){
+            $type = $request->type;
             $rows=Institute::with('User')->where('subjects', 'LIKE', '%' .$request->course. '%')->where('city', $request->area)->get();
-            return view('search', compact('rows'));
+            return view('students-tutors-institutes', compact('rows','type'));
         }
 		
     }
 
+    public function UserProfile(Request $request,$type, $id){
+
+        if($type == 'student'){
+            $row=Student::with('User')->where('id', $id)->first();
+            return view('user-profile', compact('row','type'));
+        }
+        if($type == 'tutor'){
+            $row=Tutor::with('User')->where('id', $id)->first();
+            return view('user-profile', compact('row','type'));
+        }      
+        if($type == 'institute'){
+            $row=Institute::with('User')->where('id', $id)->first();
+            return view('user-profile', compact('row','type'));
+        }
+		
+    }
 
 }

@@ -308,38 +308,6 @@ $.ajax({
 });
 
 });
-// $('#search-input').on('keyup', function() {
-// 	var course = this.value;
-
-// 	if($.trim(course) == ''){
-// 		$("#search-result").empty();
-// 	}else{
-
-// 		$.ajax({
-// 			url: "{{ url('course-search')}}",
-// 			type: "POST",
-// 			data: {
-// 			course: course,
-// 			},
-// 			headers: {
-// 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-// 			},
-// 			cache: false,
-// 			error:function(xhr,textStatus){
-// 				sweetAlertMsg('error',xhr.responseJSON.message);
-// 			},
-// 			success: function(result){
-// 				if(result){
-// 					$("#search-result").html(result);
-// 				}else{
-// 					$("#search-result").empty();
-// 				}
-// 			}
-
-// 		});
-// 	}
-
-// });
 
 $( function() {
 
