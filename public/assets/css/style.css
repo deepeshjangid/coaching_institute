@@ -427,6 +427,7 @@ box-shadow: none;
     transition: all .6s linear;
     height: 60px;
     border-radius: 40px;
+    width: 60px;
 }
 .products-collection .item-product .thumbnail-container .back-img{
     position: absolute;

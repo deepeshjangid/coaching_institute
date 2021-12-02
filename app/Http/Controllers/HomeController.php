@@ -495,16 +495,25 @@ class HomeController extends Controller
         if($request->type == 'student'){
             $type = $request->type;
             $rows=Student::with('User')->where('subjects', 'LIKE', '%' .$request->course. '%')->where('city', $request->area)->get();
+            if(count($rows) == '0'){
+                $rows=Student::with('User')->get();
+            }
             return view('students-tutors-institutes', compact('rows','type'));
         }
         if($request->type == 'tutor'){
             $type = $request->type;
             $rows=Tutor::with('User')->where('subjects', 'LIKE', '%' .$request->course. '%')->where('city', $request->area)->get();
+            if(count($rows) == '0'){
+                $rows=Tutor::with('User')->get();
+            }
             return view('students-tutors-institutes', compact('rows','type'));
         }      
         if($request->type == 'institute'){
             $type = $request->type;
             $rows=Institute::with('User')->where('subjects', 'LIKE', '%' .$request->course. '%')->where('city', $request->area)->get();
+            if(count($rows) == '0'){
+                $rows=Institute::with('User')->get();
+            }
             return view('students-tutors-institutes', compact('rows','type'));
         }
 		

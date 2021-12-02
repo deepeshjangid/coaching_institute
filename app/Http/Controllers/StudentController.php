@@ -6,6 +6,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\User;
+use App\Models\PurchagePlan;
 use Validator;
 use Session;
 use Hash;
@@ -136,7 +137,9 @@ class StudentController extends Controller
             $data = array();
         }
 
-        return view('student.student-profile')->with('data', $data);
+        $plans = PurchagePlan::with('SubscriptionPlan')->where('user_id', $id)->get();
+
+        return view('student.student-profile', compact('data', 'plans'));
 
     }
 }

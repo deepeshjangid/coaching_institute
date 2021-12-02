@@ -6,6 +6,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Models\Institute;
 use App\Models\User;
+use App\Models\PurchagePlan;
 use Validator;
 use Session;
 use Hash;
@@ -119,7 +120,10 @@ class InstituteController extends Controller
         }else{
             $data = array();
         }
-        return view('institute.institute-profile')->with('data', $data);
+
+        $plans = PurchagePlan::with('SubscriptionPlan')->where('user_id', $id)->get();
+
+        return view('institute.institute-profile', compact('data', 'plans'));
 
     }
 }
