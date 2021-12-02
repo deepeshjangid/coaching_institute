@@ -452,69 +452,42 @@ class HomeController extends Controller
 		}
     }
 
-    public function Searchabcd(Request $request){ 
+    public function AreaSearch(Request $request){
+        $students=Student::where('city', 'LIKE', $request->search. '%')->groupBy('city')->get();
+        $tutors=Tutor::where('city', 'LIKE', $request->search. '%')->groupBy('city')->get();
+        $institutes=Institute::where('city', 'LIKE', $request->search. '%')->groupBy('city')->get();
+        $results = []; 
+        if(count($students) != '0'){
+            foreach($students as $data){
+                $results[] = ['value' => $data->city, 'label'=>$data->city];
+            }
+        }
+        if(count($tutors) != '0'){
+            foreach($tutors as $data){
+                $results[] = ['value' => $data->city, 'label'=>$data->city];
+            }
+        }
+        if(count($institutes) != '0'){
+            foreach($institutes as $data){
+                $results[] = ['value' => $data->city, 'label'=>$data->city];
+            }
+        }
+        if(count($students) == '0' && count($tutors) == '0' && count($institutes) == '0'){
+            $results[] = ['value' => 'no', 'label' =>'Area Not Found'];
+        }
+        return response()->json($results);
+    }
 
-		if($request->ajax()){
-
-			$rules=[
-                'course' => 'required',
-                'area' => 'required',
-                'type' => 'required',
-			];
-			
-			$validator = Validator::make($request->all(), $rules);
-
-			$response = array("error" => true, "message" => "Something went wrong. Try again!"); 
-			
-			if ($validator->fails()) {
-				$message = [];
-				$messages_l = json_decode(json_encode($validator->messages()), true);
-				foreach ($messages_l as $msg) {
-					$message= $msg[0];
-					break;
-				} 
-				return response(array("error"=>false,"message" => $message),403);  
-						
-			}else{
-
-				try{
-
-                    if($request->type == 'student'){
-                        $students=Student::where('city', 'LIKE', $request->area. '%')->get();
-    
-                        $output='';
-                        
-                        foreach($students as $student){
-                            $output.= '<li><a class="select-area"><strong>'.ucfirst($request->area).'</strong>'.str_ireplace($request->area,"",$student->city)."<input type='hidden' value='".$student->city."'></a></li>";
-                        }
-                    }
-                    if($request->type == 'tutor'){
-                        $tutors=Tutor::where('city', 'LIKE', $request->area. '%')->get();
-    
-                        $output='';
-                        
-                        foreach($tutors as $tutor){
-                            $output.= '<li><a class="select-area"><strong>'.ucfirst($request->area).'</strong>'.str_ireplace($request->area,"",$tutor->city)."<input type='hidden' value='".$tutor->city."'></a></li>";
-                        }
-                    }      
-                    if($request->type == 'institute'){
-                        $institutes=Institute::where('city', 'LIKE', $request->area. '%')->get();
-    
-                        $output='';
-                        
-                        foreach($institutes as $institute){
-                            $output.= '<li><a class="select-area"><strong>'.ucfirst($institute->area).'</strong>'.str_ireplace($request->area,"",$institute->city)."<input type='hidden' value='".$institute->city."'></a></li>";
-                        }
-                    }
-            
-                    return Response($output);
-                        
-                }catch (\Exception $e) {
-					return response(array("error" => true, "message" => $e->getMessage()),403); 
-				}
-			}
-			return response($response);
-		}
+    public function CourseSearch(Request $request){
+        $search=Course::where('name', 'LIKE', $request->search. '%')->groupBy('name')->get();
+        if(count($search) != '0'){
+            foreach($search as $data){
+                $results[] = ['value' => $data->name, 'label'=>$data->name];
+            }
+        }else{
+            $results[] = ['value' => 'no', 'label' =>'Course Not Found'];
+        }
+        return response()->json($results);
     }
 
     public function Search(Request $request){

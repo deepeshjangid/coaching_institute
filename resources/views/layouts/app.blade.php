@@ -16,7 +16,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/carousel.css') }}">
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" integrity="sha512-QKC1UZ/ZHNgFzVKSAhV5v5j73eeL9EEN289eKAEFaAjgAiobVAnVv/AGuPbXsKl1dNoel3kNr6PYnSiTzVVBCw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		
+
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+
+
 </head>
 <body>
 	  <!--- Header Area Section--->
@@ -211,6 +215,9 @@
 
 <script type="text/javascript" language="javascript" src="{{ asset('assets/js/common.js') }}"></script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
 <script>
 		$(document).ready(function(){
 
@@ -301,39 +308,100 @@ $.ajax({
 });
 
 });
-$('#search-input').on('keyup', function() {
-	var course = this.value;
-	var area = $('#area').value;
-	var type = $('#type').value;
+// $('#search-input').on('keyup', function() {
+// 	var course = this.value;
 
-	if(course.length == 0){
-		$("#search_result").hide();
-	}else{
+// 	if($.trim(course) == ''){
+// 		$("#search-result").empty();
+// 	}else{
 
-		$.ajax({
-			url: "{{ url('search')}}",
-			type: "POST",
-			data: {
-			course: course,area: area,type: type,
-			},
+// 		$.ajax({
+// 			url: "{{ url('course-search')}}",
+// 			type: "POST",
+// 			data: {
+// 			course: course,
+// 			},
+// 			headers: {
+// 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+// 			},
+// 			cache: false,
+// 			error:function(xhr,textStatus){
+// 				sweetAlertMsg('error',xhr.responseJSON.message);
+// 			},
+// 			success: function(result){
+// 				if(result){
+// 					$("#search-result").html(result);
+// 				}else{
+// 					$("#search-result").empty();
+// 				}
+// 			}
+
+// 		});
+// 	}
+
+// });
+
+$( function() {
+
+	$( "#area-search-input" ).autocomplete({
+		source: function( request, response ) {
+          // Fetch data
+          $.ajax({
+            url:"{{ route('area-search') }}",
+            type: 'post',
+            dataType: "json",
+            data: {
+               search: request.term
+            },
 			headers: {
 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
 			},
-			cache: false,
-			error:function(xhr,textStatus){
-				sweetAlertMsg('error',xhr.responseJSON.message);
-			},
-			success: function(result){
-				if(result){
-					$("#search_result").show();
-					$("#search_result").html(result);
-				}else{
-					$("#search_result").hide();
-				}
+            success: function( data ) {
+               response( data );
+            }
+          });
+        },
+		minLength: 1,
+		select: function (event, ui) {
+			if (ui.item.value == 'no') {
+				$('#area-search-input').val(null); // save selected id to input
+			}else{
+				$('#area-search-result').val(ui.item.label); // display the selected text
+				$('#area-search-input').val(ui.item.value); // save selected id to input
 			}
+			return false;
+		}
+	});
 
-		});
-	}
+	$( "#course-search-input" ).autocomplete({
+		source: function( request, response ) {
+          // Fetch data
+          $.ajax({
+            url:"{{ route('course-search') }}",
+            type: 'post',
+            dataType: "json",
+            data: {
+               search: request.term
+            },
+			headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+			},
+            success: function( data ) {
+               response( data );
+            }
+          });
+        },
+		minLength: 1,
+		select: function (event, ui) {
+			if (ui.item.value == 'no') {
+				$('#course-search-input').val(null); // save selected id to input
+			}else{
+				$('#course-search-result').val(ui.item.label); // display the selected text
+				$('#course-search-input').val(ui.item.value); // save selected id to input
+			}
+			return false;
+		}
+	});
 
 });
 

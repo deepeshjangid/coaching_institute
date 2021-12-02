@@ -120,6 +120,8 @@ Route::post('/institute-form-submit', 'HomeController@InstituteForm')->name('ins
 
 Route::get('/subscription-plan', 'HomeController@SubscriptionPlan')->name('subscription.plan');
 
+Route::post('/area-search', 'HomeController@AreaSearch')->name('area-search');
+Route::post('/course-search', 'HomeController@CourseSearch')->name('course-search');
 Route::get('/search', 'HomeController@Search')->name('search');
 
 Route::view('/about', 'about')->name('about');

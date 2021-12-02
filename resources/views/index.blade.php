@@ -32,13 +32,13 @@
 							<div class="row" id="pin-serach">
 							
 									<div class="col-xl-3 col-lg-3 col-md-3 col-12 pin-0 p-0">
-										<div class="form-group select-pincode">
-										  <select class="form-control form-select" id="area" name="area" required>
-											<option value="" slected>Choose an Area</option>
-											<option value="alwar">Alwar</option>
-											<option value="jaipur">Jaipur</option>
-											<option value="jodhpur">Jodhpur</option>
-										  </select>
+										<div class="searching-products mobile-searching-products">
+											<div class="input-group">
+												<input type="text" class="form-control search" name="area"
+													placeholder="Search Area" id="area-search-input" autocomplete="off" required>
+													<button class="input-group-text" id="basic-addon1"><i class="icon-magnifier"></i></button>
+											</div>
+											<div class="list-group mt-1" id="area-search-result" style="position: absolute; z-index: 999; width: 100%;"></div>
 										</div>
 									</div>
 									
@@ -56,11 +56,11 @@
 										<div class="searching-products mobile-searching-products">
 											<div class="input-group">
 												<input type="text" class="form-control search" name="course"
-													placeholder="Enter Course or Subject Keywords to Search" id="search" autocomplete="off" required>
+													placeholder="Enter Course or Subject Keywords to Search" id="course-search-input" autocomplete="off" required>
 													<button type="submit" class="input-group-text" id="basic-addon1"><i class="icon-magnifier"></i></button>
 											</div>
+											<div class="list-group mt-1" id="course-search-result" style="position: absolute; z-index: 999; width: 100%;"></div>
 										</div>
-										<div id="search-result"></div>
 									</div>
 								</div>
 							</div>
