@@ -6,6 +6,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Models\Tutor;
 use App\Models\User;
+use App\Models\PurchagePlan;
 use Validator;
 use Session;
 use Hash;
@@ -169,7 +170,10 @@ class TutorController extends Controller
         }else{
             $data = array();
         }
-        return view('tutor.tutor-profile')->with('data', $data);
+
+        $plans = PurchagePlan::with('SubscriptionPlan')->where('user_id', $id)->get();
+
+        return view('tutor.tutor-profile', compact('data', 'plans'));
 
     }
 }

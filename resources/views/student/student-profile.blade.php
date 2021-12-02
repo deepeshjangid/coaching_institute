@@ -25,27 +25,21 @@
 					  <div class="col-md-6">
 					     <div class="ticket-price">
 					    	<div class="row row-25 clearfix">
+							@if($plans)
+								@foreach($plans as $plan)
                             	<div class="col-lg-6 col-md-6 col-sm-12 col-12 pricing-column">
 									<div class="single-ticket">
 									<div class="inner-box">
 										<div class="plan-header btn-bg-1">
-											<h2 class="plan-price">₹ 300</h2>
-											<div class="plan-duration">student plan</div>
+											<h2 class="plan-price">₹ {{ $plan->amount }}</h2>
+											<div class="plan-duration">{{ $plan['SubscriptionPlan']['name'] }}</div>
 										</div>
-                                        <ul class="plan-stats">
-											<li>Regular seating</li>
-											<li>Free snacks</li>
-											<li>Regular badge</li>
-											<li>Free Coffe</li>
-										</ul>
-                                        <form action="http://tutor.jptechnopark.com/plan-purchage" method="post" enctype="multipart/form-data">
-                                        <input type="hidden" name="_token" value="nE59iTe9QEj6QAWz2y7CKa9sFfjvv1V95HFDhXyl">                                        <input type="hidden" name="id" value="2">
-                                        <input type="hidden" name="price" value="300">
-										<button type="submit" class="btn-style-two color-1">Select</button>
-                                        </form>
+                                        {!! $plan['SubscriptionPlan']['features'] !!}
 										</div>
 									</div>
 								</div>
+								@endforeach
+								@endif
 							</div>
 						</div>
 					</div>
@@ -129,7 +123,7 @@
 									<div class="col-md-6 col-sm-12 col-12 ">
 									  <label class="file-attachment-input">
 										<div class="input-group">
-										    Browse your upload documents
+										    Browse your upload profile image
 											<input name="profile_image" @if(!$data) @endif type="file" class="form-control" accept=".png, .jpg, .jpeg" data-image-preview="profileimage"/>
 										</div>
 										<div class="form-group previewimages" id="profileimage">

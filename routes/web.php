@@ -132,7 +132,6 @@ Route::post('/contact-submit', 'HomeController@ContactUsSubmit')->name('contact.
 
 Route::group(['middleware' => 'Userauth'], function () {
 
-	Route::view('profile', 'profile')->name('profile');
 	Route::match(['get','post'],'student-profile', 'StudentController@Profile')->name('student.profile');
 	Route::match(['get','post'],'tutor-profile', 'TutorController@Profile')->name('tutor.profile');
 	Route::match(['get','post'],'institute-profile', 'InstituteController@Profile')->name('institute.profile');
