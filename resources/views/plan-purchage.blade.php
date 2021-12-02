@@ -21,7 +21,7 @@
 		</section>
 	
 	
-		<div class="container-fluid " style="padding:70px 0">
+		<div class="container-fluid pd-50">
 			<div class="container">
 				<div class="row justify-content-center mr-tb-40">
 					<div class="col-lg-6">
