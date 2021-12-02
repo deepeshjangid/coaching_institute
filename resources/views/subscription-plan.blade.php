@@ -23,7 +23,7 @@
 					$user_type = Session::get('user_type');
 				@endphp
                 @if($user_type && $user_type == '1')
-                <section class="ticket-price">
+                <section class="ticket-price pd-50">
 					<div class="container">
 						<div class="section-title center"><h2> Students Subscription Plans</h2></div>
 					    	<div class="row row-25 clearfix">
