@@ -240,6 +240,18 @@
                             <li class="@yield('ContactUsList')"><a href="{{ route('admin.contact.list') }}">Contact Us List</a></li>
                         </ul>
                     </li>
+
+                    <li class="treeview @yield('Apply')">
+                        <a href="#">
+                        <i class="fa fa-money" aria-hidden="true"></i><span>Apply For Tuition</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="@yield('ApplyList')"><a href="{{ route('admin.apply.for.tuition.list') }}">Apply For Tuition List</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar -->

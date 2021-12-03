@@ -59,13 +59,11 @@
 									  </div>
 									  
 									  <div class="col-md-3">
-										<!-- <div class="apply-btn">
-										  <a href="#0" class="appy-bnt"> Apply Tuition </a>
-									    </div> -->
-										@if($row['User']['user_type'] == '2')
+										@if(Session::get('user_type') == '1' && $row['User']['user_type'] == '2' && $applied == '0')
 										<form class="apply-btn" action="{{ route('apply.for.tution') }}" method="POST" >
 											@csrf
-											
+											<input type="hidden" name="parent_id" value="@if($row){{ $row['User']['id'] }}@endif">
+											<input type="hidden" name="amount" value="@if($row['fee']){{ $row['fee'] }}@endif">
 											<script
 												src="https://checkout.razorpay.com/v1/checkout.js"
 												data-key="rzp_test_el72DFtTI4GCy9"
@@ -80,6 +78,10 @@
 												data-theme.color="#F37254">
 											</script>
 										</form>
+										@elseif(Session::get('user_type') == '1' && $row['User']['user_type'] == '2' && $applied == '1')
+										<div class="apply-btn">
+											<a class="apply-bnt"><i class="fa fa-check-circle" aria-hidden="true"></i> Applied</a>
+										</div>
 										@endif
 									</div>
 									
@@ -89,18 +91,18 @@
 										<div class="col-md-12">
 											<h3 class="public-profile-sub-heading">Preferences</h3>
 										</div>
+										@if($row['gender'])
 										<div class="col-md-4">
 											<h4>Gender</h4>
 											<p>@if($row['gender']){{ $row['gender'] }}@endif</p>
 										</div>
-										<div class="col-md-4">
-											<h4>Preferred Time</h4>
-											<p>Evening</p>
-										</div>
+										@endif
+										@if($row['fee'])
 										<div class="col-md-4">
 											<h4>Monthly Fee</h4>
 											<p>Rs. @if($row['fee']){{ $row['fee'] }}@endif</p>
 										</div>
+										@endif
 								</div>
 								
 							   <div class="row tuition-preferences">

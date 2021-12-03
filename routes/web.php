@@ -94,6 +94,8 @@ Route::group(['prefix'=>'admin','middleware' => 'admin'], function () {
 		Route::get('/delete/{id}', 'Admin\ContactUsController@destroy')->name('admin.contact.delete');
 	});
 
+	Route::get('apply-for-tuiton', 'Admin\ApplyTuitonPaymentController@ApplyForTuition')->name('admin.apply.for.tuition.list');
+
 });
 
 Auth::routes();
@@ -139,7 +141,7 @@ Route::group(['middleware' => 'Userauth'], function () {
 	Route::post('/plan-purchage','HomeController@PlanPurchage')->name('plan.purchage');
 	Route::post('payment', 'PaymentController@Payment')->name('make.payment');
 
-	Route::post('/apply-for-tution','HomeController@ApplyForTution')->name('apply.for.tution');
+	Route::post('/apply-for-tution','PaymentController@ApplyForTutionPayment')->name('apply.for.tution');
 
 });
 

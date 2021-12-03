@@ -2357,6 +2357,15 @@ display:none;
     border-radius: 3px;
     font-size: 14px;
 }
+.apply-btn .apply-bnt{
+  align-items: center;
+  border: none;
+  background: #1da00c;
+  padding: 6px 16px;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 14px;
+}
 .section-headdig{
 	background:#fff;
 	border: 1px solid #dcdcdc;

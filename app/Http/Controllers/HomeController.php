@@ -12,6 +12,7 @@ use App\Models\SubscriptionPlan;
 use App\Models\Course;
 use App\Models\Category;
 use App\Models\SubCategory;
+use App\Models\ApplyTuitonPayment;
 use App\Helpers\commonHelper;
 use Validator;
 use Hash;
@@ -533,14 +534,21 @@ class HomeController extends Controller
     }
 
     public function UserProfile(Request $request,$type, $id){
-
+        $applied = '0';
         if($type == 'student'){
             $row=Student::with('User')->with('Category')->with('SubCategory')->with('Course')->where('id', $id)->first();
             return view('user-profile', compact('row','type'));
         }
         if($type == 'tutor'){
             $row=Tutor::with('User')->with('Category')->with('SubCategory')->with('Course')->where('id', $id)->first();
-            return view('user-profile', compact('row','type'));
+            $applied=ApplyTuitonPayment::where('user_id', Session::get('user_id'))->where('parent_id', $row['User']['id'])->first();
+            if($applied){
+                $applied = '1';
+                return view('user-profile', compact('row','type', 'applied'));
+            }else{
+                $applied = '0';
+                return view('user-profile', compact('row','type', 'applied'));
+            }
         }      
         if($type == 'institute'){
             $row=Institute::with('User')->with('Category')->with('SubCategory')->with('Course')->where('id', $id)->first();

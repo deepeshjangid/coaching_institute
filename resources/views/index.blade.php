@@ -45,8 +45,8 @@
 									<div class="col-xl-3 col-lg-3 col-md-3 col-12 pin-0 p-0">
 									  <div class="form-group select-pincode">
 										  <select class="form-control form-select" id="type" name="type" required>
-											<option value="student" selected>Student</option>
-											<option value="tutor">Tutor</option>
+											<option value="student">Student</option>
+											<option value="tutor" selected>Tutor</option>
 											<option value="institute">Institute</option>
 										  </select>
 										</div>
