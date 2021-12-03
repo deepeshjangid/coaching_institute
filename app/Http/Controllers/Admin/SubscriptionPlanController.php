@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\SubscriptionPlan;
 use App\Models\PurchagePlan;
+use App\Models\Point;
 use DB;
 use Session;
 use Validator;
@@ -95,6 +96,11 @@ class SubscriptionPlanController extends Controller
 		$datas = PurchagePlan::with('User')->with('SubscriptionPlan')->get();
         return view('admin.subscription-plan.purchage-plans')->with(['datas' => $datas]);
     }
+	public function PointsShow()
+    {
+		$datas = Point::with('User')->with('SubscriptionPlan')->get();
+        return view('admin.subscription-plan.points')->with(['datas' => $datas]);
+    }
 
     public function destroy(Request $request, $id)
     {
@@ -117,4 +123,41 @@ class SubscriptionPlanController extends Controller
 		
 		return response(array('success'=>'Subscription Plan status changed successfully.'),200);
 	}
+
+	public function Points(Request $request)
+    {
+		if($request->type == "add"){
+			$points = $request->total_points + $request->add_point;
+
+			if($request->price >= $points){
+				PurchagePlan::where('id', $request->id)->update(['points'=>$points]);
+				DB::table('points')->insert([
+                    'user_id' => $request->user_id,
+                    'subscription_plan_id' => $request->plan_id,
+                    'points' => $request->add_point,
+                    'type' => $request->type,
+                    'reason' => $request->reason,
+                ]);
+				return redirect()->back()->with(['success' => "Points added successfully"]);
+			}else{
+				return redirect()->back()->with(['error' => "Something went wrong"]);
+			}
+		}
+		if($request->type == "minus"){
+			if($request->minus_point <= $request->total_points){
+				$points = $request->total_points - $request->minus_point;
+				PurchagePlan::where('id', $request->id)->update(['points'=>$points]);
+				DB::table('points')->insert([
+                    'user_id' => $request->user_id,
+                    'subscription_plan_id' => $request->plan_id,
+                    'points' => $request->minus_point,
+                    'type' => $request->type,
+                    'reason' => $request->reason,
+                ]);
+				return redirect()->back()->with(['success' => "Points detect successfully"]);
+			}else{
+				return redirect()->back()->with(['error' => "Something went wrong."]);
+			}
+		}
+    }
 }

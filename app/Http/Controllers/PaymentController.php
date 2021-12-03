@@ -80,4 +80,24 @@ class PaymentController extends Controller
             }
         }
     }
+
+    public function ApplyForTutionQuery(Request $request, $id)
+    {
+
+        try {
+            ApplyTuitonPayment::insert([
+                'user_id' => Session::get('user_id'),
+                'parent_id' => $id,
+                'amount' => '0',
+                'order_id' => '0',
+                'transaction_id' => "0",
+                'status' => '0',
+            ]);
+            return redirect()->back()->with('success', "Your query has been succefully submitted.");
+
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+        
+    }
 }

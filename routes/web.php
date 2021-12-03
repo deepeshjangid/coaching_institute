@@ -61,6 +61,9 @@ Route::group(['prefix'=>'admin','middleware' => 'admin'], function () {
 		Route::get('/update/{id}', 'Admin\SubscriptionPlanController@update')->name('admin.subscriptionplan.update');
 		Route::get('/delete/{id}', 'Admin\SubscriptionPlanController@destroy')->name('admin.subscriptionplan.delete');
 		Route::post('change-status','Admin\SubscriptionPlanController@changeStatus')->name('admin.subscriptionplan.changestatus');
+
+		Route::post('points','Admin\SubscriptionPlanController@Points')->name('admin.points');
+		Route::get('points/list', 'Admin\SubscriptionPlanController@PointsShow')->name('admin.points.list');
 	});
 
 	Route::group(['prefix'=>'course-category'],function() {
@@ -95,6 +98,7 @@ Route::group(['prefix'=>'admin','middleware' => 'admin'], function () {
 	});
 
 	Route::get('apply-for-tuiton', 'Admin\ApplyTuitonPaymentController@ApplyForTuition')->name('admin.apply.for.tuition.list');
+	Route::get('apply-for-tuiton-query', 'Admin\ApplyTuitonPaymentController@ApplyForTuitionQuery')->name('admin.apply.for.tuition.query.list');
 
 });
 
@@ -141,6 +145,7 @@ Route::group(['middleware' => 'Userauth'], function () {
 	Route::post('/plan-purchage','HomeController@PlanPurchage')->name('plan.purchage');
 	Route::post('payment', 'PaymentController@Payment')->name('make.payment');
 
+	Route::get('/query-submit/{id}','PaymentController@ApplyForTutionQuery')->name('submit.query');
 	Route::post('/apply-for-tution','PaymentController@ApplyForTutionPayment')->name('apply.for.tution');
 
 });

@@ -185,6 +185,7 @@
                             <li class="@yield('TutorSubscriptionPlans')"><a href="{{ url('admin/subscription-plan/list/2') }}">Tutor Subscription Plans</a></li>
                             <li class="@yield('InstituteSubscriptionPlans')"><a href="{{ url('admin/subscription-plan/list/3') }}">Institute Subscription Plans</a></li>
                             <li class="@yield('PurchagePlans')"><a href="{{ url('admin/subscription-plan/purchage-plans') }}">Purchage Plans</a></li>
+                            <li class="@yield('Points')"><a href="{{ url('admin/subscription-plan/points/list') }}">Points</a></li>
                         </ul>
                     </li>
 
@@ -250,6 +251,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li class="@yield('ApplyList')"><a href="{{ route('admin.apply.for.tuition.list') }}">Apply For Tuition List</a></li>
+                            <li class="@yield('ApplyQueryList')"><a href="{{ route('admin.apply.for.tuition.query.list') }}">Apply For Tuition Query List</a></li>
                         </ul>
                     </li>
                 </ul>
