@@ -37,10 +37,13 @@
 									   <h2>Wanted home tutor for @if($row->subjects){{ $row->subjects }}@endif</h2>
 										</div>
 										<div class="profile-detailes">
-											<!-- <label><b>Course</b></label>&nbsp;&nbsp;
-											<label>Sr. Kg cbse</label> -->
+											<label><b>Course</b></label>&nbsp;&nbsp;
+											@php
+											$c = DB::table('courses')->where('id', $row['User']['course_id'])->first();
+										    @endphp
+											<label>@if($c){{ $c->name }}@endif</label>
 											<div class="height-10"></div>
-											<label><b>Subject</b></label>&nbsp;&nbsp;
+											<label><b>Subjects</b></label>&nbsp;&nbsp;
 											<label>@if($row->subjects){{ $row->subjects }}@endif</label>
 											<div class="height-10"></div>
 											<label><b>Occupation</b></label>&nbsp;&nbsp;

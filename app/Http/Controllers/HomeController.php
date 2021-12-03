@@ -484,6 +484,10 @@ class HomeController extends Controller
             foreach($search as $data){
                 $results[] = ['value' => $data->name, 'label'=>$data->name];
             }
+            $tutor=Tutor::where('subjects', 'LIKE', $request->search. '%')->groupBy('subjects')->get();
+            foreach($tutor as $data){
+                $results[] = ['value' => $data->subjects, 'label'=>$data->subjects];
+            }
         }else{
             $results[] = ['value' => 'no', 'label' =>'Course Not Found'];
         }

@@ -11,4 +11,9 @@ class Tutor extends Model
         //return $this->hasOne(Phone::class);
         return $this->belongsTo('App\Models\User');
     }
+    public function Course()
+    {
+        //return $this->hasOne(Phone::class);
+        return $this->hasManyThrough('App\Models\Course','App\Models\User');
+    }
 }

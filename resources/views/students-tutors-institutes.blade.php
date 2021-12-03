@@ -72,7 +72,7 @@
 									</ul>
 									</div>
 									<div class="add-to-vart d-flex justify-content-center">
-										<a href="{{ url('user-profile/'.$type. '/' . $row->id) }}"
+										<a href="{{ url('user-profile/'.$type. '/' . $row['User']['id']) }}"
 											class="btn btn-to-select add_to_cart">
 											<i class="fa fa-user"></i>
 											<span>View Profile </span>
@@ -121,7 +121,7 @@
 									</ul>
 									</div>
 									<div class="add-to-vart d-flex justify-content-center">
-										<a href="{{ url('user-profile/'.$type. '/' . $row->id) }}"
+										<a href="{{ url('user-profile/'.$type. '/' . $row['User']['id']) }}"
 											class="btn btn-to-select add_to_cart">
 											<i class="fa fa-user"></i>
 											<span>View Profile </span>
@@ -163,7 +163,7 @@
 									</ul>
 									</div>
 									<div class="add-to-vart d-flex justify-content-center">
-										<a href="{{ url('user-profile/'.$type. '/' . $row->id) }}"
+										<a href="{{ url('user-profile/'.$type. '/' . $row['User']['id']) }}"
 											class="btn btn-to-select add_to_cart">
 											<i class="fa fa-user"></i>
 											<span>View Profile </span>

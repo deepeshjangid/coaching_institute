@@ -123,8 +123,6 @@ Route::post('/area-search', 'HomeController@AreaSearch')->name('area-search');
 Route::post('/course-search', 'HomeController@CourseSearch')->name('course-search');
 Route::get('/students-tutors-institutes', 'HomeController@Search')->name('search');
 
-Route::get('/user-profile/{type}/{id}', 'HomeController@UserProfile')->name('user.profile');
-
 Route::view('/about', 'about')->name('about');
 
 Route::get('/contact-us', 'HomeController@ContactUs')->name('contact');
@@ -138,6 +136,8 @@ Route::group(['middleware' => 'Userauth'], function () {
 
 	Route::post('/plan-purchage','HomeController@PlanPurchage')->name('plan.purchage');
 	Route::post('payment', 'PaymentController@Payment')->name('make.payment');
+
+	Route::get('/user-profile/{type}/{id}', 'HomeController@UserProfile')->name('user.profile');
 
 });
 

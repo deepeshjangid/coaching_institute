@@ -64,22 +64,25 @@
 								<ul class="user-profile-btn login-boxsss" style="">
 									@if(Session::get('user_login'))
 									<li class="nav-item dropdown">
-										<a href="#" id="navbardrop"><i class="icon-user"></i>
+										<a id="navbardrop"><i class="icon-user"></i>
 										<p><span>Hi, {{ Session::get('user_name') }}</span></p></a>
 										<div class="dropdown-menu user-profile-list">
 											<ul>
-												<li><a class="login" href="{{ route('profile') }}"><i class="icon-user-following"></i> Profile</a></li>
+												<li><a class="login" href="@if(Session::get('user_type')=='1'){{ route('student.profile') }}
+										@elseif(Session::get('user_type')=='2'){{ route('tutor.profile') }}
+										@elseif(Session::get('user_type')=='3'){{ route('institute.profile') }}
+										@endif"><i class="icon-user-following"></i> Profile</a></li>
 												<li><a class="login" href="{{ route('logout') }}"><i class="icon-power"></i> Logout</a></li>
 											</ul>
 										</div>
 									</li>
 									@else
 									<li class="nav-item dropdown">
-										<a href="{{ route('login') }}" id="navbardrop"><i class="icon-user"></i>
+										<a href="{{ route('login') }}" id="navbardrop"><i class="fa fa-sign-in" aria-hidden="true"></i>
 										<p><span>Login</span></p></a>
 									</li>
 									<li class="nav-item dropdown">
-										<a href="{{ route('register') }}" id="navbardrop" style="background:#09618C"><i class="icon-user"></i>
+										<a href="{{ route('register') }}" id="navbardrop" style="background:#09618C"><i class="fa fa-user-plus" aria-hidden="true"></i>
 										<p><span>Sign up</span></p></a>
 									</li>
 									@endif
@@ -213,7 +216,6 @@
 
 <script type="text/javascript" language="javascript" src="{{ asset('assets/js/common.js') }}"></script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 
 <script>
