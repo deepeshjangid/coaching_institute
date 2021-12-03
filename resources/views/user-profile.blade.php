@@ -126,7 +126,7 @@
 						  <div class="col-md-12 col-sm-12">
 						     <div class="apply-boxs">
 								<div class="apply-for-coures">
-								   <p>are you a student / parent</p>
+								   <p>are you a Student / parent</p>
 								   <h2>Looking for Student</h2>
 								   <img src="{{ asset ('assets/images/demo-icons.png')}}" alt="icons" class="img-fluid">
 								   <a href="#0" class="demo-button">post student Needs For Free</a>
