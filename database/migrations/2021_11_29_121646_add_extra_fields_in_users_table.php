@@ -18,7 +18,7 @@ class AddExtraFieldsInUsersTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->integer('sub_category_id')->unsigned()->nullable(); 
             $table->foreign('sub_category_id')->references('id')->on('sub_categories')->onDelete('CASCADE')->onUpdate('CASCADE');
-            $table->integer('course_id')->unsigned()->nullable(); 
+            $table->integer('course_id')->unsigned()->nullable();
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('CASCADE')->onUpdate('CASCADE');
         });
     }

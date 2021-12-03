@@ -38,9 +38,6 @@
 										</div>
 										<div class="profile-detailes">
 											<label><b>Course</b></label>&nbsp;&nbsp;
-											@php
-											$c = DB::table('courses')->where('id', $row['User']['course_id'])->first();
-										    @endphp
 											<label>@if($c){{ $c->name }}@endif</label>
 											<div class="height-10"></div>
 											<label><b>Subjects</b></label>&nbsp;&nbsp;
@@ -65,6 +62,24 @@
 										<div class="apply-btn">
 										  <a href="#0" class="appy-bnt"> Apply Tuition </a>
 									    </div>
+										<form class="contact-form" action="{{ route('apply.for.tution') }}" method="POST" >
+											@csrf
+											<div class="row">
+											</div>
+											<script
+												src="https://checkout.razorpay.com/v1/checkout.js"
+												data-key="rzp_test_el72DFtTI4GCy9"
+												data-amount="@if($row->fee){{$row->fee}}00 @endif"
+												data-currency="INR"
+												data-buttontext="Apply Tuition"
+												data-name="Pay"
+												data-description="Razorpay"
+												data-image="https://example.com/your_logo.jpg"
+												data-prefill.name="Coaching"
+												data-prefill.email="info@example.com"
+												data-theme.color="#F37254">
+											</script>
+										</form>
 									</div>
 									
                                    </div>

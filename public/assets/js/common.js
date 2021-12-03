@@ -58,7 +58,7 @@ $("form#form").submit(function(e){
 					window.location.href = "/login";
 				}
 				if(data.login){
-					window.location.href = "/";
+					history.back();
 				}
 			}
 			window.scrollTo({top: 0, behavior: 'smooth'});

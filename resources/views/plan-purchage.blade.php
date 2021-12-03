@@ -65,7 +65,7 @@
 								data-name="Pay"
 								data-description="Razorpay"
 								data-image="https://example.com/your_logo.jpg"
-								data-prefill.name="Coacing"
+								data-prefill.name="Coaching"
 								data-prefill.email="info@example.com"
 								data-theme.color="#F37254">
 							</script>
