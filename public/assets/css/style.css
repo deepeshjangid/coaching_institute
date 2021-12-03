@@ -2385,9 +2385,49 @@ display:none;
     font-weight: 700;
     color: #2f2c2c;
 }
-.tuition-preferences h4{}
-.tuition-preferences p{}
-
+.apply-boxs{
+	
+margin-bottom: 20px;
+	
+background-color: #f0f5fb;
+	
+border: 3px solid #f0f0f0;
+}
+.apply-for-coures{
+    text-align: center;
+    /* border: 2px solid #cecece; */
+    margin-top: 0;
+    background: #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 7px;
+}
+.apply-for-coures p{
+    font-size: 16px;
+    text-transform: capitalize;
+}
+.apply-for-coures h2{
+    font-size: 17px;
+    letter-spacing: .5px;
+    font-weight: bold;
+}
+.apply-for-coures img{
+    margin: auto;
+    height: 117px;
+    width: 117px;
+    border-radius: 75px;
+    margin-bottom: 20px;
+}
+.apply-for-coures .demo-button{
+    display: block;
+    align-items: center;
+    background: #f97d44;
+    padding: 8px 14px;
+    color: #fff;
+    border-radius: 7px;
+    font-size: 14px;
+    text-transform: capitalize;
+}
 
 
 
