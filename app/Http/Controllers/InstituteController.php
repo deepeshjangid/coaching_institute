@@ -75,6 +75,8 @@ class InstituteController extends Controller
                             'email' => $request->email,
                             'mobile' => $request->mobile,
                         ]);
+                        $user = User::where('id', $id)->first();
+
                         $institute = Institute::where('user_id', $id)->first();
                         if($institute){
                             Institute::where('user_id', $id)->update([
@@ -84,6 +86,9 @@ class InstituteController extends Controller
                                 'city' => $request->city,
                                 'pincode' => $request->pincode,
                                 'address'=> $request->address,
+                                'category_id'=> $user->category_id,
+                                'sub_category_id'=> $user->sub_category_id,
+                                'course_id'=> $user->course_id,
                             ]);
                         }else{
                             Institute::insert([
@@ -94,6 +99,9 @@ class InstituteController extends Controller
                                 'city' => $request->city,
                                 'pincode' => $request->pincode,
                                 'address'=> $request->address,
+                                'category_id'=> $user->category_id,
+                                'sub_category_id'=> $user->sub_category_id,
+                                'course_id'=> $user->course_id,
                             ]);
                         }
                         return response(array("error" => false, "reset"=>false,"message" => "Your profile has been updated."),200);

@@ -89,6 +89,9 @@ class StudentController extends Controller
                             'email' => $request->email,
                             'mobile' => $request->mobile,
                         ]);
+
+                        $user = User::where('id', $id)->first();
+
                         $student = Student::where('user_id', $id)->first();
                         if($student){
                             Student::where('user_id', $id)->update([
@@ -99,6 +102,9 @@ class StudentController extends Controller
                                 'institute_name'=> $request->institute_name,
                                 'parents_name'=> $request->parents_name,
                                 'profile_image'=> $image_update,
+                                'category_id'=> $user->category_id,
+                                'sub_category_id'=> $user->sub_category_id,
+                                'course_id'=> $user->course_id,
                             ]);
                         }else{
                             Student::insert([
@@ -110,6 +116,9 @@ class StudentController extends Controller
                                 'institute_name'=> $request->institute_name,
                                 'parents_name'=> $request->parents_name,
                                 'profile_image'=> $image_update,
+                                'category_id'=> $user->category_id,
+                                'sub_category_id'=> $user->sub_category_id,
+                                'course_id'=> $user->course_id,
                             ]);
                         }
                         return response(array("error" => false, "reset"=>false,"message" => "Your profile has been updated."),200);
