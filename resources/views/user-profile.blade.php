@@ -34,26 +34,26 @@
 								 <div class="col-md-9">
 								   <div class="col-md-12 p-0">
 									<div class="header-profile">
-									   <h2>Wanted home tutor for Sr. Kg cbse, English maths hindi</h2>
+									   <h2>Wanted home tutor for @if($row->subjects){{ $row->subjects }}@endif</h2>
 										</div>
 										<div class="profile-detailes">
-											<label><b>Course</b></label>&nbsp;&nbsp;
-											<label>Sr. Kg cbse</label>
+											<!-- <label><b>Course</b></label>&nbsp;&nbsp;
+											<label>Sr. Kg cbse</label> -->
 											<div class="height-10"></div>
 											<label><b>Subject</b></label>&nbsp;&nbsp;
-											<label>English maths hindi</label>
+											<label>@if($row->subjects){{ $row->subjects }}@endif</label>
 											<div class="height-10"></div>
-											<label><b>Tuition Type</b></label>&nbsp;&nbsp;
-											<label>HomeTuition</label>
+											<label><b>Occupation</b></label>&nbsp;&nbsp;
+											<label>@if($row->occupation){{ $row->occupation }}@endif</label>
 											<div class="height-10"></div>
 											<label><b>City</b></label>&nbsp;&nbsp;
-											<label>Ahmedabad</label>
+											<label>@if($row->city){{ $row->city }}@endif</label>
 											<div class="height-10"></div>
 											<label><b>Location</b></label>&nbsp;&nbsp;
-											<label>Ahmedabad</label>
+											<label>@if($row->address){{ $row->address }}@endif</label>
 											<div class="height-10"></div>
 											<label><b>Pincode</b></label>&nbsp;&nbsp;
-											<label>380008</label>
+											<label>@if($row->pincode){{ $row->pincode }}@endif</label>
 									   </div>
 									  </div>
 									  </div>
@@ -72,7 +72,7 @@
 										</div>
 										<div class="col-md-4">
 											<h4>Gender</h4>
-											<p>Any</p>
+											<p>@if($row->gender){{ $row->gender }}@endif</p>
 										</div>
 										<div class="col-md-4">
 											<h4>Preferred Time</h4>
@@ -80,14 +80,14 @@
 										</div>
 										<div class="col-md-4">
 											<h4>Monthly Fee</h4>
-											<p>Rs 2500.00</p>
+											<p>Rs. @if($row->fee){{ $row->fee }}@endif</p>
 										</div>
 								</div>
 								
 							   <div class="row tuition-preferences">
 								<div class="col-md-12">
 									<h3 class="public-profile-sub-heading">Tuition Description</h3>
-									<p>Wanted home tutor for Sr. Kg cbse, English maths hindi</p>
+									<p>Wanted home tutor for @if($row->subjects){{ $row->subjects }}@endif</p>
 									<div class="height-10"></div>
 								</div>
 							</div>

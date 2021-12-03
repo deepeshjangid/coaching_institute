@@ -145,8 +145,7 @@
 									<div class="item-product mb-30">
 										<div class="thumbnail-container">
 											<div class="user-cons">
-											<i class="fa fa-university" aria-hidden="true" style="font-size: 45px;"></i>
-
+												<i class="fa fa-university" aria-hidden="true" style="font-size: 45px;"></i>
 											</div>
 										</div>
 									</div>
