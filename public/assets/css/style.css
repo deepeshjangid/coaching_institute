@@ -2348,9 +2348,9 @@ display:none;
     margin-top: 30px;
     justify-content: end;
 }
-.apply-btn .appy-bnt{
+.apply-btn input{
     align-items: center;
-    border-left: 1px solid #ddd;
+    border: none;
     background: #f97d44;
     padding: 6px 16px;
     color: #fff;

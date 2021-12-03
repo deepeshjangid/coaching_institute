@@ -115,6 +115,8 @@ class TutorController extends Controller
                             'email' => $request->email,
                             'mobile' => $request->mobile,
                         ]);
+                        $user = User::where('id', $id)->first();
+
                         $tutor = Tutor::where('user_id', $id)->first();
                         if($tutor){
                             Tutor::where('user_id', $id)->update([
@@ -129,6 +131,9 @@ class TutorController extends Controller
                                 'id_proof'=> $id_proof,
                                 'profile_image'=> $image_update,
                                 'occupation'=> $request->occupation,
+                                'category_id'=> $user->category_id,
+                                'sub_category_id'=> $user->sub_category_id,
+                                'course_id'=> $user->course_id,
                             ]);
                         }else{
                             Tutor::insert([
@@ -144,6 +149,9 @@ class TutorController extends Controller
                                 'id_proof'=> $id_proof,
                                 'profile_image'=> $image_update,
                                 'occupation'=> $request->occupation,
+                                'category_id'=> $user->category_id,
+                                'sub_category_id'=> $user->sub_category_id,
+                                'course_id'=> $user->course_id,
                             ]);
                         }
                         return response(array("error" => false, "reset"=>false,"message" => "Your profile has been updated."),200);

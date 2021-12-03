@@ -479,16 +479,25 @@ class HomeController extends Controller
     }
 
     public function CourseSearch(Request $request){
-        $search=Course::where('name', 'LIKE', $request->search. '%')->groupBy('name')->get();
-        if(count($search) != '0'){
-            foreach($search as $data){
+        $course=Course::where('name', 'LIKE', '%' .$request->search. '%')->groupBy('name')->get();
+        $category=Category::where('name', 'LIKE', '%' .$request->search. '%')->groupBy('name')->get();
+        $sub_category=SubCategory::where('name', 'LIKE', '%' .$request->search. '%')->groupBy('name')->get();
+        if(count($course) != '0'){
+            foreach($course as $data){
                 $results[] = ['value' => $data->name, 'label'=>$data->name];
             }
-            $tutor=Tutor::where('subjects', 'LIKE', $request->search. '%')->groupBy('subjects')->get();
-            foreach($tutor as $data){
-                $results[] = ['value' => $data->subjects, 'label'=>$data->subjects];
+        }
+        if(count($category) != '0'){
+            foreach($category as $data){
+                $results[] = ['value' => $data->name, 'label'=>$data->name];
             }
-        }else{
+        }
+        if(count($sub_category) != '0'){
+            foreach($sub_category as $data){
+                $results[] = ['value' => $data->name, 'label'=>$data->name];
+            }
+        }
+        if(count($course) != '0' && count($category) != '0' && count($sub_category) != '0'){
             $results[] = ['value' => 'no', 'label' =>'Course Not Found'];
         }
         return response()->json($results);
@@ -526,15 +535,15 @@ class HomeController extends Controller
     public function UserProfile(Request $request,$type, $id){
 
         if($type == 'student'){
-            $row=Student::with('User')->where('id', $id)->first();
+            $row=Student::with('User')->with('Category')->with('SubCategory')->with('Course')->where('id', $id)->first();
             return view('user-profile', compact('row','type'));
         }
         if($type == 'tutor'){
-            $row=Tutor::with('User')->where('id', $id)->first();
+            $row=Tutor::with('User')->with('Category')->with('SubCategory')->with('Course')->where('id', $id)->first();
             return view('user-profile', compact('row','type'));
         }      
         if($type == 'institute'){
-            $row=Institute::with('User')->where('id', $id)->first();
+            $row=Institute::with('User')->with('Category')->with('SubCategory')->with('Course')->where('id', $id)->first();
             return view('user-profile', compact('row','type'));
         }
 		

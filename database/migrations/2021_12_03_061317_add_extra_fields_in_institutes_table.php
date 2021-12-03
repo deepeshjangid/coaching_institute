@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddExtraFieldsInUsersTable extends Migration
+class AddExtraFieldsInInstitutesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddExtraFieldsInUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('institutes', function (Blueprint $table) {
             $table->integer('category_id')->unsigned()->nullable(); 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->integer('sub_category_id')->unsigned()->nullable(); 
@@ -30,7 +30,7 @@ class AddExtraFieldsInUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('institutes', function (Blueprint $table) {
             //
         });
     }
