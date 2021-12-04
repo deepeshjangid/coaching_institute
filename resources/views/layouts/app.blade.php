@@ -32,14 +32,28 @@
 						 <a class="navbar-brand my-logos" href="{{ route('index') }}">
 						  <span style="font-weight:bold;font-size:26px;">LOGO</span>
 						 <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid" alt="logo" style="display:none;"></a>
+						 @if(!Session::get('user_login'))
 						  <ul class="mobile-call mobile-user">
-								<li class="nav-item"><a class="nav-link" href="">
-									<button type="button" class="site-button onlineCbseBtn">Gopal Saini</button> </a>
+								<li class="nav-item"><a class="nav-link" href="{{ route('login') }}">
+									<button type="button" class="site-button onlineCbseBtn"><i class="fa fa-sign-in" aria-hidden="true"></i> login</button> </a>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="">
+								<li class="nav-item"><a class="nav-link" href="{{ route('register') }}">
+									<button type="button" class="site-button onlineCbseBtn Zokelijk-btn"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign up</button> </a>
+								</li>
+					      </ul>
+						  @else
+						  <ul class="mobile-call mobile-user">
+								<li class="nav-item"><a class="nav-link" href="@if(Session::get('user_type')=='1'){{ route('student.profile') }}
+										@elseif(Session::get('user_type')=='2'){{ route('tutor.profile') }}
+										@elseif(Session::get('user_type')=='3'){{ route('institute.profile') }}
+										@endif">
+									<button type="button" class="site-button onlineCbseBtn">Profile</button> </a>
+								</li>
+								<li class="nav-item"><a class="nav-link" href="{{ route('logout') }}">
 									<button type="button" class="site-button onlineCbseBtn Zokelijk-btn">Logout</button> </a>
 								</li>
 					      </ul>
+						  @endif
 						 
 						 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 								<span> <i class="fa fa-bars" aria-hidden="true"></i> </span>

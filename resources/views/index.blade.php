@@ -36,7 +36,7 @@
 											<div class="input-group">
 												<input type="text" class="form-control search" name="area"
 													placeholder="Search Area" id="area-search-input" autocomplete="off" required>
-													<button class="input-group-text" id="basic-addon1"><i class="icon-magnifier"></i></button>
+													<!-- <button class="input-group-text" id="basic-addon1"><i class="icon-magnifier"></i></button> -->
 											</div>
 											<div class="list-group mt-1" id="area-search-result" style="position: absolute; z-index: 999; width: 100%;"></div>
 										</div>

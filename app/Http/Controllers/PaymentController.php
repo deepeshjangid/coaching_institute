@@ -41,6 +41,7 @@ class PaymentController extends Controller
                     'mobile' => $request->mobile,
                     'services' => $request->services,
                     'amount' => $request->amount,
+                    'points' => $request->amount,
                     'order_id' => 'order_id_'.rand(1,1000000),
                     'transaction_id' => $input['razorpay_payment_id'],
                     'status' => '1',

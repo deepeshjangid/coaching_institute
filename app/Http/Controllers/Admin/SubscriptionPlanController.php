@@ -156,7 +156,7 @@ class SubscriptionPlanController extends Controller
                 ]);
 				return redirect()->back()->with(['success' => "Points detect successfully"]);
 			}else{
-				return redirect()->back()->with(['error' => "Something went wrong."]);
+				return redirect()->back()->with(['error' => "Something went wrong"]);
 			}
 		}
     }
