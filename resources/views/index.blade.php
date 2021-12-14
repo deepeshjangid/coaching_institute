@@ -246,6 +246,211 @@
 				</div>
 			</div>
 			
+				<div class="menu menu-2 gray-bg">
+					<div class="menu-inner">
+						<div class="container">
+							<div class="row ">
+							   <div class="sec-title pull-left">
+									<h3>Why Home Tuition?</h3>
+								  </div>
+								</div>
+								<!-- Title Content End -->
+								<div class="col-sm-12 col-xs-12">
+								   <div class="row">
+										<div class="col-md-6 col-sm-12 col-xs-12">
+										  <div class="sec-title">
+											<h3>Students/Parents</h3>
+									    	</div>
+											<div class="col-md-12 col-sm-12 col-xs-12">
+												<!-- Box Start -->
+												<div class="box">
+													<div class="image">
+														<img alt="" src="{{ asset('assets/images/icons1.png') }}" class="img-fluid">
+													</div>
+													<div class="caption">
+														<span>Home Tuition is #1 Secret of Success. Its a well known fact that home tuition helps students to succeed. Home tutors provide personalized attention.</span>
+													</div>
+												</div>
+												<!-- Box End -->
+											</div>
+											
+											<div class="col-md-12 col-sm-12 col-xs-12">
+												<!-- Box Start -->
+												<div class="box">
+													<div class="image">
+														<img alt="" src="{{ asset('assets/images/icons6.png') }}" class="img-fluid">
+													</div>
+													<div class="caption">
+														<span>Expert one-to-one guidance from home tutors helps students. Here student gets 100% attention and can ask doubts without any hesitation.</span>
+													</div>
+												</div>
+												<!-- Box End -->
+											</div>
+											
+											
+											<div class="col-md-12 col-sm-12 col-xs-12">
+												<!-- Box Start -->
+												<div class="box">
+													<div class="image">
+														<img alt="" src="{{ asset('assets/images/icons4.png') }}" class="img-fluid">
+													</div>
+													<div class="caption">
+														<span>Guided students learn & achieve Better Grades! Numerous students have benefitted from expert guidance from home tutors.</span>
+													</div>
+												</div>
+												<!-- Box End -->
+											</div>
+											
+										</div>
+										
+										<div class="col-md-6 col-sm-12 col-xs-12">
+										  <div class="sec-title">
+											<h3>Tutors</h3>
+									    	</div>
+											<div class="col-md-12 col-sm-12 col-xs-12">
+												<!-- Box Start -->
+												<div class="box">
+													<div class="image">
+														<img alt="" src="{{ asset('assets/images/icons2.png') }}" class="img-fluid">
+													</div>
+													<div class="caption">
+														<span>Be your own Boss!!! You concentrate on teaching students as home tutor and we help you find home tuition needs (part time teaching jobs) posted by students.</span>
+													</div>
+												</div>
+												<!-- Box End -->
+											</div>
+											
+											<div class="col-md-12 col-sm-12 col-xs-12">
+												<!-- Box Start -->
+												<div class="box">
+													<div class="image">
+														<img alt="" src="{{ asset('assets/images/icons3.png') }}" class="img-fluid">
+													</div>
+													<div class="caption">
+														<span>
+Home Tuition is Flexible and Rewarding. Teach as home tutor at your convenient timings. Few hours of home tutoring a day can help you earn decent income.</span>
+													</div>
+												</div>
+												<!-- Box End -->
+											</div>
+											
+											
+											<div class="col-md-12 col-sm-12 col-xs-12">
+												<!-- Box Start -->
+												<div class="box">
+													<div class="image">
+														<img alt="" src="{{ asset('assets/images/icons5.png') }}" class="img-fluid">
+													</div>
+													<div class="caption">
+														<span>
+Home tutoring is the best part time job option. Thousands of parents are offering part time teaching jobs for home tutors. Work part time and earn additional income!</span>
+													</div>
+												</div>
+												<!-- Box End -->
+											</div>
+											
+										</div>
+										
+									</div>                            
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="menu menu-2" style="padding:0;">
+					<div class="menu-inner">
+						<div class="container">
+							<div class="row ">
+							   <div class="col-md-12">
+								<div class="sec-title pull-left">
+									<h3>How It Works</h3>
+								  </div>
+								</div>
+								<!-- Title Content End -->
+								<div class="col-sm-12 col-xs-12">
+								   <div class="row">
+										<div class="col-md-6 col-sm-12 col-xs-12">
+										 <div class="row">
+											  <div class="sec-title">
+												<h3>Students/Parents</h3>
+												</div>
+											</div>
+											<div class="col-md-12 col-sm-12 col-xs-12">
+												<!-- Box Start -->
+												<div class="box">
+													<div class="image">
+														<h1 class="numbers">01</h1>
+													</div>
+													<div class="caption">
+														<span>Home Tuition is #1 Secret of Success. Its a well known fact that home tuition helps students to succeed. Home tutors provide personalized attention.</span>
+													</div>
+												</div>
+												
+												<div class="box">
+													<div class="image">
+														<h1 class="numbers">02</h1>
+													</div>
+													<div class="caption">
+														<span>Home Tuition is #1 Secret of Success. Its a well known fact that home tuition helps students to succeed. Home tutors provide personalized attention.</span>
+													</div>
+												</div>
+												
+												
+												<div class="box">
+													<div class="image">
+														<h1 class="numbers">03</h1>
+													</div>
+													<div class="caption">
+														<span>Home Tuition is #1 Secret of Success. Its a well known fact that home tuition helps students to succeed. Home tutors provide personalized attention.</span>
+													</div>
+												</div>
+												<!-- Box End -->
+											  </div>
+										 	</div>
+										
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											 <div class="sec-title">
+												<h3>Tutors</h3>
+												</div>
+												<div class="box">
+													<div class="image">
+														<h1 class="numbers">04</h1>
+													</div>
+													<div class="caption">
+														<span>Home Tuition is #1 Secret of Success. Its a well known fact that home tuition helps students to succeed. Home tutors provide personalized attention.</span>
+													</div>
+												</div>
+												
+												<div class="box">
+													<div class="image">
+														<h1 class="numbers">05</h1>
+													</div>
+													<div class="caption">
+														<span>Home Tuition is #1 Secret of Success. Its a well known fact that home tuition helps students to succeed. Home tutors provide personalized attention.</span>
+													</div>
+												</div>
+												
+												
+												<div class="box">
+													<div class="image">
+														<h1 class="numbers">06</h1>
+													</div>
+													<div class="caption">
+														<span>Home Tuition is #1 Secret of Success. Its a well known fact that home tuition helps students to succeed. Home tutors provide personalized attention.</span>
+													</div>
+												</div>
+											
+										</div>
+										
+									</div>                            
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			
 			<!--- Testimonials --->
 			<div class="container-fluid testimonial-area">
 				<div class="container">
