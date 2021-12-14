@@ -2776,7 +2776,7 @@ bottom: 0;
 	
 right: 0;
 	
-/* display: none; */
+display: none;
 }
 .user-profile-btn li.nav-item>a {
     display: block;
