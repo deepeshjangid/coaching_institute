@@ -167,6 +167,12 @@
 											<input name="occupation" type="text" class="form-control" placeholder="Occupation" value="@if($data){{ $data['occupation'] }}@endif"/>
 										</div>
 									</div>
+									<div class="col-md-12 col-sm-12 col-12">
+										<div class="input-group">
+										  
+											<a class="form-control" href="">http://143.110.244.110/sizzlead/@if($data){{ $data['profile_url'] }}@endif</a>
+										</div>
+									</div>
 									
 									<div class="col-md-12 col-sm-6 col-12">
 										<div class="btn-block">

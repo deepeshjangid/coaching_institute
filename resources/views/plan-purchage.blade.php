@@ -29,7 +29,7 @@
 							@csrf
 							<div class="row">
 								<input name="plan_id" required type="hidden" class="form-control" value="@if($plan_id) {{ $plan_id }} @endif" />
-								
+<!-- 								
 								<div class="col-md-12 col-sm-12 col-12">
 									<div class="input-group">
 										<input name="name" required type="text" class="form-control" placeholder="Name" />
@@ -44,15 +44,15 @@
 									<div class="input-group">
 										<input name="services" required type="text" class="form-control" placeholder="Services" />
 									</div>
-								</div>
+								</div> -->
 								<div class="col-md-12 col-sm-12 col-12">
 									<div class="input-group">
-										<input name="plan_name" readonly type="text" class="form-control" value="@if($plan) {{ $plan->name }} @endif" />
+										<input name="plan_name" readonly type="text" class="form-control" value="Plan Name : @if($plan) {{ $plan->name }} @endif" />
 									</div>
 								</div>
 								<div class="col-md-12 col-sm-12 col-12">
 									<div class="input-group">
-										<input name="amount" readonly type="text" class="form-control" value="@if($price) {{ $price }} @endif" />
+										<input name="amount" readonly type="text" class="form-control" value="Price : @if($price) {{ $price }} @endif" />
 									</div>
 								</div>
 							</div>

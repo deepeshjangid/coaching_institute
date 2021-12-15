@@ -79,7 +79,7 @@
 									</div>
 									
 									<div class="form-group form-focus">
-										<input type="email" name="email" class="form-control floating" placeholder="Eamil Id" required/>
+										<input type="email" name="email" class="form-control floating" placeholder="Eamil Id* Optional"/>
 									</div>
 									
 									<div class="form-group form-focus">

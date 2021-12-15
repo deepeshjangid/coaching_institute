@@ -1,18 +1,3 @@
-// var form_original_data = JSON.stringify($("form#form").serializeArray()); 
-
-// $('form#form').bind('keyup', function(e){
-
-// 	if (JSON.stringify($(this).serializeArray()) == form_original_data) {
-// 		$('button[type="submit"]').prop('disabled', true);
-// 	}else{
-// 		$('button[type="submit"]').prop('disabled', false);
-// 	}
-
-// });
-
-// $('button[type="reset"]').click('click', function(){
-//     $('button[type="submit"]').prop('disabled', true);
-// });
 
 $("form#form").submit(function(e){
 
@@ -51,14 +36,21 @@ $("form#form").submit(function(e){
 				if(data.reset){
 					$('#'+formId)[0].reset();
 				}
-				// $('button[type="submit"]').prop('disabled', true);
 				showMsg('success', data.message);
 
 				if(data.registration){
 					window.location.href = "/login";
 				}
 				if(data.login){
-					history.back();
+					if(data.user_type == '1'){
+						window.location.href = "student-profile";
+					}
+					if(data.user_type == '2'){
+						window.location.href = "tutor-profile";
+					}
+					if(data.user_type == '3'){
+						window.location.href = "institute-profile";
+					}
 				}
 			}
 			window.scrollTo({top: 0, behavior: 'smooth'});

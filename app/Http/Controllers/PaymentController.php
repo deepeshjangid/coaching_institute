@@ -37,9 +37,9 @@ class PaymentController extends Controller
                 PurchagePlan::insert([
                     'user_id' => Session::get('user_id'),
                     'subscription_plan_id' => $request->plan_id,
-                    'name' => $request->name,
-                    'mobile' => $request->mobile,
-                    'services' => $request->services,
+                    // 'name' => $request->name,
+                    // 'mobile' => $request->mobile,
+                    // 'services' => $request->services,
                     'amount' => $request->amount,
                     'points' => $request->amount,
                     'order_id' => 'order_id_'.rand(1,1000000),

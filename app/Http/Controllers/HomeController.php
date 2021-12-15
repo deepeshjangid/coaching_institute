@@ -85,7 +85,6 @@ class HomeController extends Controller
                 'course' => 'required',
                 'name' => 'required',
                 'mobile' => 'required|max:10|unique:users,mobile',
-                'email' => 'required|email|unique:users,email',
                 'password' => 'required',
 			];
 			
@@ -128,7 +127,15 @@ class HomeController extends Controller
                                 'course_id'=>$request->course,
                             ]);
 
-                            return response()->json(['error' => false, 'registration' => true, 'message'=>'Your registration has been successfully completed.']);
+                            $user = User::where('email', $request->email)->where('mobile', $request->mobile)->first();
+
+                            Session::put('user_login', true);
+                            Session::put('user_id', $user->id);
+                            Session::put('user_name', $user->name);
+                            Session::put('user_mobile', $user->mobile);
+                            Session::put('user_type', $user->user_type);
+
+                            return response()->json(['error' => false, 'login' => true, 'user_type' => $user->user_type, 'message'=>'Your registration has been successfully completed.']);
                         }
                     }
 
@@ -173,7 +180,7 @@ class HomeController extends Controller
                                 Session::put('user_name', $user->name);
                                 Session::put('user_mobile', $user->mobile);
                                 Session::put('user_type', $user->user_type);
-                                return response()->json(['error' => false, 'login' => true, 'message'=>'You are successfully logged in.']);
+                                return response()->json(['error' => false, 'login' => true, 'user_type' => $user->user_type, 'message'=>'You are successfully logged in.']);
                             }else{
                                 return response()->json(['error' => true, 'message'=>'That password’s not right. Try again.']);
                             }

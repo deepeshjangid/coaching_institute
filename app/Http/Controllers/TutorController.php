@@ -135,6 +135,8 @@ class TutorController extends Controller
                                 'sub_category_id'=> $user->sub_category_id,
                                 'course_id'=> $user->course_id,
                             ]);
+                            User::where('id', $id)->update(['profile_url' => 'tutor/'.$tutor->id]);
+
                         }else{
                             Tutor::insert([
                                 'user_id' => $id,
@@ -153,6 +155,10 @@ class TutorController extends Controller
                                 'sub_category_id'=> $user->sub_category_id,
                                 'course_id'=> $user->course_id,
                             ]);
+
+                            $tutor = Tutor::where('user_id', $id)->first();
+
+                            User::where('id', $id)->update(['profile_url' => 'tutor/'.$tutor->id]);
                         }
                         return response(array("error" => false, "reset"=>false,"message" => "Your profile has been updated."),200);
 						
