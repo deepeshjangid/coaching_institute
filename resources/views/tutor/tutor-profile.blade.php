@@ -169,8 +169,7 @@
 									</div>
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
-										  
-											<a class="form-control" href="">http://143.110.244.110/sizzlead/@if($data){{ $data['profile_url'] }}@endif</a>
+											<input type="text" readonly class="form-control" value="Profile Link - @if($data){{ asset($data['profile_url']) }}@endif"/>
 										</div>
 									</div>
 									
