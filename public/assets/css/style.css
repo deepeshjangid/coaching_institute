@@ -1,3 +1,160 @@
+
+
+.menu-2.gray-bg {
+    background: #f5f5f5;
+    padding: 40px 0;
+}
+.menu-inner {
+    background: url(../images/background/bg-big-right.png) no-repeat right bottom;
+    padding-bottom: 20px;
+}
+
+.menu .nav-tabs {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    margin: 0 10% 47px;
+    padding: 20px 30px;
+    text-align: center;
+}
+
+.menu .nav-tabs>li {
+    float: none;
+    display: inline-block;
+    padding: 0 25px 0 0;
+}
+
+.menu .nav-tabs>li:last-child {
+    padding: 0;
+}
+.numbers{
+	
+position: absolute;
+	
+left: 37px;
+	
+top: 25px;
+	
+font-weight: 900;
+	
+font-size: 34px;
+	
+background: #f97d44;
+	
+border-radius: 50px;
+	
+height: 60px;
+	
+width: 60px;
+	
+color: #fff;
+	
+line-height: 52px;
+}
+.menu .nav-tabs>li>a {
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
+    color: #000;
+    line-height: 14px;
+    margin: 0;
+    text-transform: uppercase;
+    padding: 14px 25px;
+    border-radius: 4px;
+}
+
+.menu .nav-tabs>li>a.active,
+.menu .nav-tabs>li>a.active:focus,
+.menu .nav-tabs>li>a.active:hover,
+.menu .nav-tabs>li>a:hover {
+    color: #fff;
+    background: #ff9a33;
+    border: none;
+}
+
+.menu .box {
+    border: 1px solid #e5e5e5;
+    margin-bottom: 30px;
+    background: #fff;
+    float: left;
+    align-items: center;
+}
+
+.menu .box .image {
+    float: left;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+.menu .box .image img{
+    border-radius: 50px;
+    height: 80px;
+    width: 80px;
+    background: gray;
+    display: flex;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    left: -18px;
+    transform: translateX(50%);
+    top: 22px;
+    z-index: 999;
+}
+.menu .box .caption {
+    position: relative;
+    border-left: 1px solid #e5e5e5;
+    margin-left: 130px;
+    padding: 20px;
+    min-height: 135px;
+    background: #f5f5f5;
+}
+
+.menu .box .caption h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ff9a33;
+    margin: 0 0 4px;
+}
+
+.menu .box .caption .des {
+    font-size: 13px;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+    line-height: 20px;
+}
+
+.menu .box .caption span {
+    color: #757575;
+    font-size: 14px;
+}
+
+.menu .box .caption .price {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ff9a33;
+    position: absolute;
+    right: 15px;
+    top: 18px;
+}
+
+.menu .box:hover {
+    -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .2)
+}
+
+.menu-2.white-bg {
+    background: #fff;
+}
+
+
+.menu-2 .menu-inner {
+    background: rgba(0, 0, 0, 0);
+}
+
+
 html {
   scroll-behavior: smooth;
 }
