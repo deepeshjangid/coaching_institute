@@ -145,7 +145,7 @@ Route::group(['middleware' => 'Userauth'], function () {
 	Route::post('/plan-purchage','HomeController@PlanPurchage')->name('plan.purchage');
 	Route::post('payment', 'PaymentController@Payment')->name('make.payment');
 
-	Route::get('/query-submit/{id}','PaymentController@ApplyForTutionQuery')->name('submit.query');
+	Route::post('/query-submit/{id}','PaymentController@ApplyForTutionQuery')->name('submit.query');
 	Route::post('/apply-for-tution','PaymentController@ApplyForTutionPayment')->name('apply.for.tution');
 
 });

@@ -118,10 +118,16 @@ $(function (){
 	                    if (regex.test(file[0].name.toLowerCase())) {
 	                        var reader = new FileReader();
 	                        reader.onload = function (e) {
-	                            var img = $("<img />");
-	                            img.attr("style", "width: 100px;margin-right: 13px");
-	                            img.attr("src", e.target.result);
-	                            
+
+		                    	if(dvPreview == '#profileimage'){
+									var img = $("<img />");
+		                            img.attr("style", "width: 100px; height: 100px; border-radius:50%; object-fit: cover;");
+		                            img.attr("src", e.target.result);
+								}else{
+		                            var img = $("<img />");
+		                            img.attr("style", "width: 100px;margin-right: 13px");
+		                            img.attr("src", e.target.result);
+							 	}
 	                            if(uploadType=='multiple'){
 	                                dvPreview.append(img);
 	                            }else{

@@ -145,7 +145,7 @@
 										</div>
                                         {!! $plan->features !!}
                                         <form action="{{ route('plan.purchage' )}}" method="post" enctype="multipart/form-data">
-                                        @csrf
+                                        	@csrf
                                         <input type="hidden" name="id" value="{{$plan->id}}">
                                         <input type="hidden" name="price" value="{{$plan->price}}">
 										<button type="submit" class="btn-style-two color-{{$key+1}}">Select</button>

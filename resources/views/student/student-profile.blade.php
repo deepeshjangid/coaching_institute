@@ -49,13 +49,18 @@
 							    @csrf
 								<div class="row">
 									<div class="col-md-12 col-sm-12 col-12">
-										<div class="user-cons">
-											@if($data['profile_image'])
-											<img class="mb-5 border rounded-circle" src="{{ asset('/uploads/students')}}/@if($data){{ $data['profile_image'] }} @endif" style="width:100px; height: 100px;">  
-											@else
-											<i class="fa fa-user" aria-hidden="true"></i>
-											@endif
+									    <label class="file-attachment-input" style="margin: auto; background: white; width:130px; padding: 0px; border:0px;">
+										
+										<div class="form-group previewimages" id="profileimage">
+											@if($data && $data['profile_image']!='')
+												<img class=" border rounded-circle" src="{{ asset('/uploads/students')}}/@if($data){{ $data['profile_image'] }} @endif" style="width: 100px;height: 100px; object-fit: cover;">  
+											@endif	
 										</div>
+										<div class="input-group mb-5 font-weight-bold" style="justify-content: center;">
+										     Change Profile Photo
+											<input name="profile_image" @if(!$data) @endif type="file" class="form-control" accept=".png, .jpg, .jpeg" data-image-preview="profileimage" />
+										</div>
+										</label>
 									</div>
 									<div class="col-md-6 col-sm-12 col-12">
 											<div class="input-group">
@@ -119,21 +124,6 @@
 											placeholder="Father's/Mother Name" value="@if($data){{ $data['parents_name'] }}@endif"/>
 										</div>
 									</div>
-									
-									<div class="col-md-6 col-sm-12 col-12 ">
-									  <label class="file-attachment-input">
-										<div class="input-group">
-										    Browse your upload profile image
-											<input name="profile_image" @if(!$data) @endif type="file" class="form-control" accept=".png, .jpg, .jpeg" data-image-preview="profileimage"/>
-										</div>
-										<div class="form-group previewimages" id="profileimage">
-											@if($data && $data['profile_image']!='')
-												<img src="{{ asset('/uploads/students/'.$data['profile_image']) }}" style="width: 100px;margin-right: 13px" />
-											@endif	
-										</div>
-										</label>
-									</div>
-									
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="btn-block">
 											<button name="submit" type="submit" value="Submit" class="btn btn-primary">Update</button>
