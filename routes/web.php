@@ -117,6 +117,8 @@ Route::post('/login-submit', 'HomeController@Login')->name('login.submit');
 Route::view('/student-form', 'student.student-form')->name('student.form');
 Route::post('/student-form-submit', 'HomeController@StudentForm')->name('student.form.submit');
 
+Route::post('/otp-submit', 'HomeController@OtpSubmit')->name('otp.submit');
+
 Route::view('/tutor-form', 'tutor.tutor-form')->name('tutor.form');
 Route::post('/tutor-form-submit', 'HomeController@TutorForm')->name('tutor.form.submit');
 

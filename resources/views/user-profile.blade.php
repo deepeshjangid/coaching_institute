@@ -38,7 +38,7 @@
 										</div>
 										<div class="profile-detailes">
 											<label><b>Course</b></label>&nbsp;&nbsp;
-											<label>@if($row){{ $row['SubCategory']['name'] }}, {{ $row['Course']['name'] }}@endif</label>
+											<label>@if($row){{ $row['Category']['name'] }}, {{ $row['SubCategory']['name'] }}@endif</label>
 											<div class="height-10"></div>
 											<label><b>Subjects</b></label>&nbsp;&nbsp;
 											<label>@if($row['subjects']){{ $row['subjects'] }}@endif</label>

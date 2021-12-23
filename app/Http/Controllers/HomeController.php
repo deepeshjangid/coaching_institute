@@ -13,6 +13,7 @@ use App\Models\Course;
 use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\ApplyTuitonPayment;
+use App\Models\Otp;
 use App\Helpers\commonHelper;
 use Validator;
 use Hash;
@@ -213,8 +214,68 @@ class HomeController extends Controller
         }
     }
 
-    public function StudentForm(Request $request)
-    {
+    public function OtpSubmit(Request $request){
+
+        if($request->ajax()){
+
+            $rules=[
+                'mobile' => 'required',
+                'otp1' => 'required',
+                'otp2' => 'required',
+                'otp3' => 'required',
+                'otp4' => 'required',
+            ];
+			
+			$validator = Validator::make($request->all(), $rules);
+
+			$response = array("error" => true, "message" => "Something went wrong.please try again"); 
+			
+			if ($validator->fails()) {
+				$message = [];
+				$messages_l = json_decode(json_encode($validator->messages()), true);
+				foreach ($messages_l as $msg) {
+					$message= $msg[0];
+					break;
+				} 
+				
+				return response(array("error"=>false,"message" => $message),403);  
+						
+			}else{
+
+				try{
+                        $data = Otp::where('mobile', $request->mobile)->first();
+
+                        if($data){
+
+                            $otp = $request->otp1.$request->otp2.$request->otp3.$request->otp4;
+                            if($data->otp == $otp){
+
+                                Otp::where('mobile', $request->mobile)->update([
+                                    'status'=> '1',
+                                ]);
+                                return response(array("error" => false, "otpvarified"=>true));
+                            }else{
+                                return response(array("error" => true, "message" => "Invalid OTP"));
+                            }
+
+                        }else{
+                            
+                            return response(array("error" => true, "message" => "Something went wrong."));
+                        
+                        }
+					}
+				catch (\Exception $e) {
+					return response(array("error" 
+						=> true, "message" => $e->getMessage()),403); 
+				}
+			}
+			
+			return response($response);
+
+		}
+    }
+
+    public function StudentForm(Request $request){
 
         if($request->ajax()){
 
@@ -244,6 +305,11 @@ class HomeController extends Controller
 			}else{
 
 				try{
+                        
+                    $data = Otp::where('mobile', $request->mobile)->first();
+
+                    if($data && $data->status == '1'){
+
                         DB::table('student_forms')->insert([
                             'name' => $request->name,
                             'email' => $request->email,
@@ -252,11 +318,36 @@ class HomeController extends Controller
                             'city' => $request->city,
                             'pincode'=> $request->pincode,
                         ]);
+
+                        Otp::where('mobile', $request->mobile)->update([
+                            'status'=> '0',
+                        ]);
+
+                        return response(array("error" => false, "reset"=>true, "formsubmit"=>true, "message" => "Form successfully submitted."),200);
+
+                    }else{
+
+                        $otp = commonHelper::sendOtp($request->mobile);
+
+                        $row = Otp::where('mobile', $request->mobile)->first();
+
+                        if($row){
+                            Otp::where('mobile', $request->mobile)->update([
+                                'otp'=>$otp,
+                                'status'=> '0',
+                            ]);
+                        }else{
+                            Otp::insert([
+                                'mobile'=>$request->mobile,
+                                'otp'=>$otp,
+                            ]);
+                        }
                         
-                        return response(array("error" => false, "reset"=>true, "message" => "Form successfully submitted."),200);
-						
-					}
-				catch (\Exception $e) {
+                        return response(array("error" => false, "reset"=>false, "otp"=>true, "message" => "OTP sent on your mobile number."),200);
+                    
+                    }
+				
+                }catch (\Exception $e) {
 					return response(array("error" 
 						=> true, "message" => $e->getMessage()),403); 
 				}
@@ -265,7 +356,7 @@ class HomeController extends Controller
 			return response($response);
 
 		}
-    }
+    }    
 
     public function TutorForm(Request $request)
     {
@@ -300,6 +391,10 @@ class HomeController extends Controller
 			}else{
 
 				try{
+                    $data = Otp::where('mobile', $request->mobile)->first();
+
+                    if($data && $data->status == '1'){
+
                         DB::table('tutor_forms')->insert([
                             'name' => $request->name,
                             'email' => $request->email,
@@ -311,10 +406,34 @@ class HomeController extends Controller
                             'experience'=> $request->experience,
                         ]);
                         
-                        return response(array("error" => false, "reset"=>true, "message" => "Form successfully submitted."),200);
-						
-					}
-				catch (\Exception $e) {
+                        Otp::where('mobile', $request->mobile)->update([
+                            'status'=> '0',
+                        ]);
+
+                        return response(array("error" => false, "reset"=>true, "formsubmit"=>true, "message" => "Form successfully submitted."),200);
+
+                    }else{
+
+                        $otp = commonHelper::sendOtp($request->mobile);
+
+                        $row = Otp::where('mobile', $request->mobile)->first();
+
+                        if($row){
+                            Otp::where('mobile', $request->mobile)->update([
+                                'otp'=>$otp,
+                                'status'=> '0',
+                            ]);
+                        }else{
+                            Otp::insert([
+                                'mobile'=>$request->mobile,
+                                'otp'=>$otp,
+                            ]);
+                        }
+                        
+                        return response(array("error" => false, "reset"=>false, "otp"=>true, "message" => "OTP sent on your mobile number."),200);
+                    
+                    }
+				}catch (\Exception $e) {
 					return response(array("error" 
 						=> true, "message" => $e->getMessage()),403); 
 				}
@@ -359,6 +478,11 @@ class HomeController extends Controller
 			}else{
 
 				try{
+
+                    $data = Otp::where('mobile', $request->mobile)->first();
+
+                    if($data && $data->status == '1'){
+
                         DB::table('institute_forms')->insert([
                             'name' => $request->name,
                             'email' => $request->email,
@@ -370,11 +494,35 @@ class HomeController extends Controller
                             'pincode'=> $request->pincode,
                             'established_year'=> $request->established_year,
                         ]);
+
+                        Otp::where('mobile', $request->mobile)->update([
+                            'status'=> '0',
+                        ]);
+
+                        return response(array("error" => false, "reset"=>true, "formsubmit"=>true, "message" => "Form successfully submitted."),200);
+
+                    }else{
+
+                        $otp = commonHelper::sendOtp($request->mobile);
+
+                        $row = Otp::where('mobile', $request->mobile)->first();
+
+                        if($row){
+                            Otp::where('mobile', $request->mobile)->update([
+                                'otp'=>$otp,
+                                'status'=> '0',
+                            ]);
+                        }else{
+                            Otp::insert([
+                                'mobile'=>$request->mobile,
+                                'otp'=>$otp,
+                            ]);
+                        }
                         
-                        return response(array("error" => false, "reset"=>true, "message" => "Form successfully submitted."),200);
-						
-					}
-				catch (\Exception $e) {
+                        return response(array("error" => false, "reset"=>false, "otp"=>true, "message" => "OTP sent on your mobile number."),200);
+                    
+                    }
+				}catch (\Exception $e) {
 					return response(array("error" 
 						=> true, "message" => $e->getMessage()),403); 
 				}
@@ -515,32 +663,23 @@ class HomeController extends Controller
 
         if($request->type == 'student'){
             $type = $request->type;
-            $rows=Student::with('User')->where('subjects', 'LIKE', '%' .$request->course. '%')->where('city', $request->area)->get();
-            if(count($rows) == '0'){
-                $rows=Student::with('User')->get();
-            }
+            $rows=Student::select("*")->with('User')->whereRaw('FIND_IN_SET(?,subjects)', [$request->course])->where('city', $request->area)->get();
             return view('students-tutors-institutes', compact('rows','type'));
         }
         if($request->type == 'tutor'){
             $type = $request->type;
-            $rows=Tutor::with('User')->where('subjects', 'LIKE', '%' .$request->course. '%')->where('city', $request->area)->get();
-            if(count($rows) == '0'){
-                $rows=Tutor::with('User')->get();
-            }
+            $rows=Tutor::select("*")->with('User')->whereRaw('FIND_IN_SET(?,subjects)', [$request->course])->where('city', $request->area)->get();
             return view('students-tutors-institutes', compact('rows','type'));
         }      
         if($request->type == 'institute'){
             $type = $request->type;
-            $rows=Institute::with('User')->where('subjects', 'LIKE', '%' .$request->course. '%')->where('city', $request->area)->get();
-            if(count($rows) == '0'){
-                $rows=Institute::with('User')->get();
-            }
+            $rows=Institute::select("*")->with('User')->whereRaw('FIND_IN_SET(?,subjects)', [$request->course])->where('city', $request->area)->get();
             return view('students-tutors-institutes', compact('rows','type'));
         }
 		
     }
 
-    public function UserProfile(Request $request,$type, $id){
+    public function UserProfile(Request $request, $type, $id){
         $applied = '0';
         if($type == 'student'){
             $row=Student::with('User')->with('Category')->with('SubCategory')->with('Course')->where('id', $id)->first();
@@ -548,6 +687,7 @@ class HomeController extends Controller
         }
         if($type == 'tutor'){
             $row=Tutor::with('User')->with('Category')->with('SubCategory')->with('Course')->where('id', $id)->first();
+
             $applied=ApplyTuitonPayment::where('user_id', Session::get('user_id'))->where('parent_id', $row['User']['id'])->first();
             if($applied){
                 $applied = '1';

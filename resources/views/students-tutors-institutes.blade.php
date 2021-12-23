@@ -41,8 +41,8 @@
 		<div class="container-fluid plan-sec">
 			<div class="container">
 				<div class="row">
-				   		@if($type == "student")
-						@if($rows)
+				   	@if($type == "student")
+						@if(count($rows)>0)
 						@foreach($rows as $row)
 						<div class="col-xl-4 col-lg-4 col-lg-4 col-sm-12 col-12">
 					
@@ -65,7 +65,7 @@
 									</div>
 									<div class="wishlist-quickview">
 									<ul>
-										@if($row->address)<li> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ $row->address }}, {{ $row->city }}</li>@endif
+										@if($row->city)<li> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ $row->address }}, {{ $row->city }}</li>@endif
 										@if($row->institute_name)<li><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ $row->institute_name }}</li>@endif
 										@if($row->parents_name)<li><i class="fa fa-male" aria-hidden="true"></i>{{ $row->parents_name }}</li>@endif
 										@if($row->subjects)<li><i class="fa fa-book" aria-hidden="true"></i> {{ $row->subjects }}</li>@endif
@@ -86,9 +86,11 @@
 							</div>
 						</div>
 						@endforeach
+						@else
+						<img src="{{asset('assets/images/data-not-found.jpg')}}" alt="" width="50%" style="margin:auto;">
 						@endif
 					@elseif($type == "tutor")
-						@if($rows)
+						@if(count($rows)>0)
 						@foreach($rows as $row)
 						<div class="col-xl-4 col-lg-4 col-lg-4 col-sm-12 col-12">
 
@@ -112,9 +114,7 @@
 									</div>
 									<div class="wishlist-quickview">
 									<ul>
-										@if($row->address)<li> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ $row->address }}, {{ $row->city }}, {{ $row->pincode }}</li>@endif
-										@if($row->institute_name)<li><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ $row->institute_name }}</li>@endif
-										@if($row->parents_name)<li><i class="fa fa-male" aria-hidden="true"></i>{{ $row->parents_name }}</li>@endif
+										@if($row->city)<li> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ $row->address }}, {{ $row->city }}, {{ $row->pincode }}</li>@endif
 										@if($row->subjects)<li><i class="fa fa-book" aria-hidden="true"></i> {{ $row->subjects }}</li>@endif
 										@if($row->highest_qualification)<li><i class="fa fa-book" aria-hidden="true"></i> {{ $row->highest_qualification }}</li>@endif
 										@if($row->occupation)<li><i class="fa fa-user" aria-hidden="true"></i> {{ $row->occupation }}</li>@endif
@@ -135,9 +135,11 @@
 							</div>
 						</div>
 						@endforeach
+						@else
+						<img src="{{asset('assets/images/data-not-found.jpg')}}" alt="" width="50%" style="margin:auto;">
 						@endif
 					@elseif($type == "institute")
-						@if($rows)
+						@if(count($rows)>0)
 						@foreach($rows as $row)
 						<div class="col-xl-4 col-lg-4 col-lg-4 col-sm-12 col-12">
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -157,7 +159,7 @@
 									</div>
 									<div class="wishlist-quickview">
 									<ul>
-										@if($row->address)<li> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ $row->address }}, {{ $row->city }}, {{ $row->pincode }}</li>@endif
+										@if($row->city)<li> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ $row->address }}, {{ $row->city }}, {{ $row->pincode }}</li>@endif
 										@if($row->subjects)<li><i class="fa fa-book" aria-hidden="true"></i> {{ $row->subjects }}</li>@endif
 										@if($row->type)<li><i class="fa fa-university" aria-hidden="true"></i> {{ $row->type }}</li>@endif
 									</ul>
@@ -177,6 +179,8 @@
 							</div>
 						</div>
 						@endforeach
+						@else
+						<img src="{{asset('assets/images/data-not-found.jpg')}}" alt="" width="50%" style="margin:auto;">
 						@endif
 
 					@endif

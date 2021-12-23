@@ -20,14 +20,14 @@ class commonHelper{
 	}
 
     public static function sendOtp($mobile){
-        $app = env('APP_ENV');
-        if($app == "local"){
+        // $app = env('APP_ENV');
+        // if($app == "local"){
             $otp = "1111";
-        }else{
-            $otp = mt_rand(1000,9999);
-			$msg ="Dear Customer, Welcome to IHMS, your OTP is ".$otp." to login into our online portal. Thank you";
-			$this->sendMsg($mobile,$msg);
-        }
+        // }else{
+        //     $otp = mt_rand(1000,9999);
+		// 	$msg ="Dear Customer, Welcome to Tutor, your OTP is ".$otp." to login into our online portal. Thank you";
+		// 	// $this->sendMsg($mobile,$msg);
+        // }
 
         return $otp;
 	}

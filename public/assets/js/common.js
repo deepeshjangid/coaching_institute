@@ -6,6 +6,11 @@ $("form#form").submit(function(e){
 	var formId=$(this).attr('id');
 	var formAction=$(this).attr('action');
 	var form_data = new FormData(this);
+
+	if(formAction.includes("otp-submit")){
+		var mobile = $("#mobile").val();
+		form_data.append('mobile', mobile);
+	}
 	
 	$.ajax({
 		url: formAction,
@@ -36,7 +41,9 @@ $("form#form").submit(function(e){
 				if(data.reset){
 					$('#'+formId)[0].reset();
 				}
-				showMsg('success', data.message);
+				if(data.message){
+					showMsg('success', data.message);
+				}
 
 				if(data.registration){
 					window.location.href = "/login";
@@ -52,6 +59,34 @@ $("form#form").submit(function(e){
 						window.location.href = "institute-profile";
 					}
 				}
+				if(data.otp){
+					$("#form-section").addClass("d-none");
+					$("#otp-section").removeClass("d-none");
+
+					$('.otp_resend').css('display', 'none');
+					$('#timer_left').css('display', 'inline-block');
+
+					var resendOtpTime = 30;
+					interval = setInterval(() => {
+						if (resendOtpTime > 0) {
+							resendOtpTime--;
+							$('#timer_left').html("00:" + ("0" +
+								resendOtpTime).slice(-2));
+						} else {
+							$('#timer_left').css('display', 'none');
+							$('.otp_resend').css('display', 'inline-block');
+							clearInterval(interval);
+						}
+					}, 1000);
+
+				}
+				if(data.otpvarified){
+					$(".form-submit").trigger("submit");
+				}
+				if(data.formsubmit){
+					$("#otp-section").addClass("d-none");
+					$("#form-section").removeClass("d-none");
+				}
 			}
 			window.scrollTo({top: 0, behavior: 'smooth'});
 			$('#preloader').css('display','none');
@@ -64,6 +99,9 @@ $("form#form").submit(function(e){
 
 });
 
+$("#otp-again").click(function(){
+	$(".form-submit").trigger("submit");
+})
 
 function sweetAlertMsg(type,msg){
 	if(type=='success'){
@@ -106,6 +144,34 @@ $('.toast').mouseleave(function() {
 	$('.toast').toast('hide');
 });
 
+function OTPInput() {
+    const inputs = document.querySelectorAll('.otpContainer > *[id]');
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener('keydown', function(event) {
+        if (event.key === "Backspace") {
+            inputs[i].value = '';
+            if (i !== 0)
+            inputs[i - 1].focus();
+        } else {
+            if (i === inputs.length - 1 && inputs[i].value !== '') {
+            return true;
+            } else if (event.keyCode > 47 && event.keyCode < 58) {
+            inputs[i].value = event.key;
+            if (i !== inputs.length - 1)
+                inputs[i + 1].focus();
+            event.preventDefault();
+            } else if (event.keyCode > 64 && event.keyCode < 91) {
+            if (i !== inputs.length - 1)
+                inputs[i].focus();
+            event.preventDefault();
+            }
+        }
+        });
+    }
+}
+OTPInput();
+
+
 $(function (){
 	    $("input[type='file']").change(function () { 
 	        	var uploadType=$(this).data('type'); 
@@ -118,16 +184,11 @@ $(function (){
 	                    if (regex.test(file[0].name.toLowerCase())) {
 	                        var reader = new FileReader();
 	                        reader.onload = function (e) {
+		        
+	                            var img = $("<img />");
+	                            img.attr("style", "width: 100px;margin-right: 13px");
+	                            img.attr("src", e.target.result);
 
-		                    	if(dvPreview == '#profileimage'){
-									var img = $("<img />");
-		                            img.attr("style", "width: 100px; height: 100px; border-radius:50%; object-fit: cover;");
-		                            img.attr("src", e.target.result);
-								}else{
-		                            var img = $("<img />");
-		                            img.attr("style", "width: 100px;margin-right: 13px");
-		                            img.attr("src", e.target.result);
-							 	}
 	                            if(uploadType=='multiple'){
 	                                dvPreview.append(img);
 	                            }else{
