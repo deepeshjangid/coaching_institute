@@ -122,7 +122,7 @@
 		
 			
 			<!--- Welcome Section ---->
-			<div class="benefits-section">
+			<!-- <div class="benefits-section">
 				<div class="container-fluid">
 					<div class="row justify-content-center">
 						<div class="col-md-12 col-12 col-sm-12 col-lg">
@@ -162,7 +162,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			 <!-- <div class="container-fluid megacourse-menu"> 
 					<div class="container p-0">
 						<div class="row">
@@ -198,14 +198,14 @@
 			   
 			   
 			   <div class="container-fluid megacourse-menu"> 
-					<div class="p-0">
+					<div class="container p-0">
 						<div class="row">
 							@if($categories)
 							@foreach($categories as $key => $cat)
 						   	<div class="col-md-3">
 								<div class="accordion container">
 									<div class="accordion__container">
-										<div class="accordion__item bg-{{$key+1}}">
+										<div class="accordion__item">
 											<header class="accordion__header">
 												<i class='bx bx-plus accordion__icon'></i>
 												<h3 class="accordion__title">{{ $cat->name }}</h3>
