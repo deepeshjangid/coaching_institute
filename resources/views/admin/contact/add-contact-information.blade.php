@@ -70,6 +70,46 @@
 									<textarea name="address" id="about" class="form-control" rows="5" placeholder="Enter address">@if($row){{ $row->address }}@endif</textarea>
 								</div> 
 							</div>
+
+							<div class="form-group row">
+								<div class="col-md-2">
+									<label for="inputEmail3" class="form-control-label">Facebook Link</label>
+								</div>
+								<div class="col-md-10">
+									<input type="url" id="name" class="form-control"  value="@if($row){{ $row->facebook }}@endif"
+                                    name="facebook" placeholder="Enter facebook link">
+								</div> 
+							</div>
+
+							<div class="form-group row">
+								<div class="col-md-2">
+									<label for="inputEmail3" class="form-control-label">Instagram Link</label>
+								</div>
+								<div class="col-md-10">
+									<input type="url" id="name" class="form-control"  value="@if($row){{ $row->instagram }}@endif"
+                                    name="instagram" placeholder="Enter instagram link">
+								</div> 
+							</div>
+
+							<div class="form-group row">
+								<div class="col-md-2">
+									<label for="inputEmail3" class="form-control-label">Twitter Link</label>
+								</div>
+								<div class="col-md-10">
+									<input type="url" id="name" class="form-control"  value="@if($row){{ $row->twitter }}@endif"
+                                    name="twitter" placeholder="Enter twitter link">
+								</div> 
+							</div>
+
+							<div class="form-group row">
+								<div class="col-md-2">
+									<label for="inputEmail3" class="form-control-label">GitHub Link</label>
+								</div>
+								<div class="col-md-10">
+									<input type="url" id="name" class="form-control"  value="@if($row){{ $row->github }}@endif"
+                                    name="github" placeholder="Enter github link">
+								</div> 
+							</div>
                             
                             <div class="form-group">
 								<div class="col-md-2">

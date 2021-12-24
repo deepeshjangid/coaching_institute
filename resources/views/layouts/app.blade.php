@@ -144,11 +144,10 @@
 										</div>
 										<div class="text"> Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two waters own morning gathered greater. Using Indianhometutor.com.</div>
 										<div class="social-box">
-											<a href="#" class="fa fa-facebook"></a>
-											<a href="#" class="fa fa-instagram"></a>
-											<a href="#" class="fa fa-twitter"></a>
-											<a href="#" class="fa fa-google"></a>
-											<a href="#" class="fa fa-pinterest-p"></a>
+											<a href="@if($contact) {{ $contact->facebook }} @endif" target="_blank" class="fa fa-facebook"></a>
+											<a href="@if($contact) {{ $contact->instagram }} @endif" target="_blank" class="fa fa-instagram"></a>
+											<a href="@if($contact) {{ $contact->twitter }} @endif" target="_blank" class="fa fa-twitter"></a>
+											<a href="@if($contact) {{ $contact->github }} @endif" target="_blank" class="fa fa-github"></a>
 										</div>
 									</div>
 								</div>
@@ -158,11 +157,10 @@
 									<div class="footer-widget links-widget">
 										<h4>About Us</h4>
 										<ul class="links-widget">
-											<li><a href="#">Afficiates</a></li>
-											<li><a href="#">Partners</a></li>
-											<li><a href="#">Reviews</a></li>
-											<li><a href="#">Blogs</a></li>
-											<li><a href="#">Newsletter</a></li>
+											<li><a href="{{ route('index') }}">Home</a></li>
+											<li><a href="{{ route('about') }}">About Us</a></li>
+											<li><a href="{{ route('contact') }}">Contact Us</a></li>
+											<li><a href="{{ route('subscription.plan') }}">Subscription Plan</a></li>
 										</ul>
 									</div>
 								</div>
@@ -176,11 +174,10 @@
 									<div class="footer-widget links-widget">
 										<h4>Quick Links</h4>
 										<ul class="links-widget">
-											<li><a href="#">Privacy Policy</a></li>
-											<li><a href="#">Support Area</a></li>
-											<li><a href="#">Documentations</a></li>
-											<li><a href="#">How it works</a></li>
-											<li><a href="#">Terms of Policy</a></li>
+											<li><a href="{{ route('login') }}">Login/Register</a></li>
+											<li><a href="{{ route('student.form') }}">Student Form</a></li>
+											<li><a href="{{ route('tutor.form') }}">Tutor Form</a></li>
+											<li><a href="{{ route('institute.form') }}">Institute Form</a></li>
 										</ul>
 									</div>
 								</div>
@@ -193,19 +190,19 @@
 											<div class="address-icon1">
 												<i class="fa fa-home"></i>
 											</div>
-											<p>@if($contact) {{ $contact->address }} @endif</p>
+											<p><a href="https://maps.google.com/?q=@if($contact) {{ $contact->address }} @endif" target="_blank">@if($contact) {{ $contact->address }} @endif</a></p>
 										</div>
 										<div class="sigle-address">
 											<div class="address-icon1">
 												<i class="fa fa-envelope-o"></i>
 											</div>
-											<p>@if($contact) {{ $contact->email }} @endif</p>
+											<p><a href="mailto:@if($contact) {{ $contact->email }} @endif">@if($contact) {{ $contact->email }} @endif</a></p>
 										</div>
 										<div class="sigle-address">
 											<div class="address-icon1">
 												<i class="fa fa-phone"></i>
 											</div>
-											<p>@if($contact) {{ $contact->mobile }} @endif</p>
+											<p><a href="tel: @if($contact) {{ $contact->mobile }} @endif">@if($contact) {{ $contact->mobile }} @endif</a></p>
 										</div>
 									</div>
 								</div>

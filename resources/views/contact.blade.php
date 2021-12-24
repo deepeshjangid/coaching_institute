@@ -30,9 +30,7 @@
 									</div>
 									<div class="address-text">
 										<h3 class="contact-title">Call Us</h3>
-										<ul class="numbers">
-											<li> <a href="tel:123456789">@if($row) {{ $row->mobile }} @endif</a> </li>
-										</ul>
+											<p><a href="tel:123456789">@if($row) {{ $row->mobile }} @endif</a></p>
 									</div>
 								</div>
 							</div>
@@ -43,9 +41,7 @@
 									</div>
 									<div class="address-text">
 										<h3 class="contact-title">Mail Us</h3>
-										<ul class="numbers">
-											<li><a href="mailto:info@indianhometutor.com">@if($row) {{ $row->email }} @endif</a></li>
-										</ul>
+											<p><a href="mailto:info@indianhometutor.com">@if($row) {{ $row->email }} @endif</a></p>
 									</div>
 								</div>
 							</div>

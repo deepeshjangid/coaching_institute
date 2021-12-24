@@ -41,6 +41,10 @@ class ContactUsController extends Controller
 								'email'=>$request->email,
 								'mobile'=>$request->mobile,
 								'address'=>$request->address,
+								'facebook'=>$request->facebook,
+								'instagram'=>$request->instagram,
+								'twitter'=>$request->twitter,
+								'github'=>$request->github,
 							]);
 							return response(array("error" => false,"reset"=>false,"message" => "Contact details updated successfully."),200);
 
@@ -49,6 +53,10 @@ class ContactUsController extends Controller
 								'email'=>$request->email,
 								'mobile'=>$request->mobile,
 								'address'=>$request->address,
+								'facebook'=>$request->facebook,
+								'instagram'=>$request->instagram,
+								'twitter'=>$request->twitter,
+								'github'=>$request->github,
 							]);
 							return response(array("error" => false, "reset"=>true,"message" => "Contact details added successfully."),200);
 						}
