@@ -163,7 +163,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="container-fluid megacourse-menu"> 
+			 <!-- <div class="container-fluid megacourse-menu"> 
 					<div class="container p-0">
 						<div class="row">
 						@if($categories)
@@ -179,12 +179,12 @@
 										$courses = DB::table('courses')->where('category_id', $cat->id)->where('sub_category_id', $subcat->id)->where('status', '1')->where('delete_status', '1')->get();
 										@endphp
 								
-										<!-- <ul> -->
+									
 											@foreach($courses as $course)
 											@php $dd = str_replace(' ', '-', $course->name); $cs = strtolower($dd); @endphp
 											<li class="megamenu-links3" style="padding-left:50px;"><a href="{{ asset('course/'.$cs) }}" class="">{{ $course->name }}</a></li>
 											@endforeach
-										<!-- </ul> -->
+										
 									@endforeach
 								</ul>
 							</div>
@@ -194,10 +194,69 @@
 						
 					</div>
 			 	 </div>
-			   </div> 
-			</div> 
-			</div> 
-				
+			   </div>  -->
+			   
+			   
+			   <div class="container-fluid megacourse-menu"> 
+					<div class="container p-0">
+						<div class="row">
+						   <div class="col-md-6">
+								<div class="accordion container">
+									<div class="accordion__container">
+										<div class="accordion__item">
+											<header class="accordion__header">
+												<i class='bx bx-plus accordion__icon'></i>
+												<h3 class="accordion__title">School</h3>
+											</header>
+							
+											<div class="accordion__content">
+												<p class="accordion__description">Nursery-KG Tuition All</p>
+											</div>
+										</div>
+									</div>
+								  </div>
+							</div>
+							
+							
+							<div class="col-md-6">
+								<div class="accordion container">
+									<div class="accordion__container">
+										<div class="accordion__item">
+											<header class="accordion__header">
+												<i class='bx bx-plus accordion__icon'></i>
+												<h3 class="accordion__title">School</h3>
+											</header>
+							
+											<div class="accordion__content">
+												<p class="accordion__description">Nursery-KG Tuition All</p>
+											</div>
+										</div>
+									</div>
+								  </div>
+							</div>
+							
+							
+							<div class="col-md-6">
+								<div class="accordion container">
+									<div class="accordion__container">
+										<div class="accordion__item">
+											<header class="accordion__header">
+												<i class='bx bx-plus accordion__icon'></i>
+												<h3 class="accordion__title">School</h3>
+											</header>
+							
+											<div class="accordion__content">
+												<p class="accordion__description">Nursery-KG Tuition All</p>
+											</div>
+										</div>
+									</div>
+								  </div>
+							</div>
+											
+						</div>
+					 </div>
+				   </div> 
+					
 			
 			 <!---- About Section ----->
 			<div class="container-fluid" id="about">
