@@ -198,61 +198,33 @@
 			   
 			   
 			   <div class="container-fluid megacourse-menu"> 
-					<div class="container p-0">
+					<div class="p-0">
 						<div class="row">
-						   <div class="col-md-6">
+							@if($categories)
+							@foreach($categories as $key => $cat)
+						   	<div class="col-md-3">
 								<div class="accordion container">
 									<div class="accordion__container">
-										<div class="accordion__item">
+										<div class="accordion__item bg-{{$key+1}}">
 											<header class="accordion__header">
 												<i class='bx bx-plus accordion__icon'></i>
-												<h3 class="accordion__title">School</h3>
+												<h3 class="accordion__title">{{ $cat->name }}</h3>
 											</header>
 							
 											<div class="accordion__content">
-												<p class="accordion__description">Nursery-KG Tuition All</p>
+												@foreach($cat['SubCategory'] as $subcat)
+
+												<p class="accordion__description">{{ $subcat->name }}</p>
+
+												@endforeach
+
 											</div>
 										</div>
 									</div>
 								  </div>
-							</div>
-							
-							
-							<div class="col-md-6">
-								<div class="accordion container">
-									<div class="accordion__container">
-										<div class="accordion__item">
-											<header class="accordion__header">
-												<i class='bx bx-plus accordion__icon'></i>
-												<h3 class="accordion__title">School</h3>
-											</header>
-							
-											<div class="accordion__content">
-												<p class="accordion__description">Nursery-KG Tuition All</p>
-											</div>
-										</div>
-									</div>
-								  </div>
-							</div>
-							
-							
-							<div class="col-md-6">
-								<div class="accordion container">
-									<div class="accordion__container">
-										<div class="accordion__item">
-											<header class="accordion__header">
-												<i class='bx bx-plus accordion__icon'></i>
-												<h3 class="accordion__title">School</h3>
-											</header>
-							
-											<div class="accordion__content">
-												<p class="accordion__description">Nursery-KG Tuition All</p>
-											</div>
-										</div>
-									</div>
-								  </div>
-							</div>
-											
+							</div>	
+							@endforeach
+							@endif	
 						</div>
 					 </div>
 				   </div> 
