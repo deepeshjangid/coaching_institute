@@ -83,9 +83,11 @@
 		<div class="container">
 			<div class="row justify-content-center mr-tb-40">
 				<div class="col-lg-6">
-					<form class="contact-form"  id="form" action="{{ route('otp.submit' )}}" method="post" enctype="multipart/form-data">
+					<form class="contact-form otp-form"  id="form" action="{{ route('otp.submit' )}}" method="post" enctype="multipart/form-data">
 						@csrf
-						<h3 class="pb-4 font-weight-bold">OTP VARIFICATION</h3>
+						<h3 class="font-weight-bold">OTP VARIFICATION</h3>
+
+						<p id="otpmsg" class="pb-4"></p>
 
 						<div class="row m-0">
 							<div class="col-md-12 col-sm-6 col-6 otpContainer" style="flex-direction: row; display: flex;">

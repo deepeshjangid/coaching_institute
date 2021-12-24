@@ -343,7 +343,7 @@ class HomeController extends Controller
                             ]);
                         }
                         
-                        return response(array("error" => false, "reset"=>false, "otp"=>true, "message" => "OTP sent on your mobile number."),200);
+                        return response(array("error" => false, "reset"=>false, "otp"=>true, "mobile" => $request->mobile, "message" => "OTP sent on your mobile number."),200);
                     
                     }
 				

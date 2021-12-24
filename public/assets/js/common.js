@@ -63,6 +63,9 @@ $("form#form").submit(function(e){
 					$("#form-section").addClass("d-none");
 					$("#otp-section").removeClass("d-none");
 
+					$('#otpmsg').html('OTP sent on mobile number <strong>'+data.mobile+'</strong>');
+					$('#first').focus();
+
 					$('.otp_resend').css('display', 'none');
 					$('#timer_left').css('display', 'inline-block');
 
@@ -84,6 +87,7 @@ $("form#form").submit(function(e){
 					$(".form-submit").trigger("submit");
 				}
 				if(data.formsubmit){
+					$('.otp-form')[0].reset();
 					$("#otp-section").addClass("d-none");
 					$("#form-section").removeClass("d-none");
 				}
