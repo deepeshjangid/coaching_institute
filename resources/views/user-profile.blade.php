@@ -59,7 +59,7 @@
 									  </div>
 									  
 									  <div class="col-md-3">
-										@if($row['User']['user_type'] == '2' && $applied == '0')
+										@if($row['User']['user_type'] == '2' && $applied == '0' && $row['User']['id'] != Session::get('user_id'))
 										<form class="apply-btn" action="{{ route('apply.for.tution') }}" method="POST" >
 											@csrf
 											<input type="hidden" name="parent_id" value="@if($row){{ $row['User']['id'] }}@endif">
@@ -78,14 +78,20 @@
 												data-theme.color="#F37254">
 											</script>
 										</form>
-										@elseif($row['User']['user_type'] == '2' && $applied == '1')
+										@elseif($row['User']['user_type'] == '2' && $applied == '1' && $row['User']['id'] != Session::get('user_id'))
 										<div class="apply-btn">
 											<a class="apply-bnt"><i class="fa fa-check-circle" aria-hidden="true"></i> Applied</a>
 										</div>
 										@endif
+										@if($row['User']['user_type'] == '2' && $query == '0' && $row['User']['id'] != Session::get('user_id'))
 										<div class="apply-btn">
 											<a href="{{ url('query-submit/'.$row['User']['id']) }}" class="apply-bnt" style="background: #09618C"><i class="fa fa-phone" aria-hidden="true"></i> Query</a>
 										</div>
+										@elseif($row['User']['user_type'] == '2' && $query == '1' && $row['User']['id'] != Session::get('user_id'))
+										<div class="apply-btn">
+											<a class="apply-bnt"><i class="fa fa-check-circle" aria-hidden="true"></i> Submitted</a>
+										</div>
+										@endif
 									</div>
 									
                                    </div>

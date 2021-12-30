@@ -54,7 +54,10 @@
 										<div class="form-group previewimages" id="profileimage">
 											@if($data && $data['profile_image']!='')
 												<img class=" border rounded-circle" src="{{ asset('/uploads/students')}}/@if($data){{ $data['profile_image'] }} @endif" style="width: 100px;height: 100px; object-fit: cover;">  
-											@endif	
+											@else
+											<img src="https://static.hometutorsite.com/content/images/userinfo/male-default-lg.jpg" class="border rounded-circle" style="width: 100px;height: 100px; object-fit: cover;">
+
+											@endif
 										</div>
 										<div class="input-group mb-5 font-weight-bold" style="justify-content: center;">
 										     Change Profile Photo
@@ -79,9 +82,18 @@
 									</div>
 									<div class="col-md-6 col-sm-12 col-12">
 										<div class="input-group">
-										<input name="subjects" type="text" class="form-control" placeholder="Subjects Name" value="@if($data){{ $data['subjects'] }}@endif" />
+											<select multiple="multiple" class="fselect form-control" name="subjects[]">
+												@if($courses)
 
+													@php $subjects_array = explode(",",$data['subjects']); @endphp
+
+													@foreach($courses as $par)
+														<option value="{{$par->name}}" @if(in_array($par->name, $subjects_array)) selected @endif>{{$par->name}}</option>
+													@endforeach
+												@endif
+											</select>
 										</div>
+
 									</div>
 									<div class="col-md-12 col-sm-12 col-12">
 										<div class="input-group">
@@ -122,6 +134,16 @@
 										<div class="input-group">
 											<input name="parents_name" type="text" class="form-control" 
 											placeholder="Father's/Mother Name" value="@if($data){{ $data['parents_name'] }}@endif"/>
+										</div>
+									</div>
+									<div class="col-md-12 col-sm-12 col-12">
+										<div class="input-group">
+											<textarea name="remark" id="remark" cols="60" rows="10" placeholder="Remark">@if($data){{ $data['remark'] }}@endif</textarea>
+										</div>
+									</div>
+									<div class="col-md-12 col-sm-12 col-12">
+										<div class="input-group">
+											<input type="text" readonly class="form-control" value="Profile Link - @if($data['profile_url']){{ asset($data['profile_url']) }} @else Update Your Profile @endif"/>
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12 col-12">

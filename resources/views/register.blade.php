@@ -66,7 +66,7 @@
 
 									<div class="form-group form-focus">
                                         <select class="form-control" name="course" id="course_id" required>
-                                            <option value="" selected>Select Course</option>
+                                            <option value="" selected>Select Course/Subject</option>
                                         </select>
 									</div>
 									

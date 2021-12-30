@@ -41,6 +41,7 @@
 										<th>School/College/Job Name</th>
 										<th>Father's/Mother's Name</th>
 										<th>Profile Image</th>
+										<th>Remark</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,6 +62,7 @@
 										<td>
                                             <img src="{{ asset('/uploads/students')}}/{{$data->profile_image}}" style="width:50px">  
                                         </td>
+										<td>{{$data->remark}}</td>
                                     </tr>
                                     @php $count++; @endphp
                                     @endforeach

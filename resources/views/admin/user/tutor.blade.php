@@ -45,6 +45,7 @@
 										<th>Profile Image</th>
 										<th>Id Proof</th>
 										<th>Doc</th>
+										<th>Remark</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -73,6 +74,7 @@
                                         <td>
                                             <img src="{{ asset('/uploads/tutors/id-proofs')}}/{{$data->id_proof}}" style="width:50px">  
                                         </td>
+										<td>{{$data->remark}}</td>
                                     </tr>
                                     @php $count++; @endphp
                                     @endforeach

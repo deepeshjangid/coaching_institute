@@ -73,6 +73,7 @@ class PaymentController extends Controller
                     'order_id' => 'order_id_'.rand(1,1000000),
                     'transaction_id' => $input['razorpay_payment_id'],
                     'status' => '1',
+                    'type' => '1',
                 ]);
                 return redirect()->back()->with('success', "Payment successful & congratulations on your purchase.");
   
@@ -93,6 +94,7 @@ class PaymentController extends Controller
                 'order_id' => '0',
                 'transaction_id' => "0",
                 'status' => '0',
+                'type' => '0',
             ]);
             return redirect()->back()->with('success', "Your query has been succefully submitted.");
 

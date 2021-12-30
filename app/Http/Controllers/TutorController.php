@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Tutor;
 use App\Models\User;
 use App\Models\PurchagePlan;
+use App\Models\Course;
 use Validator;
 use Session;
 use Hash;
@@ -68,6 +69,7 @@ class TutorController extends Controller
 			}else{
 
 				try{
+
                         $id = Session::get('user_id');
 
                         if($request->hasFile('profile_image')) {
@@ -110,17 +112,25 @@ class TutorController extends Controller
                             }
                         }
 
+                        $subjects_array = array();
+						if($request->subjects) {
+							foreach($request->subjects as $sub){
+								$subjects_array[] = $sub;
+							}
+						}
+
                         User::where('id', $id)->update([
                             'name' => $request->name,
                             'email' => $request->email,
                             'mobile' => $request->mobile,
                         ]);
+                        
                         $user = User::where('id', $id)->first();
 
                         $tutor = Tutor::where('user_id', $id)->first();
                         if($tutor){
                             Tutor::where('user_id', $id)->update([
-                                'subjects' => $request->subjects,
+                                'subjects' => implode(",",$subjects_array),
                                 'fee'=> $request->fee,
                                 'gender'=> $request->gender,
                                 'city' => $request->city,
@@ -134,13 +144,14 @@ class TutorController extends Controller
                                 'category_id'=> $user->category_id,
                                 'sub_category_id'=> $user->sub_category_id,
                                 'course_id'=> $user->course_id,
+                                'remark'=> $request->remark,
                             ]);
                             User::where('id', $id)->update(['profile_url' => 'user-profile/tutor/'.$tutor->id]);
 
                         }else{
                             Tutor::insert([
                                 'user_id' => $id,
-                                'subjects' => $request->subjects,
+                                'subjects' => implode(",",$subjects_array), 
                                 'fee'=> $request->fee,
                                 'gender'=> $request->gender,
                                 'city' => $request->city,
@@ -154,6 +165,7 @@ class TutorController extends Controller
                                 'category_id'=> $user->category_id,
                                 'sub_category_id'=> $user->sub_category_id,
                                 'course_id'=> $user->course_id,
+                                'remark'=> $request->remark,
                             ]);
 
                             $tutor = Tutor::where('user_id', $id)->first();
@@ -187,7 +199,9 @@ class TutorController extends Controller
 
         $plans = PurchagePlan::with('SubscriptionPlan')->where('user_id', $id)->get();
 
-        return view('tutor.tutor-profile', compact('data', 'plans'));
+        $courses = Course::where('status','1')->where('delete_status','1')->GroupBy('name')->get();
+
+        return view('tutor.tutor-profile', compact('data', 'plans', 'courses'));
 
     }
 }

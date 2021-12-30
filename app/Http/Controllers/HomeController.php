@@ -61,12 +61,11 @@ class HomeController extends Controller
     }
     public function GetCourse(Request $request)
     {
-        echo $request->cat_id;
-        echo $request->sub_id;
+
 		$subcategories = Course::where('category_id', $request->cat_id)->where('sub_category_id', $request->sub_id)->where('status','1')->where('delete_status','1')->get();
 		
 		$output='';
-		$output.='<option value="">Select Course</option>';
+		$output.='<option value="">Select Course/Subject</option>';
 		
 		foreach($subcategories as $subcategory){
 			$output.= '<option '; $output.=' value="'.$subcategory->id.'">'.$subcategory->name.'</option>';
@@ -79,15 +78,28 @@ class HomeController extends Controller
 
 		if($request->ajax()){
 
-			$rules=[
-                'user_type' => 'required',
-                'category' => 'required',
-                'sub_category' => 'required',
-                'course' => 'required',
-                'name' => 'required',
-                'mobile' => 'required|max:10|unique:users,mobile',
-                'password' => 'required',
-			];
+            if($request->email){
+                $rules=[
+                    'user_type' => 'required',
+                    'category' => 'required',
+                    'sub_category' => 'required',
+                    'course' => 'required',
+                    'name' => 'required',
+                    'mobile' => 'required|max:10|unique:users,mobile',
+                    'email' => 'email|unique:users,email',
+                    'password' => 'required',
+                ];
+            }else{
+                $rules=[
+                    'user_type' => 'required',
+                    'category' => 'required',
+                    'sub_category' => 'required',
+                    'course' => 'required',
+                    'name' => 'required',
+                    'mobile' => 'required|max:10|unique:users,mobile',
+                    'password' => 'required',
+                ];
+            }
 			
 			$validator = Validator::make($request->all(), $rules);
 
@@ -681,6 +693,7 @@ class HomeController extends Controller
 
     public function UserProfile(Request $request, $type, $id){
         $applied = '0';
+        $query = '0';
         if($type == 'student'){
             $row=Student::with('User')->with('Category')->with('SubCategory')->with('Course')->where('id', $id)->first();
             return view('user-profile', compact('row','type'));
@@ -688,14 +701,20 @@ class HomeController extends Controller
         if($type == 'tutor'){
             $row=Tutor::with('User')->with('Category')->with('SubCategory')->with('Course')->where('id', $id)->first();
 
-            $applied=ApplyTuitonPayment::where('user_id', Session::get('user_id'))->where('parent_id', $row['User']['id'])->first();
+            $applied=ApplyTuitonPayment::where('user_id', Session::get('user_id'))->where('parent_id', $row['User']['id'])->where('type', '1')->first();
             if($applied){
                 $applied = '1';
-                return view('user-profile', compact('row','type', 'applied'));
             }else{
                 $applied = '0';
-                return view('user-profile', compact('row','type', 'applied'));
             }
+            $query=ApplyTuitonPayment::where('user_id', Session::get('user_id'))->where('parent_id', $row['User']['id'])->where('type', '0')->first();
+            if($query){
+                $query = '1';
+            }else{
+                $query = '0';
+            }
+            return view('user-profile', compact('row','type', 'applied', 'query'));
+
         }      
         if($type == 'institute'){
             $row=Institute::with('User')->with('Category')->with('SubCategory')->with('Course')->where('id', $id)->first();

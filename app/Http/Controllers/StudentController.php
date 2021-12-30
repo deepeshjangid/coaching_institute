@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\User;
 use App\Models\PurchagePlan;
+use App\Models\Course;
 use Validator;
 use Session;
 use Hash;
@@ -84,6 +85,13 @@ class StudentController extends Controller
                             }
                         }
 
+                        $subjects_array = array();
+						if($request->subjects) {
+							foreach($request->subjects as $sub){
+								$subjects_array[] = $sub;
+							}
+						}
+
                         User::where('id', $id)->update([
                             'name' => $request->name,
                             'email' => $request->email,
@@ -95,7 +103,7 @@ class StudentController extends Controller
                         $student = Student::where('user_id', $id)->first();
                         if($student){
                             Student::where('user_id', $id)->update([
-                                'subjects' => $request->subjects,
+                                'subjects' => implode(",",$subjects_array), 
                                 'city' => $request->city,
                                 'gender'=> $request->gender,
                                 'address'=> $request->address,
@@ -105,11 +113,12 @@ class StudentController extends Controller
                                 'category_id'=> $user->category_id,
                                 'sub_category_id'=> $user->sub_category_id,
                                 'course_id'=> $user->course_id,
+                                'remark'=> $request->remark,
                             ]);
                         }else{
                             Student::insert([
                                 'user_id' => $id,
-                                'subjects' => $request->subjects,
+                                'subjects' => implode(",",$subjects_array), 
                                 'city' => $request->city,
                                 'gender'=> $request->gender,
                                 'address'=> $request->address,
@@ -119,7 +128,12 @@ class StudentController extends Controller
                                 'category_id'=> $user->category_id,
                                 'sub_category_id'=> $user->sub_category_id,
                                 'course_id'=> $user->course_id,
+                                'remark'=> $request->remark,
                             ]);
+
+                            $student = Student::where('user_id', $id)->first();
+
+                            User::where('id', $id)->update(['profile_url' => 'user-profile/student/'.$student->id]);
                         }
                         return response(array("error" => false, "reset"=>false,"message" => "Your profile has been updated."),200);
 						
@@ -148,7 +162,9 @@ class StudentController extends Controller
 
         $plans = PurchagePlan::with('SubscriptionPlan')->where('user_id', $id)->get();
 
-        return view('student.student-profile', compact('data', 'plans'));
+        $courses = Course::where('status','1')->where('delete_status','1')->GroupBy('name')->get();
+
+        return view('student.student-profile', compact('data', 'plans', 'courses'));
 
     }
 }

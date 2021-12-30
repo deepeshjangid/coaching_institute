@@ -19,7 +19,8 @@
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="/resources/demos/style.css">
-	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+	<link href="{{ asset('assets/plugins/fSelect/fSelect.css')}}" rel="stylesheet" type="text/css" /> 
 
 
 </head>
@@ -228,8 +229,16 @@
 
 <script type="text/javascript" language="javascript" src="{{ asset('assets/js/common.js') }}"></script>
 
-	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 
+<script src="{{asset('assets/plugins/fSelect/fSelect.js')}}" type="text/javascript"></script>
+
+
+<script>
+
+	$('.fselect').fSelect();
+
+</script>
 <script>
 		$(document).ready(function(){
 

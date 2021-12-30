@@ -40,6 +40,7 @@
 										<th>City</th>
 										<th>Pincode</th>
 										<th>Address</th>
+										<th>Remark</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -57,6 +58,7 @@
 										<td>{{$data->city}}</td>
 										<td>{{$data->pincode}}</td>
 										<td>{{$data->address}}</td>
+										<td>{{$data->remark}}</td>
                                     </tr>
                                     @php $count++; @endphp
                                     @endforeach

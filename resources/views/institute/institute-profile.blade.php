@@ -65,8 +65,18 @@
 									</div>
 									<div class="col-md-6 col-sm-12 col-12">
 										<div class="input-group">
-											<input name="subjects" type="text" class="form-control" placeholder="Subjects Name" value="@if($data){{ $data['subjects'] }}@endif" />
+											<select multiple="multiple" class="fselect form-control" name="subjects[]">
+												@if($courses)
+
+													@php $subjects_array = explode(",",$data['subjects']); @endphp
+
+													@foreach($courses as $par)
+														<option value="{{$par->name}}" @if(in_array($par->name, $subjects_array)) selected @endif>{{$par->name}}</option>
+													@endforeach
+												@endif
+											</select>
 										</div>
+
 									</div>
 									<div class="col-md-12 col-sm-12 col-12 d-flex">
 										<div class="input-group gender-input">
@@ -99,6 +109,16 @@
 									<div class="col-md-6 col-sm-12 col-12">
 										<div class="input-group">
 											<input name="address" type="text" class="form-control" placeholder="Address" value="@if($data){{ $data['address'] }}@endif" />
+										</div>
+									</div>
+									<div class="col-md-12 col-sm-12 col-12">
+										<div class="input-group">
+											<textarea name="remark" id="remark" cols="60" rows="10" placeholder="Remark">@if($data){{ $data['remark'] }}@endif</textarea>
+										</div>
+									</div>
+									<div class="col-md-12 col-sm-12 col-12">
+										<div class="input-group">
+											<input type="text" readonly class="form-control" value="Profile Link - @if($data['profile_url']){{ asset($data['profile_url']) }} @else Update Your Profile @endif"/>
 										</div>
 									</div>
 									
