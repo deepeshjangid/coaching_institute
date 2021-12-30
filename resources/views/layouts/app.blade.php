@@ -31,8 +31,8 @@
 					<nav class="navbar navbar-expand-md navigation-bar top-fixed myheader">
 					 <div class="col-xl-2 col-md-2 col-sm-12 col-12">
 						 <a class="navbar-brand my-logos" href="{{ route('index') }}">
-						  <span style="font-weight:bold;font-size:26px;">LOGO</span>
-						 <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid" alt="logo" style="display:none;"></a>
+						  <!-- <span style="font-weight:bold;font-size:26px;">LOGO</span> -->
+						 <img src="{{ asset('assets/images/logo.jpeg') }}" class="img-fluid rounded-circle" alt="logo"></a>
 						 @if(!Session::get('user_login'))
 						  <ul class="mobile-call mobile-user">
 								<li class="nav-item"><a class="nav-link" href="{{ route('login') }}">
