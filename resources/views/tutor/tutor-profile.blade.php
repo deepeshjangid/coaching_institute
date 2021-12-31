@@ -91,6 +91,7 @@
 														<option value="{{$par->name}}" @if(in_array($par->name, $subjects_array)) selected @endif>{{$par->name}}</option>
 													@endforeach
 												@endif
+												<option value="Other" @if(in_array("Other", $subjects_array)) selected @endif>Other</option>
 											</select>
 										</div>
 
