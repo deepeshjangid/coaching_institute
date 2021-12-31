@@ -563,7 +563,11 @@ box-shadow: none;
     z-index: 99999 !important;
 }
 .search-section{
-    padding: 30px 0;
+	background: linear-gradient(rgb(11 11 15 / 31%), rgb(20 21 25 / 53%)), url(../images/bg-pattern.png);
+    padding: 150px 0;
+    height:100%;
+    display: flex;
+    align-items: center;
 }
 .title-search{
     text-align: center;
@@ -576,7 +580,7 @@ box-shadow: none;
     display: inline;
     font-size: 22px;
     position: relative;
-    color: #09618C;
+    color: #fffcfc;
 }
 #top-header {
   border-top: 3px solid #3879dd;
@@ -989,7 +993,7 @@ background: #2882ad;
 .bg-set-image-1,
 .bg-set-image-2,
 .bg-set-image-3 {
-  height: 530px;
+  height: 455px;
   background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -2727,10 +2731,19 @@ border: 3px solid #f0f0f0;
     right: 15px;
     top: 4px;
 }	 
+.navigation-bar {
+    padding: 1px 0px;
+    display: flex;
+    align-items: center;
+}
 .bg-set-image-1,
 .bg-set-image-2,
 .bg-set-image-3 {
-  height: 125px;
+  height: 314px;
+}
+
+.title-search h2 {
+    font-size: 19px;
 }	 
 .manubar li a {
   font-size: 16px;
@@ -2742,11 +2755,15 @@ border: 3px solid #f0f0f0;
   font-size: 11px;
 }
 .mobile-call {
-  margin-left: 28px !important;
+  margin-left: 60px !important;
   vertical-align: bottom;
   display: inline-flex;
   position: relative;
   top: -3px;
+}
+.my-logos img {
+    max-height: 48px;
+    z-index: 99999;
 }
 .info-section {
   padding: 22px 0;

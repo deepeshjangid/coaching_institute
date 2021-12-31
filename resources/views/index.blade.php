@@ -5,70 +5,72 @@
 			<div class="container-fluid p-0 sliders">
 			   <div id="demo" class="carousel slide" data-ride="carousel">
 			      <div class="carousel-inner">
-				    <div class="carousel-item bg-set-image-1 active"></div>
-				    <div class="carousel-item bg-set-image-2 "></div>
-				    <div class="carousel-item bg-set-image-3 "></div>
+				    <div class="carousel-item bg-set-image-1 active">
+					  <div class="container-fluid search-section">
+							<div class="container">
+								<div class="row justify-content-center align-items-center">
+									<div class="col-md-10 col-sm-12 col-12">
+									<div class="col-md-12 title-search">
+										<h2> We Help Students and Tutors Find Each Other </h2>
+										</div>
+										<form action="{{ route('search') }}" method="GET"> 
+											@csrf
+											<div class="row" id="pin-serach">
+											
+													<div class="col-xl-3 col-lg-3 col-md-3 col-12 pin-0 p-0">
+														<div class="searching-products mobile-searching-products">
+															<div class="input-group">
+																<input type="text" class="form-control search" name="area"
+																	placeholder="Search Area" id="area-search-input" autocomplete="off" required>
+																	<!-- <button class="input-group-text" id="basic-addon1"><i class="icon-magnifier"></i></button> -->
+															</div>
+															<div class="list-group mt-1" id="area-search-result" style="position: absolute; z-index: 999; width: 100%;"></div>
+														</div>
+													</div>
+													
+													<div class="col-xl-3 col-lg-3 col-md-3 col-12 pin-0 p-0">
+													<div class="form-group select-pincode">
+														<select class="form-control form-select" id="type" name="type" required>
+															<option value="student">Student</option>
+															<option value="tutor" selected>Tutor</option>
+															<option value="institute">Institute</option>
+														</select>
+														</div>
+													</div>
+													
+													<div class="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-12 pdr-0 p-0">
+														<div class="searching-products mobile-searching-products">
+															<div class="input-group">
+																<input type="text" class="form-control search" name="course"
+																	placeholder="Enter Course or Subject Keywords to Search" id="course-search-input" autocomplete="off" required>
+																	<button type="submit" class="input-group-text" id="basic-addon1"><i class="icon-magnifier"></i></button>
+															</div>
+															<div class="list-group mt-1" id="course-search-result" style="position: absolute; z-index: 999; width: 100%;"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</form> 
+									</div>
+								</div>
+								</div>
+							</div>
+
+					</div>
+				    <!-- <div class="carousel-item bg-set-image-2 "></div>
+				    <div class="carousel-item bg-set-image-3 "></div> -->
 					 </div>
 					 
-					   <!-- Left and right controls -->
-				  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+				  <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
 					<span class="fa fa-angle-left angle-left"></span>
 				  </a>
 				  <a class="carousel-control-next" href="#demo" data-slide="next">
 					<span class="fa fa-angle-right angle-right"></span>
-				  </a>
+				  </a> -->
 			   </div>
 		    </div>
 			
-			 <div class="container-fluid search-section">
-			   <div class="container">
-			     <div class="row justify-content-center align-items-center">
-				     <div class="col-md-10 col-sm-12 col-12">
-					   <div class="col-md-12 title-search">
-						 <h2> We Help Students and Tutors Find Each Other </h2>
-						</div>
-						<form action="{{ route('search') }}" method="GET"> 
-							@csrf
-							<div class="row" id="pin-serach">
-							
-									<div class="col-xl-3 col-lg-3 col-md-3 col-12 pin-0 p-0">
-										<div class="searching-products mobile-searching-products">
-											<div class="input-group">
-												<input type="text" class="form-control search" name="area"
-													placeholder="Search Area" id="area-search-input" autocomplete="off" required>
-													<!-- <button class="input-group-text" id="basic-addon1"><i class="icon-magnifier"></i></button> -->
-											</div>
-											<div class="list-group mt-1" id="area-search-result" style="position: absolute; z-index: 999; width: 100%;"></div>
-										</div>
-									</div>
-									
-									<div class="col-xl-3 col-lg-3 col-md-3 col-12 pin-0 p-0">
-									  <div class="form-group select-pincode">
-										  <select class="form-control form-select" id="type" name="type" required>
-											<option value="student">Student</option>
-											<option value="tutor" selected>Tutor</option>
-											<option value="institute">Institute</option>
-										  </select>
-										</div>
-									</div>
-									
-									<div class="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-12 pdr-0 p-0">
-										<div class="searching-products mobile-searching-products">
-											<div class="input-group">
-												<input type="text" class="form-control search" name="course"
-													placeholder="Enter Course or Subject Keywords to Search" id="course-search-input" autocomplete="off" required>
-													<button type="submit" class="input-group-text" id="basic-addon1"><i class="icon-magnifier"></i></button>
-											</div>
-											<div class="list-group mt-1" id="course-search-result" style="position: absolute; z-index: 999; width: 100%;"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</form> 
-					  </div>
-				  </div>
-				</div>
-			 </div>
+			 
 			 
 			 
 			 <div class="container-fluid info-section">

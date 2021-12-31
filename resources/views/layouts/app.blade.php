@@ -30,7 +30,7 @@
 				 <div class="container containers">
 				   <div class="row">
 					<nav class="navbar navbar-expand-md navigation-bar top-fixed myheader">
-					 <div class="col-xl-2 col-md-2 col-sm-12 col-12">
+					 <div class="col-xl-2 col-md-2 col-sm-12 col-12 d-flex">
 						 <a class="navbar-brand my-logos" href="{{ route('index') }}">
 						  <!-- <span style="font-weight:bold;font-size:26px;">LOGO</span> -->
 						 <img src="{{ asset('assets/images/logo.jpeg') }}" class="img-fluid rounded-circle" alt="logo"></a>
