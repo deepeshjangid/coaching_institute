@@ -162,7 +162,8 @@
 											<li><a href="{{ route('index') }}">Home</a></li>
 											<li><a href="{{ route('about') }}">About Us</a></li>
 											<li><a href="{{ route('contact') }}">Contact Us</a></li>
-											<li><a href="{{ route('subscription.plan') }}">Subscription Plan</a></li>
+											<li><a href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
+											<li><a href="{{ route('terms-of-use') }}">Terms Of Use</a></li>
 										</ul>
 									</div>
 								</div>
@@ -180,6 +181,7 @@
 											<li><a href="{{ route('student.form') }}">Student Form</a></li>
 											<li><a href="{{ route('tutor.form') }}">Tutor Form</a></li>
 											<li><a href="{{ route('institute.form') }}">Institute Form</a></li>
+											<li><a href="{{ route('subscription.plan') }}">Subscription Plan</a></li>
 										</ul>
 									</div>
 								</div>

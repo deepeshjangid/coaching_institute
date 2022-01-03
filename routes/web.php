@@ -134,6 +134,8 @@ Route::get('/students-tutors-institutes', 'HomeController@Search')->name('search
 Route::get('/user-profile/{type}/{id}', 'HomeController@UserProfile')->name('user.profile');
 
 Route::view('/about', 'about')->name('about');
+Route::view('/privacy-policy', 'privacy-policy')->name('privacy-policy');
+Route::view('/terms-of-use', 'terms-of-use')->name('terms-of-use');
 
 Route::get('/contact-us', 'HomeController@ContactUs')->name('contact');
 Route::post('/contact-submit', 'HomeController@ContactUsSubmit')->name('contact.submit');
