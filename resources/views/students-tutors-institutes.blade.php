@@ -51,7 +51,7 @@
 									<div class="item-product mb-30">
 										<div class="thumbnail-container">
 											@if($row->profile_image != null)
-											<img src="{{ asset('uploads/students/'.$row->profile_image) }}" class="img-fluid frant-img">
+											<img src="{{ asset('uploads/students/'.$row->profile_image) }}" class="img-fluid frant-img"  style="object-fit: cover;">
 										    @else
 											<img src="https://static.hometutorsite.com/content/images/userinfo/male-default-lg.jpg" class="img-fluid frant-img">
                                             @endif
@@ -99,7 +99,7 @@
 									<div class="item-product mb-30">
 										<div class="thumbnail-container">
 											@if($row->profile_image != null)
-												<img src="{{ asset('uploads/tutors/profile-images/'.$row->profile_image) }}" class="img-fluid frant-img">
+												<img src="{{ asset('uploads/tutors/profile-images/'.$row->profile_image) }}" class="img-fluid frant-img" style="object-fit: cover;">
 											@else
 												<img src="https://static.hometutorsite.com/content/images/userinfo/male-default-lg.jpg" class="img-fluid frant-img">
 											@endif
