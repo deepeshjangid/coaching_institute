@@ -68,7 +68,10 @@
 										@if($row->city)<li> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ $row->address }}, {{ $row->city }}</li>@endif
 										@if($row->institute_name)<li><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ $row->institute_name }}</li>@endif
 										@if($row->parents_name)<li><i class="fa fa-male" aria-hidden="true"></i>{{ $row->parents_name }}</li>@endif
-										@if($row->subjects)<li><i class="fa fa-book" aria-hidden="true"></i> {{ $row->subjects }}</li>@endif
+										@if($row->subjects)<li><i class="fa fa-book" aria-hidden="true"></i>
+												@php $subjects = str_replace(',', ', ',$row->subjects); @endphp
+												<label>{{$subjects}}</label>
+										</li>@endif
 									</ul>
 									</div>
 									<div class="add-to-vart d-flex justify-content-center">
@@ -115,7 +118,10 @@
 									<div class="wishlist-quickview">
 									<ul>
 										@if($row->city)<li> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ $row->address }}, {{ $row->city }}, {{ $row->pincode }}</li>@endif
-										@if($row->subjects)<li><i class="fa fa-book" aria-hidden="true"></i> {{ $row->subjects }}</li>@endif
+										@if($row->subjects)<li><i class="fa fa-book" aria-hidden="true"></i>
+												@php $subjects = str_replace(',', ', ',$row->subjects); @endphp
+												<label>{{$subjects}}</label>
+										</li>@endif
 										@if($row->highest_qualification)<li><i class="fa fa-book" aria-hidden="true"></i> {{ $row->highest_qualification }}</li>@endif
 										@if($row->occupation)<li><i class="fa fa-user" aria-hidden="true"></i> {{ $row->occupation }}</li>@endif
 									</ul>
@@ -160,7 +166,10 @@
 									<div class="wishlist-quickview">
 									<ul>
 										@if($row->city)<li> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ $row->address }}, {{ $row->city }}, {{ $row->pincode }}</li>@endif
-										@if($row->subjects)<li><i class="fa fa-book" aria-hidden="true"></i> {{ $row->subjects }}</li>@endif
+										@if($row->subjects)<li><i class="fa fa-book" aria-hidden="true"></i>
+												@php $subjects = str_replace(',', ', ',$row->subjects); @endphp
+												<label>{{$subjects}}</label>
+										</li>@endif
 										@if($row->type)<li><i class="fa fa-university" aria-hidden="true"></i> {{ $row->type }}</li>@endif
 									</ul>
 									</div>

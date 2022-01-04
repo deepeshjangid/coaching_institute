@@ -56,52 +56,28 @@
                     <p class="marginBottom-md subHeaderTxt textAlignCen">All good minds coming together!</p>
                     <div class="row">
                         <div class="col-xl-3 col-sm-6 col-md-3 marginTop-xl marginBottom-md teamImageDiv">
-                            <p><img src="https://s3-ap-southeast-1.amazonaws.com/tv-prod/urbanproTeamMember/1-mask%2520group%252087.png"
+                            <p><img src="{{ asset('assets/images/img1.jpeg') }}"
                                     width="210px" height="210px" style="border: 1px solid #000;"></p>
-                            <p class="marginTop-md" style="line-height: 1;">Demo Image</p>
+                            <p class="marginTop-md" style="line-height: 1;">Prateek Singh</p>
                             <p class="marginTop-sm designation">Founder &amp; CEO</p>
                         </div>
                         <div class="col-xl-3 col-sm-6 col-md-3 marginTop-xl marginBottom-md teamImageDiv">
-                            <p><img src="https://s3-ap-southeast-1.amazonaws.com/tv-prod/urbanproTeamMember/3-mask%2520group%252080.png"
+                            <p><img src="https://static.hometutorsite.com/content/images/userinfo/male-default-lg.jpg"
                                     width="210px" height="210px" style="border: 1px solid #000;"></p>
-                            <p class="marginTop-md" style="line-height: 1;">Demo Image</p>
-                            <p class="marginTop-sm designation">Co-Founder</p>
+                            <p class="marginTop-md" style="line-height: 1;">Shevendra Singh</p>
+                            <p class="marginTop-sm designation">Co-Founder &amp; Chief Development Officer</p>
                         </div>
                         <div class="col-xl-3 col-sm-6 col-md-3 marginTop-xl marginBottom-md teamImageDiv">
-                            <p><img src="https://s3-ap-southeast-1.amazonaws.com/tv-prod/urbanproTeamMember/5-mask%2520group%252031.png"
+                            <p><img src="{{ asset('assets/images/img3.jpeg') }}"
                                     width="210px" height="210px" style="border: 1px solid #000;"></p>
-                            <p class="marginTop-md" style="line-height: 1;">Demo Image</p>
-                            <p class="marginTop-sm designation">Co-founder</p>
+                            <p class="marginTop-md" style="line-height: 1;">Lovkush Singh</p>
+                            <p class="marginTop-sm designation">Chief Information Officer</p>
                         </div>
                         <div class="col-xl-3 col-sm-6 col-md-3 marginTop-xl marginBottom-md teamImageDiv">
-                            <p><img src="https://s3-ap-southeast-1.amazonaws.com/tv-prod/urbanproTeamMember/8-mask%2520group%252082.png"
+                            <p><img src="{{ asset('assets/images/img2.jpeg') }}"
                                     width="210px" height="210px" style="border: 1px solid #000;"></p>
-                            <p class="marginTop-md" style="line-height: 1;">Demo Image</p>
-                            <p class="marginTop-sm designation">Operations</p>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 col-md-3 marginTop-xl marginBottom-md teamImageDiv">
-                            <p><img src="https://s3-ap-southeast-1.amazonaws.com/tv-prod/urbanproTeamMember/10-10.png"
-                                    width="210px" height="210px" style="border: 1px solid #000;"></p>
-                            <p class="marginTop-md" style="line-height: 1;">Demo Image</p>
-                            <p class="marginTop-sm designation">Finance</p>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 col-md-3 marginTop-xl marginBottom-md teamImageDiv">
-                            <p><img src="https://s3-ap-southeast-1.amazonaws.com/tv-prod/urbanproTeamMember/11-yarlagaddaramakrishna.png"
-                                    width="210px" height="210px" style="border: 1px solid #000;"></p>
-                            <p class="marginTop-md" style="line-height: 1;">Demo Image</p>
-                            <p class="marginTop-sm designation">Technology</p>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 col-md-3 marginTop-xl marginBottom-md teamImageDiv">
-                            <p><img src="https://s3-ap-southeast-1.amazonaws.com/tv-prod/urbanproTeamMember/13-8.png"
-                                    width="210px" height="210px" style="border: 1px solid #000;"></p>
-                            <p class="marginTop-md" style="line-height: 1;">Demo Image</p>
-                            <p class="marginTop-sm designation">HR</p>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 col-md-3  marginTop-xl marginBottom-md teamImageDiv">
-                            <p><img src="https://s3-ap-southeast-1.amazonaws.com/tv-prod/urbanproTeamMember/16-sagar.png"
-                                    width="210px" height="210px" style="border: 1px solid #000;"></p>
-                            <p class="marginTop-md" style="line-height: 1;">Demo Image</p>
-                            <p class="marginTop-sm designation">Technology</p>
+                            <p class="marginTop-md" style="line-height: 1;">Jitendra Singh Baghel</p>
+                            <p class="marginTop-sm designation">Co-Founder &amp; Operation Head</p>
                         </div>
                     </div>
                 </div>

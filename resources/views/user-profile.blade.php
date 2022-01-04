@@ -41,7 +41,10 @@
 											<label>@if($row){{ $row['Category']['name'] }}, {{ $row['SubCategory']['name'] }}@endif</label>
 											<div class="height-10"></div>
 											<label><b>Subjects</b></label>&nbsp;&nbsp;
-											<label>@if($row['subjects']){{ $row['subjects'] }}@endif</label>
+											@if($row['subjects'])
+												@php $subjects = str_replace(',', ', ',$row['subjects']); @endphp
+												<label>{{$subjects}}</label>
+											@endif
 											<div class="height-10"></div>
 											<label><b>Occupation</b></label>&nbsp;&nbsp;
 											<label>@if($row['occupation']){{ $row['occupation'] }}@endif</label>
@@ -117,7 +120,7 @@
 							   <div class="row tuition-preferences">
 								<div class="col-md-12">
 									<h3 class="public-profile-sub-heading">Tuition Description</h3>
-									<p>Wanted home tutor for @if($row['subjects']){{ $row['subjects'] }}@endif</p>
+									<p>Wanted home tutor for @if($row['subjects']) {{$subjects}} @endif</p>
 									<div class="height-10"></div>
 								</div>
 							</div>
