@@ -141,8 +141,11 @@
 								<div class="footer-column col-lg-7 col-md-6 col-sm-12">
 									<div class="footer-widget logo-widget">
 										<div class="logo">
-											<a href="{{ route('index') }}"> <span style="font-weight:bold;font-size:26px;">LOGO</span>
-											<!-- <img src="images/footer-logo.png" alt="" /> --> </a>
+											<a href="{{ route('index') }}">
+											<img src="{{ asset('assets/images/logo.jpeg') }}" class="img-fluid rounded-circle" width="100px" height="100px" alt="logo"></a>
+												
+											</a>
+
 										</div>
 										<div class="text"> Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two waters own morning gathered greater. Using Indianhometutor.com.</div>
 										<div class="social-box">
@@ -159,11 +162,11 @@
 									<div class="footer-widget links-widget">
 										<h4>About Us</h4>
 										<ul class="links-widget">
-											<li><a href="{{ route('index') }}">Home</a></li>
 											<li><a href="{{ route('about') }}">About Us</a></li>
 											<li><a href="{{ route('contact') }}">Contact Us</a></li>
 											<li><a href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
 											<li><a href="{{ route('terms-of-use') }}">Terms Of Use</a></li>
+											<li><a href="{{ route('refund') }}">Refund and Cancellation Policy</a></li>
 										</ul>
 									</div>
 								</div>

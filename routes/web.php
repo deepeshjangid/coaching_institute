@@ -135,6 +135,7 @@ Route::get('/user-profile/{type}/{id}', 'HomeController@UserProfile')->name('use
 
 Route::view('/about', 'about')->name('about');
 Route::view('/privacy-policy', 'privacy-policy')->name('privacy-policy');
+Route::view('/refund-and-cancellation-policy', 'refund')->name('refund');
 Route::view('/terms-of-use', 'terms-of-use')->name('terms-of-use');
 
 Route::get('/contact-us', 'HomeController@ContactUs')->name('contact');
