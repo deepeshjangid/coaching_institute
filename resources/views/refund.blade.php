@@ -31,7 +31,7 @@
 							   <div class="sub-text">Refund and Cancellation Policy</div>
 							    <p>
 								<div style="mso-element:para-border-div;border:solid white 1.0pt;mso-border-alt:
-								solid white .75pt;padding:11.0pt 11.0pt 11.0pt 11.0pt;background:#F6F6F6">
+								solid white .75pt;padding:11.0pt 11.0pt 11.0pt 0;">
 
 								<p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: none; padding: 0cm;"><span lang="EN-US" style="font-size:11.5pt;font-family:&quot;Helvetica&quot;,sans-serif;
 								mso-fareast-font-family:&quot;Times New Roman&quot;;color:#454444">We have a money back
@@ -42,7 +42,7 @@
 
 								</div><div style="mso-element:para-border-div;border:none;border-bottom:dashed lightsteelblue 1.0pt;
 								mso-border-bottom-alt:dashed lightsteelblue .75pt;padding:0cm 0cm 4.0pt 0cm;
-								background:#F1F1F1">
+								">
 
 								<p class="MsoNormal" style="margin: 7.5pt 0cm 11.25pt; line-height: normal; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: none; padding: 0cm;"><b><span lang="EN-US" style="font-size:14.5pt;
 								font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
@@ -52,19 +52,19 @@
 								</div><ol style="margin-top:0cm" start="1" type="1">
 								<li class="MsoNormal" style="color:#454444;margin-top:6.0pt;margin-bottom:11.25pt;
 									text-align:justify;line-height:16.5pt;mso-list:l0 level1 lfo1;tab-stops:
-									list 36.0pt;background:#F1F1F1"><span lang="EN-US" style="font-size:10.5pt;
+									list 36.0pt;"><span lang="EN-US" style="font-size:10.5pt;
 									font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;">Moneyback
 									requests should be through registered email/mobile if you did not get a
 									tuition/tutor confirmed during your plan period.<o:p></o:p></span></li>
 								<li class="MsoNormal" style="color:#454444;margin-top:6.0pt;margin-bottom:11.25pt;
 									text-align:justify;line-height:16.5pt;mso-list:l0 level1 lfo1;tab-stops:
-									list 36.0pt;background:#F1F1F1"><b><span lang="EN-US" style="font-size:10.5pt;
+									list 36.0pt;"><b><span lang="EN-US" style="font-size:10.5pt;
 									font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;">If
 									one tuition gets confirmed you are not eligible for refund.</span></b><span lang="EN-US" style="font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;
 									mso-fareast-font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></li>
 								<li class="MsoNormal" style="color:#454444;margin-top:6.0pt;margin-bottom:11.25pt;
 									text-align:justify;line-height:16.5pt;mso-list:l0 level1 lfo1;tab-stops:
-									list 36.0pt;background:#F1F1F1"><span lang="EN-US" style="font-size:10.5pt;
+									list 36.0pt;"><span lang="EN-US" style="font-size:10.5pt;
 									font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;">You
 									will get 100% Moneyback if you have not availed any services from
 									IndianHomeTutor.com like unlocking the tuition contacts, getting tuition
@@ -77,7 +77,7 @@
 									you any tuition or no Leads Provided then you will get 100% refund.<o:p></o:p></span></li>
 								<li class="MsoNormal" style="color:#454444;margin-top:6.0pt;margin-bottom:11.25pt;
 									text-align:justify;line-height:16.5pt;mso-list:l0 level1 lfo1;tab-stops:
-									list 36.0pt;background:#F1F1F1"><span lang="EN-US" style="font-size:10.5pt;
+									list 36.0pt;"><span lang="EN-US" style="font-size:10.5pt;
 									font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;">For
 									premium plan if you have unlocked few contacts then refund will be based
 									on pro rata basis Post Validity.<br>
@@ -87,7 +87,7 @@
 									you will get Rs 253 - ( 2 X Rs 63 ) = Rs 127 as refund.<o:p></o:p></span></li>
 								<li class="MsoNormal" style="color:#454444;margin-top:6.0pt;margin-bottom:11.25pt;
 									text-align:justify;line-height:16.5pt;mso-list:l0 level1 lfo1;tab-stops:
-									list 36.0pt;background:#F1F1F1"><span lang="EN-US" style="font-size:10.5pt;
+									list 36.0pt;"><span lang="EN-US" style="font-size:10.5pt;
 									font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;">For
 									PayPerTuition plan, we will deduct Rs 80 per tuition assignment/sending to
 									demo class.<br>
@@ -99,14 +99,14 @@
 									PayPerTuition plan automatically closes once you get a confirmed tuition.<o:p></o:p></span></li>
 								<li class="MsoNormal" style="color:#454444;margin-top:6.0pt;margin-bottom:11.25pt;
 									text-align:justify;line-height:16.5pt;mso-list:l0 level1 lfo1;tab-stops:
-									list 36.0pt;background:#F1F1F1"><span lang="EN-US" style="font-size:10.5pt;
+									list 36.0pt;"><span lang="EN-US" style="font-size:10.5pt;
 									font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;">Personal
 									reasons like getting a job elsewhere or moving to another place will not
 									be entertained. However, we have presence all over India and you can use
 									your credits in any city of your choice.<o:p></o:p></span></li>
 								<li class="MsoNormal" style="color:#454444;margin-top:6.0pt;margin-bottom:11.25pt;
 									text-align:justify;line-height:16.5pt;mso-list:l0 level1 lfo1;tab-stops:
-									list 36.0pt;background:#F1F1F1"><span lang="EN-US" style="font-size:10.5pt;
+									list 36.0pt;"><span lang="EN-US" style="font-size:10.5pt;
 									font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;">You
 									are not eligible for refund during your plan period. Please note that
 									patience is the key and you may not get a confirmed tuition immediately
@@ -114,7 +114,7 @@
 									your plan period within 2 months after plan expiry.<o:p></o:p></span></li>
 								<li class="MsoNormal" style="color:#454444;margin-top:6.0pt;margin-bottom:11.25pt;
 									text-align:justify;line-height:16.5pt;mso-list:l0 level1 lfo1;tab-stops:
-									list 36.0pt;background:#F1F1F1"><span lang="EN-US" style="font-size:10.5pt;
+									list 36.0pt;"><span lang="EN-US" style="font-size:10.5pt;
 									font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;">Our
 									aim is to give you atleast one confirmed tuition for Both plans. Many
 									tutors get more than 1 confirmed tuitions by prompt demos and show casing
@@ -122,7 +122,7 @@
 									tuition then you are not eligible for refund.</b><o:p></o:p></span></li>
 								<li class="MsoNormal" style="color:#454444;margin-top:6.0pt;margin-bottom:11.25pt;
 									text-align:justify;line-height:16.5pt;mso-list:l0 level1 lfo1;tab-stops:
-									list 36.0pt;background:#F1F1F1"><span lang="EN-US" style="font-size:10.5pt;
+									list 36.0pt;"><span lang="EN-US" style="font-size:10.5pt;
 									font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;">We
 									will provide upto 50% additional contacts free of cost in case you did not
 									get a confirmed tuition to ensure our premium tutors get a confirmed
@@ -133,7 +133,7 @@
 
 
 
-								</p><p class="MsoNormal" style="margin-bottom:0cm;line-height:normal;background:#F1F1F1"><span lang="EN-US" style="font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;
+								</p><p class="MsoNormal" style="margin-bottom:0cm;line-height:normal;><span lang="EN-US" style="font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;
 								mso-fareast-font-family:&quot;Times New Roman&quot;;color:#454444">We hope our refund
 								policy is fair and transparent. If you have any questions then please feel free
 								to contact us.<o:p></o:p></span></p>
