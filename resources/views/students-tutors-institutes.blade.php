@@ -41,9 +41,9 @@
 		<div class="container-fluid plan-sec">
 			<div class="container">
 				<div class="row">
-				   	@if($type == "student")
-						@if(count($rows)>0)
-						@foreach($rows as $row)
+				   	@if($type == "student" || $type == "all")
+						@if(count($students)>0)
+						@foreach($students as $row)
 						<div class="col-xl-4 col-lg-4 col-lg-4 col-sm-12 col-12">
 					
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -75,7 +75,7 @@
 									</ul>
 									</div>
 									<div class="add-to-vart d-flex justify-content-center">
-										<a href="{{ url('user-profile/'.$type. '/' . $row->id) }}"
+										<a href="{{ url('user-profile/student/' . $row->id) }}"
 											class="btn btn-to-select add_to_cart">
 											<i class="fa fa-user"></i>
 											<span>View Profile </span>
@@ -92,9 +92,10 @@
 						@else
 						<img src="{{asset('assets/images/data-not-found.jpg')}}" alt="" width="50%" style="margin:auto;">
 						@endif
-					@elseif($type == "tutor")
-						@if(count($rows)>0)
-						@foreach($rows as $row)
+					@endif
+					@if($type == "tutor" || $type == "all")
+						@if(count($tutors)>0)
+						@foreach($tutors as $row)
 						<div class="col-xl-4 col-lg-4 col-lg-4 col-sm-12 col-12">
 
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -127,7 +128,7 @@
 									</ul>
 									</div>
 									<div class="add-to-vart d-flex justify-content-center">
-										<a href="{{ url('user-profile/'.$type. '/' . $row->id) }}"
+										<a href="{{ url('user-profile/tutor/' . $row->id) }}"
 											class="btn btn-to-select add_to_cart">
 											<i class="fa fa-user"></i>
 											<span>View Profile </span>
@@ -142,11 +143,14 @@
 						</div>
 						@endforeach
 						@else
+						@if($type != "all")
 						<img src="{{asset('assets/images/data-not-found.jpg')}}" alt="" width="50%" style="margin:auto;">
 						@endif
-					@elseif($type == "institute")
-						@if(count($rows)>0)
-						@foreach($rows as $row)
+						@endif
+					@endif
+					@if($type == "institute" || $type == "all")
+						@if(count($institutes)>0)
+						@foreach($institutes as $row)
 						<div class="col-xl-4 col-lg-4 col-lg-4 col-sm-12 col-12">
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 								<div class="products-collection">
@@ -174,7 +178,7 @@
 									</ul>
 									</div>
 									<div class="add-to-vart d-flex justify-content-center">
-										<a href="{{ url('user-profile/'.$type. '/' . $row->id) }}"
+										<a href="{{ url('user-profile/institute/' . $row->id) }}"
 											class="btn btn-to-select add_to_cart">
 											<i class="fa fa-user"></i>
 											<span>View Profile </span>
@@ -189,7 +193,9 @@
 						</div>
 						@endforeach
 						@else
+						@if($type != "all")
 						<img src="{{asset('assets/images/data-not-found.jpg')}}" alt="" width="50%" style="margin:auto;">
+						@endif
 						@endif
 
 					@endif

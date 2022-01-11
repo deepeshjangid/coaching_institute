@@ -130,6 +130,7 @@ Route::get('/subscription-plan', 'HomeController@SubscriptionPlan')->name('subsc
 Route::post('/area-search', 'HomeController@AreaSearch')->name('area-search');
 Route::post('/course-search', 'HomeController@CourseSearch')->name('course-search');
 Route::get('/students-tutors-institutes', 'HomeController@Search')->name('search');
+Route::get('/course/{name}', 'HomeController@Search')->name('course.name');
 
 Route::get('/user-profile/{type}/{id}', 'HomeController@UserProfile')->name('user.profile');
 

@@ -671,22 +671,26 @@ class HomeController extends Controller
         return response()->json($results);
     }
 
-    public function Search(Request $request){
+    public function Search(Request $request, $name=''){
 
         if($request->type == 'student'){
             $type = $request->type;
-            $rows=Student::select("*")->with('User')->whereRaw('FIND_IN_SET(?,subjects)', [$request->course])->where('city', $request->area)->get();
-            return view('students-tutors-institutes', compact('rows','type'));
-        }
-        if($request->type == 'tutor'){
+            $students=Student::select("*")->with('User')->whereRaw('FIND_IN_SET(?,subjects)', [$request->course])->where('city', $request->area)->get();
+            return view('students-tutors-institutes', compact('students','type'));
+        }else if($request->type == 'tutor'){
             $type = $request->type;
-            $rows=Tutor::select("*")->with('User')->whereRaw('FIND_IN_SET(?,subjects)', [$request->course])->where('city', $request->area)->get();
-            return view('students-tutors-institutes', compact('rows','type'));
-        }      
-        if($request->type == 'institute'){
+            $tutors=Tutor::select("*")->with('User')->whereRaw('FIND_IN_SET(?,subjects)', [$request->course])->where('city', $request->area)->get();
+            return view('students-tutors-institutes', compact('tutors','type'));
+        }else if($request->type == 'institute'){
             $type = $request->type;
-            $rows=Institute::select("*")->with('User')->whereRaw('FIND_IN_SET(?,subjects)', [$request->course])->where('city', $request->area)->get();
-            return view('students-tutors-institutes', compact('rows','type'));
+            $institutes=Institute::select("*")->with('User')->whereRaw('FIND_IN_SET(?,subjects)', [$request->course])->where('city', $request->area)->get();
+            return view('students-tutors-institutes', compact('institutes','type'));
+        }else{
+            $type = 'all';
+            $students=Student::select("*")->with('User')->whereRaw('FIND_IN_SET(?,subjects)', [$name])->get();
+            $tutors=Tutor::select("*")->with('User')->whereRaw('FIND_IN_SET(?,subjects)', [$name])->get();
+            $institutes=Institute::select("*")->with('User')->whereRaw('FIND_IN_SET(?,subjects)', [$name])->get();
+            return view('students-tutors-institutes', compact('students', 'tutors', 'institutes', 'type'));
         }
 		
     }

@@ -41,8 +41,7 @@
 													<div class="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-12 pdr-0 p-0">
 														<div class="searching-products mobile-searching-products">
 															<div class="input-group">
-																<input type="text" class="form-control search" name="course"
-																	placeholder="Enter Course or Subject Keywords to Search" id="course-search-input" autocomplete="off" required>
+																<input type="text" class="form-control search" name="course" placeholder="Enter Course or Subject Keywords to Search" id="course-search-input" autocomplete="off" required>
 																	<button type="submit" class="input-group-text" id="basic-addon1"><i class="icon-magnifier"></i></button>
 															</div>
 															<div class="list-group mt-1" id="course-search-result" style="position: absolute; z-index: 999; width: 100%;"></div>
@@ -165,7 +164,7 @@
 					</div>
 				</div>
 			</div> -->
-			 <!-- <div class="container-fluid megacourse-menu"> 
+			 <div class="container-fluid megacourse-menu"> 
 					<div class="container p-0">
 						<div class="row">
 						@if($categories)
@@ -196,10 +195,10 @@
 						
 					</div>
 			 	 </div>
-			   </div>  -->
+			   </div> 
 			   
 			   
-			   <div class="container-fluid megacourse-menu"> 
+			   	<!-- <div class="container-fluid megacourse-menu"> 
 					<div class="container p-0">
 						<div class="row">
 							@if($categories)
@@ -229,7 +228,7 @@
 							@endif	
 						</div>
 					 </div>
-				   </div> 
+				</div>  -->
 					
 			
 			 <!---- About Section ----->

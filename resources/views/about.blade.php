@@ -62,7 +62,7 @@
                             <p class="marginTop-sm designation">Founder &amp; CEO</p>
                         </div>
                         <div class="col-xl-3 col-sm-6 col-md-3 marginTop-xl marginBottom-md teamImageDiv">
-                            <p><img src="https://static.hometutorsite.com/content/images/userinfo/male-default-lg.jpg"
+                            <p><img src="{{ asset('assets/images/shivendra.jpeg') }}"
                                     width="210px" height="210px" style="border: 1px solid #000;"></p>
                             <p class="marginTop-md" style="line-height: 1;">Shevendra Singh</p>
                             <p class="marginTop-sm designation">Co-Founder &amp; Chief Development Officer</p>
