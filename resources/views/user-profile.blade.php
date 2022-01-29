@@ -37,8 +37,6 @@
 									   <h2>Wanted home tutor for @if($row['subjects']){{ $row['subjects'] }}@endif</h2>
 										</div>
 										<div class="profile-detailes">
-											<label><b>Course</b></label>&nbsp;&nbsp;
-											<label>@if($row){{ $row['Category']['name'] }}, {{ $row['SubCategory']['name'] }}@endif</label>
 											<div class="height-10"></div>
 											<label><b>Subjects</b></label>&nbsp;&nbsp;
 											@if($row['subjects'])
@@ -62,7 +60,7 @@
 									  </div>
 									  
 									  <div class="col-md-3">
-										@if($row['User']['user_type'] == '2' && $applied == '0' && $row['User']['id'] != Session::get('user_id'))
+										@if($row['User']['user_type'] == '2' && $applied == '0' && $row['User']['id'] != Session::get('user_id') && $row['fee'] > 0)
 										<form class="apply-btn" action="{{ route('apply.for.tution') }}" method="POST" >
 											@csrf
 											<input type="hidden" name="parent_id" value="@if($row){{ $row['User']['id'] }}@endif">

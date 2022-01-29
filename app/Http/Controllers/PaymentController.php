@@ -26,11 +26,12 @@ class PaymentController extends Controller
     {
         $input = $request->all();
   
-        $api = new Api('rzp_test_el72DFtTI4GCy9', 'c1piho4tFbLaeI70XpGlLYOh');
-  
-        $payment = $api->payment->fetch($input['razorpay_payment_id']);
+        $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
   
         if(count($input)  && !empty($input['razorpay_payment_id'])) {
+
+            $payment = $api->payment->fetch($input['razorpay_payment_id']);
+
             try {
                 $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(array('amount'=>$payment['amount'])); 
 
@@ -51,6 +52,25 @@ class PaymentController extends Controller
             } catch (Exception $e) {
                 return redirect(route('subscription.plan'))->with('error', $e->getMessage());
             }
+        }else{
+            try {
+                PurchagePlan::insert([
+                    'user_id' => Session::get('user_id'),
+                    'subscription_plan_id' => $request->plan_id,
+                    // 'name' => $request->name,
+                    // 'mobile' => $request->mobile,
+                    // 'services' => $request->services,
+                    'amount' => $request->amount,
+                    'points' => $request->amount,
+                    'order_id' => 'order_id_'.rand(1,1000000),
+                    'transaction_id' => '0',
+                    'status' => '1',
+                ]);
+                return redirect(route('subscription.plan'))->with('success', "Payment successful & congratulations on your purchase.");
+  
+            } catch (Exception $e) {
+                return redirect(route('subscription.plan'))->with('error', $e->getMessage());
+            }
         }
     }
 
@@ -58,11 +78,12 @@ class PaymentController extends Controller
     {
         $input = $request->all();
   
-        $api = new Api('rzp_test_el72DFtTI4GCy9', 'c1piho4tFbLaeI70XpGlLYOh');
-  
-        $payment = $api->payment->fetch($input['razorpay_payment_id']);
-  
+        $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+    
         if(count($input)  && !empty($input['razorpay_payment_id'])) {
+        
+            $payment = $api->payment->fetch($input['razorpay_payment_id']);
+
             try {
                 $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(array('amount'=>$payment['amount'])); 
 

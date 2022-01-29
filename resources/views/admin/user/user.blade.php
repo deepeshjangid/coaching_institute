@@ -35,9 +35,9 @@
 										<th>Email</th>
 										<th>Mobile Number</th>
 										<th>Role</th>
-										<th>Category</th>
+										<!-- <th>Category</th>
 										<th>Sub Category</th>
-										<th>Course</th>
+										<th>Course</th> -->
 										<th>Verify</th>
 										<th>Status</th>
                                         <th>Action</th>
@@ -63,9 +63,7 @@
                                                 Institute
                                             @endif
                                         </td>
-                                        <td>{{$data['Category']['name']}}</td>
-                                        <td>{{$data['SubCategory']['name']}}</td>
-                                        <td>{{$data['Course']['name']}}</td>
+                                
 										<td><input data-size="mini" data-id="{{$data->id}}" @if($data->admin_verify == "1") checked @endif action="user/admin-verify" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Yes" data-off="No"></td>
 										<td><input data-size="mini" data-id="{{$data->id}}" @if($data->status == "1") checked @endif action="user/change-status" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="Inactive"></td>
                                         

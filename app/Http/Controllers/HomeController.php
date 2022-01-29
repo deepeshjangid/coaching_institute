@@ -81,9 +81,9 @@ class HomeController extends Controller
             if($request->email){
                 $rules=[
                     'user_type' => 'required',
-                    'category' => 'required',
-                    'sub_category' => 'required',
-                    'course' => 'required',
+                    // 'category' => 'required',
+                    // 'sub_category' => 'required',
+                    // 'course' => 'required',
                     'name' => 'required',
                     'mobile' => 'required|max:10|unique:users,mobile',
                     'email' => 'email|unique:users,email',
@@ -92,9 +92,9 @@ class HomeController extends Controller
             }else{
                 $rules=[
                     'user_type' => 'required',
-                    'category' => 'required',
-                    'sub_category' => 'required',
-                    'course' => 'required',
+                    // 'category' => 'required',
+                    // 'sub_category' => 'required',
+                    // 'course' => 'required',
                     'name' => 'required',
                     'mobile' => 'required|max:10|unique:users,mobile',
                     'password' => 'required',
@@ -116,16 +116,18 @@ class HomeController extends Controller
 						
 			}else{
 
-				try{
-                    
-                    if((int) $request->mobile >0){
+                try{
+
+                    $userResult=User::where('mobile', $request->mobile)->first();
+
+                    if($userResult){
+                        return response(array("error" => false, "reset"=>false, "message" => "This mobile number is already exists. Try another mobile number."),200);
+                    }else{
                         
-                        $userResult=User::where('mobile', $request->mobile)->first();
-                        
-                        if($userResult){
-                            return response(array("error" => false, "reset"=>false, "message" => "This mobile number is already exists. Try another mobile number."),200);
-                        }else{
-                            
+                        $data = Otp::where('mobile', $request->mobile)->first();
+
+                        if($data && $data->status == '1'){
+
                             User::insert([
                                 'name'=>$request->name,
                                 'email'=>$request->email,
@@ -146,14 +148,41 @@ class HomeController extends Controller
                             Session::put('user_id', $user->id);
                             Session::put('user_name', $user->name);
                             Session::put('user_mobile', $user->mobile);
-                            Session::put('user_type', $user->user_type);
+                            Session::put('user_type', $user->user_type);                        
 
-                            return response()->json(['error' => false, 'login' => true, 'user_type' => $user->user_type, 'message'=>'Your registration has been successfully completed.']);
+                            Otp::where('mobile', $request->mobile)->update([
+                                'status'=> '0',
+                            ]);
+
+                            return response()->json(['error' => false, 'login' => true, "formsubmit"=>true, 'user_type' => $user->user_type, 'message'=>'Your registration has been successfully completed.']);
+
+                        }else{
+
+                            $otp = commonHelper::sendOtp($request->mobile);
+
+                            $row = Otp::where('mobile', $request->mobile)->first();
+
+                            if($row){
+                                Otp::where('mobile', $request->mobile)->update([
+                                    'otp'=>$otp,
+                                    'status'=> '0',
+                                ]);
+                            }else{
+                                Otp::insert([
+                                    'mobile'=>$request->mobile,
+                                    'otp'=>$otp,
+                                ]);
+                            }
+                            
+                            return response(array("error" => false, "reset"=>false, "otp"=>true, "mobile" => $request->mobile, "message" => "OTP sent on your mobile number."),200);
+                        
                         }
+                        
                     }
-
+				
                 }catch (\Exception $e) {
-					return response(array("error" => true, "message" => $e->getMessage()),403); 
+					return response(array("error" 
+						=> true, "message" => $e->getMessage()),403); 
 				}
 			}
 			return response($response);
@@ -272,7 +301,7 @@ class HomeController extends Controller
 
                         }else{
                             
-                            return response(array("error" => true, "message" => "Something went wrong."));
+                            return response(array("error" => true, "message" => "Something went wrong1."));
                         
                         }
 					}
@@ -547,9 +576,9 @@ class HomeController extends Controller
 
     public function SubscriptionPlan()
     {
-        $students_plans = SubscriptionPlan::where('user_type', '1')->where('delete_status', '1')->get();
-        $tutors_plans = SubscriptionPlan::where('user_type', '2')->where('delete_status', '1')->get();
-        $institutes_plans = SubscriptionPlan::where('user_type', '3')->where('delete_status', '1')->get();
+        $students_plans = SubscriptionPlan::where('user_type', '1')->where('delete_status', '1')->orderBy('id', 'desc')->get();
+        $tutors_plans = SubscriptionPlan::where('user_type', '2')->where('delete_status', '1')->orderBy('id', 'desc')->get();
+        $institutes_plans = SubscriptionPlan::where('user_type', '3')->where('delete_status', '1')->orderBy('id', 'desc')->get();
         return view('subscription-plan', compact('students_plans', 'tutors_plans', 'institutes_plans'));
     }
 

@@ -53,9 +53,10 @@
 										</div> -->
 
 										<input name="plan_name" type="hidden" class="form-control" value="@if($plan) {{ $plan->name }} @endif" />
-										<input name="amount" type="hidden" class="form-control" value="@if($price) {{ $price }} @endif" />
+										<input name="amount" type="hidden" class="form-control" value="@if($price) {{ $price }} @else 0 @endif" />
 										
 									</div>
+									@if($price > 0)
 									<script
 										src="https://checkout.razorpay.com/v1/checkout.js"
 										data-key="rzp_test_el72DFtTI4GCy9"
@@ -69,6 +70,9 @@
 										data-prefill.email="info@example.com"
 										data-theme.color="#fe702a">
 									</script>
+									@else
+									<button type="submit" class="btn-style-two color-1">Purchase</button>
+									@endif
 								</form>
 							</div>
 						</div>
