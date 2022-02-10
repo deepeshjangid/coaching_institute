@@ -10,6 +10,16 @@ $("form#form").submit(function(e){
 	if(formAction.includes("otp-submit")){
 		var mobile = $("#mobile").val();
 		form_data.append('mobile', mobile);
+	}	
+	
+	var changepasswordform = '0';
+	if($(this).attr('data-attr') == "forget-otp-form"){
+		changepasswordform = '1';
+	}	
+	
+	if(formAction.includes("change-password-submit")){
+		var mobile = $("#mobile").val();
+		form_data.append('mobile', mobile);
 	}
 	
 	$.ajax({
@@ -84,11 +94,23 @@ $("form#form").submit(function(e){
 
 				}
 				if(data.otpvarified){
-					$(".form-submit").trigger("submit");
+					if(changepasswordform == '0'){
+						$(".form-submit").trigger("submit");
+					}else{
+						$('.otp-form')[0].reset();
+						$("#otp-section").addClass("d-none");
+						$("#forgot-password-section").removeClass("d-none");
+					}
 				}
 				if(data.formsubmit){
 					$('.otp-form')[0].reset();
 					$("#otp-section").addClass("d-none");
+					$("#form-section").removeClass("d-none");
+				}
+				if(data.changepassword){
+					$('.forgot-password-form')[0].reset();
+					$('.form-submit')[0].reset();
+					$("#forgot-password-section").addClass("d-none");
 					$("#form-section").removeClass("d-none");
 				}
 			}

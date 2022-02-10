@@ -67,7 +67,7 @@
 											<input type="hidden" name="amount" value="@if($row['fee']){{ $row['fee'] }}@endif">
 											<script
 												src="https://checkout.razorpay.com/v1/checkout.js"
-												data-key="rzp_test_el72DFtTI4GCy9"
+												data-key="rzp_live_g3nSvL9kdGO191"
 												data-amount="@if($row['fee']){{$row['fee']}}00 @endif"
 												data-currency="INR"
 												data-buttontext="Apply Tuition"

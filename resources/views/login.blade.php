@@ -53,7 +53,10 @@
 										<span class="span-or">or</span>
 									</div>
 									
-										<div class="text-right">
+									<div class="text-right">
+										<a class="forgot-link" href="{{ route('forgot.password')}}">Forgot Password ?</a>
+									</div>		
+									<div class="text-right">
 										<a class="forgot-link" href="{{ route('register') }}">Don't have any account?</a>
 									</div>
 								</form>

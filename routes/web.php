@@ -114,6 +114,10 @@ Route::post('/register-submit', 'HomeController@RegisterSubmit')->name('register
 Route::view('/login', 'login')->name('login');
 Route::post('/login-submit', 'HomeController@Login')->name('login.submit');
 
+Route::view('/forgot-password', 'forgot-password')->name('forgot.password');
+Route::post('/forgot-password-submit', 'HomeController@ForgotPassword')->name('forgot.password.submit');
+Route::post('/change-password-submit', 'HomeController@ChangePassword')->name('change.password.submit');
+
 Route::view('/student-form', 'student.student-form')->name('student.form');
 Route::post('/student-form-submit', 'HomeController@StudentForm')->name('student.form.submit');
 

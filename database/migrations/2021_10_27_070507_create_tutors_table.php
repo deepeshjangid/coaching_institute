@@ -16,7 +16,7 @@ class CreateTutorsTable extends Migration
         Schema::create('tutors', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned(); 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete(NULL)->onUpdate('CASCADE');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->longtext('subjects')->nullable();
             $table->string('fee', 100)->nullable();
             $table->string('gender',100)->nullable();

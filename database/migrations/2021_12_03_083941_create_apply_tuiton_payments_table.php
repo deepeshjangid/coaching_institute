@@ -16,9 +16,9 @@ class CreateApplyTuitonPaymentsTable extends Migration
         Schema::create('apply_tuiton_payments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned(); 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete(NULL)->onUpdate('CASCADE');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->integer('parent_id')->unsigned();
-            $table->foreign('parent_id')->references('id')->on('users')->onDelete(NULL)->onUpdate('CASCADE');
+            $table->foreign('parent_id')->references('id')->on('users')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->enum('status', ['0', '1', '2'])->comment('0=>failed, 1=>success, 2=>pending')->default('0');
             $table->integer('amount');
             $table->string('order_id');

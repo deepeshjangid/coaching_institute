@@ -16,7 +16,7 @@ class CreateInstitutesTable extends Migration
         Schema::create('institutes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned(); 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete(NULL)->onUpdate('CASCADE');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->longtext('subjects')->nullable();
             $table->string('type', 100)->nullable();
             $table->string('established_year',100)->nullable();

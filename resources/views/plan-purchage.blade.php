@@ -59,7 +59,7 @@
 									@if($price > 0)
 									<script
 										src="https://checkout.razorpay.com/v1/checkout.js"
-										data-key="rzp_test_el72DFtTI4GCy9"
+										data-key={{env('RAZORPAY_KEY')}}
 										data-amount="@if($price) {{$price}}00 @endif"
 										data-currency="INR"
 										data-buttontext="Pay @if($price) {{$price}} Rs. @endif"

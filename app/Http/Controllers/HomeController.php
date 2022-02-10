@@ -87,7 +87,7 @@ class HomeController extends Controller
                     'name' => 'required',
                     'mobile' => 'required|max:10|unique:users,mobile',
                     'email' => 'email|unique:users,email',
-                    'password' => 'required',
+                    'password' => 'required|confirmed',
                 ];
             }else{
                 $rules=[
@@ -97,7 +97,7 @@ class HomeController extends Controller
                     // 'course' => 'required',
                     'name' => 'required',
                     'mobile' => 'required|max:10|unique:users,mobile',
-                    'password' => 'required',
+                    'password' => 'required|confirmed',
                 ];
             }
 			
@@ -187,6 +187,130 @@ class HomeController extends Controller
 			}
 			return response($response);
 		}
+    }    
+    
+    public function ForgotPassword(Request $request){ 
+
+		if($request->ajax()){
+
+            $rules=[
+                'mobile' => 'required|max:10',
+            ];
+			
+			$validator = Validator::make($request->all(), $rules);
+
+			$response = array("error" => true, "message" => "Something went wrong. Try again!"); 
+			
+			if ($validator->fails()) {
+				$message = [];
+				$messages_l = json_decode(json_encode($validator->messages()), true);
+				foreach ($messages_l as $msg) {
+					$message= $msg[0];
+					break;
+				} 
+				return response(array("error"=>false,"message" => $message),403);  
+						
+			}else{
+
+                try{
+
+                    $userResult=User::where('mobile', $request->mobile)->first();
+
+                    if($userResult){
+
+                        $data = Otp::where('mobile', $request->mobile)->first();
+
+                            $otp = commonHelper::sendOtp($request->mobile);
+
+                            $row = Otp::where('mobile', $request->mobile)->first();
+
+                            if($row){
+                                Otp::where('mobile', $request->mobile)->update([
+                                    'otp'=>$otp,
+                                    'status'=> '0',
+                                ]);
+                            }else{
+                                Otp::insert([
+                                    'mobile'=>$request->mobile,
+                                    'otp'=>$otp,
+                                ]);
+                            } 
+                            
+                            return response(array("error" => false, "reset"=>false, "otp"=>true, "mobile" => $request->mobile, "message" => "OTP sent on your mobile number."),200);
+                    }else{
+                        return response(array("error" => true, "reset"=>false, "message" => "This mobile number is not registered."),200);
+                    }
+				
+                }catch (\Exception $e) {
+					return response(array("error" 
+						=> true, "message" => $e->getMessage()),403); 
+				}
+			}
+			return response($response);
+		}
+    }    
+    
+    public function ChangePassword(Request $request){ 
+
+		if($request->ajax()){
+
+            $rules=[
+                'mobile' => 'required|max:10',
+                'password' => 'required|confirmed',
+            ];
+			
+			$validator = Validator::make($request->all(), $rules);
+
+			$response = array("error" => true, "message" => "Something went wrong. Try again!"); 
+			
+			if ($validator->fails()) {
+				$message = [];
+				$messages_l = json_decode(json_encode($validator->messages()), true);
+				foreach ($messages_l as $msg) {
+					$message= $msg[0];
+					break;
+				} 
+				return response(array("error"=>false,"message" => $message),403);  
+						
+			}else{
+
+                try{
+
+                    $userResult=User::where('mobile', $request->mobile)->first();
+
+                    if(!$userResult){
+                        return response(array("error" => false, "reset"=>false, "message" => "This mobile number is not registered."),200);
+                    }else{
+                        
+                        $data = Otp::where('mobile', $request->mobile)->first();
+
+                        if($data && $data->status == '1'){
+
+                            User::where('mobile', $request->mobile)->update([
+                                'password'=>Hash::make($request->password),
+                            ]);                    
+
+                            Otp::where('mobile', $request->mobile)->update([
+                                'status'=> '0',
+                            ]);
+
+                            return response()->json(['error' => false, "reset"=>false, "changepassword"=>true, 'message'=>'Your password has been successfully changed.']);
+
+                        }else{
+                            
+                            return response(array("error" => false, "reset"=>false, "message" => "Mobile number is not varified."),200);
+                        
+                        }
+                        
+                    }
+				
+                }catch (\Exception $e) {
+					return response(array("error" 
+						=> true, "message" => $e->getMessage()),403); 
+				}
+			}
+			return response($response);
+		}
     }
 
     public function Login(Request $request){ 
@@ -238,7 +362,7 @@ class HomeController extends Controller
             }
             return response($response);
         }
-    }
+    }   
 
     public function Logout(Request $request){
         if(Session::get('user_login')){

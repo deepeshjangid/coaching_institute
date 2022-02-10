@@ -16,9 +16,9 @@ class CreatePurchagePlansTable extends Migration
         Schema::create('purchage_plans', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned(); 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete(NULL)->onUpdate('CASCADE');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->integer('subscription_plan_id')->unsigned(); 
-            $table->foreign('subscription_plan_id')->references('id')->on('subscription_plans')->onDelete(NULL)->onUpdate('CASCADE');
+            $table->foreign('subscription_plan_id')->references('id')->on('subscription_plans')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->string('name',100);
             $table->string('mobile',100);
             $table->longtext('services');

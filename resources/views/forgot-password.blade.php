@@ -8,11 +8,11 @@
 					<div class="col-lg-8 col-md-12 col-sm-12 content-column">
 						<div class="content-box clearfix">
 							<div class="title pull-left">
-								<h1>Register</h1>
+								<h1>Forgot Password</h1>
 							</div>
 							<ul class="bread-crumb pull-right clearfix">
 								<li><a href="{{ route('index') }}">Home</a></li>
-								<li>Register</li>
+								<li>Forgot Password</li>
 							</ul>
 						</div>
 					</div>
@@ -34,62 +34,16 @@
 							</div>
 							<div class="col-md-12 col-lg-6 login-right">
 								<div class="login-header">
-									<h3> Register</h3>
+									<h3> Forgot Password</h3>
 								</div>
-								<form id="form" class="form-submit" action="{{ route('register.submit') }}" method="post">
+								<form id="form" class="form-submit" action="{{ route('forgot.password.submit') }}" method="post">
                                     @csrf
-									<div class="form-group form-focus">
-                                        <select class="form-control" name="user_type" required>
-                                            <option value="">Select option</option>
-                                            <option value="1">Student</option>
-                                            <option value="2">Tutor</option>
-                                            <option value="3">Coaching/Institute</option>
-                                        </select>
-									</div>
 
-									<!-- <div class="form-group form-focus">
-                                        <select class="form-control" name="category" id="category_id" required>
-                                            <option value="" selected>Select Category</option>
-											@if($categories)
-											@foreach($categories as $cat)
-                                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-											@endforeach
-											@endif
-                                        </select>
-									</div> -->
-
-									<!-- <div class="form-group form-focus">
-                                        <select class="form-control" name="sub_category" id="sub_category_id" required>
-                                            <option value="" selected>Select Sub Category</option>
-                                        </select>
-									</div> -->
-
-									<!-- <div class="form-group form-focus">
-                                        <select class="form-control" name="course" id="course_id" required>
-                                            <option value="" selected>Select Course/Subject</option>
-                                        </select>
-									</div> -->
-									
-									<div class="form-group form-focus">
-										<input type="text" name="name" class="form-control floating" placeholder="Name" required/>
-									</div>
-									
 									<div class="form-group form-focus">
 										<input type="tel" name="mobile" id="mobile" class="form-control floating" placeholder="Mobile" required onkeypress="return /[0-9 ]/i.test(event.key)" pattern="^\d{10}$" min="10" maxLength="10"/>
 									</div>
 									
-									<div class="form-group form-focus">
-										<input type="email" name="email" class="form-control floating" placeholder="Eamil Id* Optional"/>
-									</div>
-									
-									<div class="form-group form-focus">
-										<input type="password" name="password" class="form-control floating" placeholder="Password" required/>
-									</div>
-									<div class="form-group form-focus">
-										<input type="password" name="password_confirmation" class="form-control floating" placeholder="Conform Password" required/>
-									</div>
-
-								    <button class="btn btn-primary btn-block btn-lg login-btn w-100" type="submit">Register</button>
+								    <button class="btn btn-primary btn-block btn-lg login-btn w-100" type="submit">Submit</button>
                                     <div class="login-or">
                                         <span class="or-line"></span>
                                         <span class="span-or">or</span>
@@ -113,7 +67,7 @@
 		<div class="container">
 			<div class="row justify-content-center mr-tb-40">
 				<div class="col-lg-6">
-					<form class="contact-form otp-form"  id="form" action="{{ route('otp.submit' )}}" method="post" enctype="multipart/form-data">
+					<form class="contact-form otp-form" data-attr="forget-otp-form" id="form" action="{{ route('otp.submit' )}}" method="post" enctype="multipart/form-data">
 						@csrf
 						<h3 class="font-weight-bold">OTP VARIFICATION</h3>
 
@@ -137,6 +91,30 @@
 								<a class="otp_resend" id="otp-again">Resend OTP</a><a id="timer_left"></a>
 							</div>
 						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		<div class="container-fluid d-none" style="padding:70px 0" id="forgot-password-section">
+		<div class="container">
+			<div class="row justify-content-center mr-tb-40">
+				<div class="col-lg-6">
+					<form class="contact-form forgot-password-form"  id="form" action="{{ route('change.password.submit' )}}" method="post" enctype="multipart/form-data">
+						@csrf
+						<h3 class="font-weight-bold">Change Password</h3>
+
+						<div class="form-group form-focus">
+							<input type="password" name="password" class="form-control floating" placeholder="Password" required/>
+						</div>
+						<div class="form-group form-focus">
+							<input type="password" name="password_confirmation" class="form-control floating" placeholder="Conform Password" required/>
+						</div>
+									
+						<button class="btn btn-primary btn-block btn-lg login-btn w-100" type="submit">Submit</button>
+
+
 					</form>
 				</div>
 			</div>
